@@ -6,13 +6,20 @@ const products = [
   { name: 'Timenox 360', description: 'Field Staff Tracking & Operations', color: 'teal', icon: 'pin', href: '/products/timenox-360/' },
   { name: 'Vyfoo', description: 'Restaurant POS & Management', color: 'orange', icon: 'chef', href: '/products/vyfoo/' },
   { name: 'VYQDA Retail', description: 'Retail Billing & Inventory', color: 'purple', icon: 'bag', href: '/products/retail/' },
-  { name: 'SHYFT Box Finder', description: 'Smart Parcel & Box Finding Solution', color: 'navy', icon: 'cap', href: '/products/shyft-box-finder/' },
+  { name: 'SHYFT Box Finder', description: 'Home & Office Box Finder', color: 'navy', icon: 'cap', href: '/products/shyft-box-finder/' },
 ];
 ---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EX2ZX46SND"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EX2ZX46SND');
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#fffaf6" />
   <title>Software Development Company & Business Software | VYQDA</title>
@@ -56,7 +63,7 @@ const products = [
       </nav>
       <div class="topbar__actions">
         
-        <a class="contact" href="#contact">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a>
+        <a class="contact" href="/contact/">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a>
         <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
       </div>
     </div>
