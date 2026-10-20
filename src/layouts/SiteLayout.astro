@@ -4,6 +4,17 @@ import '../styles/site-pages.css';
 const { title = 'VYQDA Technologies | Software Products & Custom Development', description = 'Software products, custom software development and long-term technology solutions for businesses.', canonical = 'https://vyqda.com/', active = '' } = Astro.props;
 const logo = 'https://etl8nmt6drqkbvcf.private.blob.vercel-storage.com/vyqda-logo-20qGY8TREezFR3V8YLocLvV6ihwupO.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfZVRMOE5NdDZkclFrQnZjRiIsIm93bmVySWQiOiJ0ZWFtX1NRTlk1amJjdVVvSDIyVnkwNEx5eDV5OCIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzkyNTY1MTYxNzM4LCJpYXQiOjE3OTI1MjE5NjE4ODZ9.yMipf01FqJtedjo9KHZU7UVAdmdNb13CfBV7lfhgeTc&vercel-blob-signature=QvSbHdS3Yj7sesjrRogRbjsdCl8fVN26QoQJp5URg-0';
 const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'Development Services',href:'/services/',key:'services'},{label:'Solutions',href:'/solutions/',key:'solutions'},{label:'Industries',href:'/industries/',key:'industries'},{label:'Company',href:'/about/',key:'about'},{label:'FAQs',href:'/faq/',key:'faq'},{label:'Free Tools',href:'/tools/',key:'tools'}];
+const siteUrl = 'https://vyqda.com';
+const pagePath = new URL(canonical).pathname;
+const labels = {products:'Products',services:'Development Services',solutions:'Solutions',industries:'Industries',about:'About VYQDA',faq:'FAQs',tools:'Free Tools',contact:'Contact',timenox:'Timenox','timenox-360':'Timenox 360',vyfoo:'Vyfoo Restaurant POS',retail:'VYQDA Retail','shyft-box-finder':'SHYFT Box Finder'};
+const pathParts = pagePath.split('/').filter(Boolean);
+const breadcrumbs = [{ '@type':'ListItem', position:1, name:'Home', item:siteUrl + '/' }, ...pathParts.map((part,index)=>({ '@type':'ListItem', position:index+2, name:index===pathParts.length-1 ? title.replace(/ \\| VYQDA( Technologies)?$/,'') : (labels[part] || part.replace(/-/g,' ').replace(/\\b\\w/g,char=>char.toUpperCase())), item:siteUrl + '/' + pathParts.slice(0,index+1).join('/') + '/' }))];
+const structuredData = { '@context':'https://schema.org', '@graph':[
+  { '@type':'Organization', '@id':siteUrl+'/#organization', name:'VYQDA Technologies Pvt. Ltd.', url:siteUrl+'/', description:'Software products, custom software development and technology solutions for business operations.' },
+  { '@type':'WebSite', '@id':siteUrl+'/#website', url:siteUrl+'/', name:'VYQDA Technologies', publisher:{'@id':siteUrl+'/#organization'}, inLanguage:'en' },
+  { '@type':'WebPage', '@id':canonical+'#webpage', url:canonical, name:title, description, isPartOf:{'@id':siteUrl+'/#website'}, inLanguage:'en', breadcrumb:{'@id':canonical+'#breadcrumbs'} },
+  { '@type':'BreadcrumbList', '@id':canonical+'#breadcrumbs', itemListElement:breadcrumbs }
+]};
 ---
 <!doctype html>
 <html lang="en">
@@ -11,6 +22,7 @@ const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'De
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#fffaf6" />
+<meta property="og:locale" content="en_IN" />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
@@ -23,6 +35,7 @@ const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'De
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
+<script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 </head>
 <body id="top">
 <header class="topbar">
