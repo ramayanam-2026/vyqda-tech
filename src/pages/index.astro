@@ -64,26 +64,36 @@ const products = [
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__ring hero__ring--outer" aria-hidden="true"></div>
-      <div class="hero__ring hero__ring--middle" aria-hidden="true"></div>
-      <div class="hero__ring hero__ring--inner" aria-hidden="true"></div>
-      <span class="orbit-dot orbit-dot--one" aria-hidden="true"></span><span class="orbit-dot orbit-dot--two" aria-hidden="true"></span><span class="orbit-dot orbit-dot--three" aria-hidden="true"></span>
-      <span class="orbit-dot orbit-dot--four" aria-hidden="true"></span><span class="orbit-dot orbit-dot--five" aria-hidden="true"></span><span class="orbit-dot orbit-dot--six" aria-hidden="true"></span>
-      <div class="capability capability--left capability--one"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m11 9-7 7 7 7M21 9l7 7-7 7M19 5l-6 22"/></svg></span><span><strong>Custom<br/>Development</strong><small>Web, Mobile &amp; Cloud</small></span></div>
-      <div class="capability capability--left capability--two"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="8" rx="10" ry="4"/><path d="M6 8v15c0 2.2 4.5 4 10 4s10-1.8 10-4V8M6 13c0 2.2 4.5 4 10 4s10-1.8 10-4M6 18c0 2.2 4.5 4 10 4s10-1.8 10-4"/></svg></span><span><strong>Business<br/>Automation</strong><small>Streamline Operations</small></span></div>
-      <div class="capability capability--left capability--three"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 22a7 7 0 0 1 1-14 9 9 0 0 1 17 3 6 6 0 0 1 0 12H7Z"/></svg></span><span><strong>Scalable<br/>Solutions</strong><small>Built for Growth</small></span></div>
-      <div class="capability capability--right capability--one"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><rect x="19" y="5" width="8" height="8" rx="1.5"/><rect x="5" y="19" width="8" height="8" rx="1.5"/><rect x="19" y="19" width="8" height="8" rx="1.5"/></svg></span><span><strong>Software<br/>Products</strong><small>Real Business Impact</small></span></div>
-      <div class="capability capability--right capability--two"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 27 8v8c0 7-5 11-11 14C10 27 5 23 5 16V8l11-4Z"/></svg></span><span><strong>Reliable<br/>Partnership</strong><small>Long-Term Support</small></span></div>
-      <div class="capability capability--right capability--three"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26V17M12 26V12M19 26V6M26 26V3M4 12l8-5 7 2 8-7"/><path d="m22 3 5-1v5"/></svg></span><span><strong>Engineering<br/>Excellence</strong><small>Quality. Accountability.</small></span></div>
+    <section class="hero hero--split" aria-labelledby="hero-title">
+      <div class="hero__visual" aria-label="Animated illustration of connected business software systems">
+        <p class="hero__visual-label"><span aria-hidden="true"></span>A TECHNOLOGY PARTNER, NOT<br/> JUST A VENDOR</p>
+        <div class="systems-scene" aria-hidden="true">
+          <svg class="systems-lines" viewBox="0 0 520 500" fill="none">
+            <path class="systems-line systems-line--one" d="M260 250 L135 130 L78 130"/>
+            <path class="systems-line systems-line--two" d="M260 250 L390 120 L446 120"/>
+            <path class="systems-line systems-line--three" d="M260 250 L115 335 L58 335"/>
+            <path class="systems-line systems-line--four" d="M260 250 L395 350 L455 350"/>
+            <path class="systems-line systems-line--five" d="M260 250 L260 75"/>
+            <path class="systems-line systems-line--six" d="M260 250 L260 425"/>
+            <circle class="systems-node" cx="135" cy="130" r="4"/><circle class="systems-node" cx="390" cy="120" r="4"/>
+            <circle class="systems-node" cx="115" cy="335" r="4"/><circle class="systems-node" cx="395" cy="350" r="4"/>
+            <circle class="systems-node" cx="260" cy="75" r="4"/><circle class="systems-node" cx="260" cy="425" r="4"/>
+          </svg>
+          <div class="systems-orbit systems-orbit--outer"></div><div class="systems-orbit systems-orbit--inner"></div>
+          <div class="systems-core"><div class="systems-core__halo"></div><div class="systems-core__mark"><span>V</span></div><strong>VYQDA</strong><small>SOFTWARE SYSTEMS</small><i class="systems-core__pulse systems-core__pulse--one"></i><i class="systems-core__pulse systems-core__pulse--two"></i></div>
+          <div class="systems-card systems-card--workforce"><span class="systems-card__icon systems-card__icon--people"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3.2 2.5-5 6-5s6 1.8 6 5M16 5a3 3 0 0 1 0 6M17 14c2.5.4 4 2 4 4"/></svg></span><span><strong>Workforce</strong><small>Attendance &amp; operations</small><span class="systems-status"><i></i> Connected</span></span></div>
+          <div class="systems-card systems-card--products"><span class="systems-card__icon systems-card__icon--product"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg></span><span><strong>Software products</strong><small>Purpose-built tools</small></span><span class="systems-card__spark">↗</span></div>
+          <div class="systems-card systems-card--billing"><span class="systems-card__icon systems-card__icon--billing"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h3M8 16h8"/></svg></span><span><strong>Business workflows</strong><small>Billing &amp; automation</small></span></div>
+          <div class="systems-card systems-card--engineering"><span class="systems-card__icon systems-card__icon--engineering"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span><span><strong>Engineering</strong><small>Built around your needs</small></span></div>
+          <div class="systems-data systems-data--one"></div><div class="systems-data systems-data--two"></div><div class="systems-data systems-data--three"></div>
+        </div>
+      </div>
       <div class="hero__content">
         <p class="eyebrow">SOFTWARE PRODUCTS <span>·</span> CUSTOM DEVELOPMENT <span>·</span> LONG-TERM PARTNERSHIP</p>
-        <h1 id="hero-title">Business software<br/>and custom solutions<br/><em>that work.</em></h1>
-        <p class="hero__summary">VYQDA builds software products and provides custom software development, SaaS product engineering, business automation and ongoing application support.</p>
-        <div class="hero__buttons">
-          <a class="button button--primary" href="#products">Explore Our Products <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15M11 4l6 6-6 6"/></svg></a>
-          <a class="button button--secondary" href="#contact">Discuss Your Project</a>
-        </div>
+        <h1 id="hero-title">Software development<br/>built around <em>the way<br/>your business works.</em></h1>
+        <p class="hero__summary">VYQDA Technologies is a software product and technology company helping businesses solve operational challenges with practical software, thoughtful engineering and dependable ongoing support.</p>
+        <p class="hero__detail">Some businesses need a ready-to-use product. Others need a tailored application, a connected workflow or a technology partner who can stay involved after launch. We bring product thinking and custom development together to help teams work more clearly, reduce manual effort and build for what comes next.</p>
+        <div class="hero__buttons"><a class="hero__text-link" href="/contact/#project-enquiry">Talk through your requirements <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
