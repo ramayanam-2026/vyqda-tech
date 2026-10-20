@@ -145,3 +145,27 @@ Status key:
 - [ ] PageSpeed/Core Web Vitals and mobile review.
 - [ ] Contact submission, CAPTCHA verification and GA4 event receipt.
 
+
+
+## Stage 5 — Verification pass against latest user baseline (2026-10-21)
+
+Baseline requested: commit `452954ac100ccb7d75502edcf0b6f6cad1645b73` (phone placeholder update). This section records checks attempted against that baseline and clearly separates completed checks from environment-blocked checks.
+
+### Results
+
+| Requested check | Result | Evidence / next action |
+|---|---|---|
+| 1. Independent Astro check and production build | **Blocked — not run** | The runtime could not resolve `github.com`, so the branch could not be cloned into an isolated build environment. No build success is claimed. Vercel reports a failed status linking to `https://vercel.com/vyfoos-projects?upgradeToPro=build-rate-limit`, indicating a deployment/build-rate-limit issue that needs resolution in the Vercel account. |
+| 2. Crawl all deployed routes and validate rendered HTML | **Blocked for the preview** | `https://vyqda-tech.vercel.app/contact` was not accessible to the available web retrieval tool. The public `https://vyqda.com/` is crawlable, but its rendered content is an older/different corporate site and must not be treated as proof of the `design/v2-from-scratch` deployment. A full route crawl of the intended build cannot be honestly reported until the preview is reachable. |
+| 3. Verify sitemap, canonicals, structured data and redirects | **Source review only; live verification blocked** | Source contains Astro sitemap integration and canonical/JSON-LD handling, but the preview `robots.txt` and `sitemap-index.xml` endpoints were inaccessible to the retrieval tool. HTTP status, sitemap URL inventory, redirect chain, and rendered schema validity remain unverified. After deployment, crawl every generated URL and validate canonicals, schema, and redirect destinations. |
+| 4. Verify logo asset and contact form | **Partially reviewed; live test blocked** | Prior source audit identified a potentially expiring signed Vercel Blob logo URL. It remains an open issue until replaced/verified. Contact form source includes a phone field, async webhook submission and thank-you state; live webhook delivery, browser CORS behaviour, HTTP response handling, hCaptcha server-side verification and CRM mapping were not tested. |
+| 5. Review Google Search Console indexing and performance | **Blocked — no GSC data access** | No Search Console connector/data was available in this session. No indexing counts, queries, impressions, CTR or ranking changes are asserted. Review URL Inspection and Performance after the intended build is deployed and the property is accessible. |
+| 6. Test page speed and mobile experience | **Blocked — no reachable target build** | No Lighthouse/PageSpeed run or mobile browser test could be executed against the preview. Do not report fabricated scores or Core Web Vitals. Run PageSpeed Insights for the deployed canonical URL and test representative mobile viewport widths after preview/deployment access is restored. |
+
+### Critical live-domain observation
+
+The crawlable public homepage `https://vyqda.com/` contains substantial claims that need evidence or removal before that page is treated as trustworthy SEO content. Examples include quantified improvements (e.g. 60% billing-time reduction, 45% faster order processing), 24/7 support, 15+ countries, customer-style quotations, and broad compliance/enterprise assertions. These appeared in the public rendered page retrieved during this pass. They were not validated by repository evidence and may belong to a different/older deployment. Audit the actual production release before changing or carrying any such claims forward.
+
+### Release gate
+
+Do not call this six-part verification complete yet. The immediate blocker is a reachable, successful deployment of the intended commit. Resolve the Vercel build-rate-limit failure, ensure the correct branch/project is connected, and provide access to the deployed preview. Then repeat checks 1–4 and 6. Connect/provide Google Search Console access for check 5. Preserve this evidence log and mark each item complete only after its result is captured.
