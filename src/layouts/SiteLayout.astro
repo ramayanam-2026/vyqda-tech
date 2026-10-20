@@ -40,7 +40,7 @@ const structuredData = { '@context':'https://schema.org', '@graph':[
 <body id="top">
 <header class="topbar">
 <div class="topbar__inner wrap">
-<a class="brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" src={logo} alt="VYQDA Technologies" /></a>
+<a class="brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" data-brand-logo src={logo} alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span></a>
 <nav class="nav" aria-label="Main navigation">{navItems.map(item => <a class:list={['nav__link', active === item.key && 'is-active']} href={item.href}>{item.label}</a>)}</nav>
 <div class="topbar__actions"><a class="contact" href="/contact/">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
 </div>
