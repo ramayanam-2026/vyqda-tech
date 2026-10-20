@@ -5,29 +5,29 @@
 
 :root {
   /* ── Ink palette (dark surfaces) ── */
-  --ink-950: #060B16;
-  --ink-900: #0A1224;
-  --ink-800: #111B33;
+  --ink-950: #11172d;
+  --ink-900: #171b2b;
+  --ink-800: #23283b;
 
   /* ── Canvas (light surfaces) ── */
-  --canvas: #FFFFFF;
+  --canvas: #fffaf6;
   --canvas-alt: #F6F8FB;
 
   /* ── Borders ── */
-  --line: #E4E8EF;
+  --line: #eee2d8;
   --line-dark: rgba(255, 255, 255, 0.08);
 
   /* ── Text ── */
-  --text: #0B1220;
-  --text-muted: #4A5568;
+  --text: #11172d;
+  --text-muted: #686971;
   --text-on-dark: #E8EDF5;
   --text-on-dark-muted: #9AA8BF;
 
   /* ── Accent — teal ── */
-  --teal-600: #0F7F6E;
-  --teal-400: #2BB8A0;
-  --teal-100: #D6F5EF;
-  --teal-glow: rgba(15, 127, 110, 0.18);
+  --teal-600: #f36d2c;
+  --teal-400: #ff9a66;
+  --teal-100: #fff0e6;
+  --teal-glow: rgba(243, 109, 44, 0.18);
 
   /* ── Informational — blue ── */
   --blue-500: #3B6FE0;
@@ -66,8 +66,8 @@
   --shadow-card: 0 0 0 1px var(--line), 0 4px 16px rgba(6,11,22,0.06);
 
   /* ── Typography ── */
-  --font-display: 'Geist Variable', 'Instrument Sans', system-ui, sans-serif;
-  --font-mono: 'Geist Mono Variable', 'JetBrains Mono', monospace;
+  --font-display: 'DM Sans', Arial, sans-serif;
+  --font-mono: 'DM Sans', Arial, sans-serif;
 
   --text-display: clamp(3rem, 6vw, 5.5rem);
   --text-h1: clamp(2.5rem, 5vw, 4.5rem);
