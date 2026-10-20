@@ -119,3 +119,16 @@ a,button{transition:color .18s ease,background-color .18s ease,border-color .18s
 .brand__wordmark small{margin:4px 0 0 3px;font-size:8px;letter-spacing:3.2px;font-weight:700;color:#686971}
 .footer-brand .brand__wordmark strong,.footer-brand .brand__wordmark small{color:#fff}
 @media(max-width:600px){.brand__wordmark strong{font-size:27px}.brand__wordmark small{font-size:7px;letter-spacing:3px}}
+
+
+/* Tight mobile header for narrow phones (320–380px viewports). */
+@media(max-width:380px){
+  .topbar__inner{gap:6px}
+  .brand__logo{width:132px;height:36px}
+  .footer-brand .brand__logo{width:140px;height:38px}
+  .topbar__actions{gap:4px}
+  .topbar__actions .contact{height:35px;padding:0 8px;font-size:10px;gap:4px}
+  .topbar__actions .contact svg{width:12px;height:12px}
+  .menu-toggle{padding:5px}
+  .brand__wordmark strong{font-size:25px}
+}
