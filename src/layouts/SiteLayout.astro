@@ -47,7 +47,7 @@ const structuredData = { '@context':'https://schema.org', '@graph':[
 <body id="top">
 <header class="topbar">
 <div class="topbar__inner wrap">
-<a class="brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" data-brand-logo src={logo} alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span></a>
+<a class="brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" data-brand-logo src={logo} alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span><sup class="brand__registered" aria-label="Registered trademark">®</sup></a>
 <nav class="nav" aria-label="Main navigation">{navItems.map(item => <a class:list={['nav__link', active === item.key && 'is-active']} href={item.href}>{item.label}</a>)}</nav>
 <div class="topbar__actions"><a class="contact" href="/contact/">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
 </div>
@@ -56,7 +56,7 @@ const structuredData = { '@context':'https://schema.org', '@graph':[
 <main><slot /></main>
 <footer class="site-footer" aria-label="VYQDA Technologies footer">
 <div class="wrap footer-main">
-<div class="footer-brand-block"><a class="brand footer-brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" src={logo} alt="VYQDA Technologies" /></a><p>Software products and custom technology solutions for businesses that want to work smarter, solve practical problems and keep moving forward.</p><a class="footer-contact-link" href="/contact/">Discuss a project <span>↗</span></a></div>
+<div class="footer-brand-block"><a class="brand footer-brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" src={logo} alt="VYQDA Technologies" /><sup class="brand__registered" aria-label="Registered trademark">®</sup></a><p>Software products and custom technology solutions for businesses that want to work smarter, solve practical problems and keep moving forward.</p><a class="footer-contact-link" href="/contact/">Discuss a project <span>↗</span></a></div>
 <div class="footer-column"><h2>Products</h2><a href="/products/timenox/">Timenox</a><a href="/products/timenox-360/">Timenox 360</a><a href="/products/vyfoo/">Vyfoo Restaurant POS</a><a href="/products/retail/">VYQDA Retail</a><a href="/products/shyft-box-finder/">SHYFT Box Finder</a><a href="/products/">All products</a></div>
 <div class="footer-column"><h2>Services</h2><a href="/services/custom-software-development/">Custom Software Development</a><a href="/services/saas-product-development/">SaaS Product Development</a><a href="/services/web-mobile-applications/">Web &amp; Mobile Applications</a><a href="/services/business-process-automation/">Business Automation</a><a href="/services/maintenance-support/">Maintenance &amp; Support</a><a href="/services/">All services</a></div>
 <div class="footer-column"><h2>Solutions</h2><a href="/solutions/">Workforce Management</a><a href="/solutions/">Field Operations</a><a href="/solutions/">Restaurant Technology</a><a href="/solutions/">Retail Software</a><a href="/industries/">Industry Use Cases</a></div>
