@@ -1,11 +1,12 @@
 ---
 import '../styles/reference-home.css';
+import '../styles/site-pages.css';
 const products = [
-  { name: 'Timenox', description: 'Attendance & Workforce Management', color: 'blue', icon: 'T', href: '#product-timenox' },
-  { name: 'Timenox 360', description: 'Field Staff Tracking & Operations', color: 'teal', icon: 'pin', href: '#product-timenox-360' },
-  { name: 'Vyfoo', description: 'Restaurant POS & Management', color: 'orange', icon: 'chef', href: '#product-vyfoo' },
-  { name: 'VYQDA Retail', description: 'Retail Billing & Inventory', color: 'purple', icon: 'bag', href: '#product-retail' },
-  { name: 'SHYFT Box Finder', description: 'Smart Parcel & Box Finding Solution', color: 'navy', icon: 'cap', href: '#product-shyft' },
+  { name: 'Timenox', description: 'Attendance & Workforce Management', color: 'blue', icon: 'T', href: '/products/timenox/' },
+  { name: 'Timenox 360', description: 'Field Staff Tracking & Operations', color: 'teal', icon: 'pin', href: '/products/timenox-360/' },
+  { name: 'Vyfoo', description: 'Restaurant POS & Management', color: 'orange', icon: 'chef', href: '/products/vyfoo/' },
+  { name: 'VYQDA Retail', description: 'Retail Billing & Inventory', color: 'purple', icon: 'bag', href: '/products/retail/' },
+  { name: 'SHYFT Box Finder', description: 'Smart Parcel & Box Finding Solution', color: 'navy', icon: 'cap', href: '/products/shyft-box-finder/' },
 ];
 ---
 <!doctype html>
@@ -46,22 +47,20 @@ const products = [
         <img class="brand__logo" src="https://etl8nmt6drqkbvcf.private.blob.vercel-storage.com/vyqda-logo-20qGY8TREezFR3V8YLocLvV6ihwupO.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfZVRMOE5NdDZkclFrQnZjRiIsIm93bmVySWQiOiJ0ZWFtX1NRTlk1amJjdVVvSDIyVnkwNEx5eDV5OCIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzkyNTY1MTYxNzM4LCJpYXQiOjE3OTI1MjE5NjE4ODZ9.yMipf01FqJtedjo9KHZU7UVAdmdNb13CfBV7lfhgeTc&vercel-blob-signature=QvSbHdS3Yj7sesjrRogRbjsdCl8fVN26QoQJp5URg-0" alt="VYQDA Technologies" />
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a class="nav__link" href="#products">Products <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
-        <a class="nav__link" href="#services">Development Services <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
-        <a class="nav__link" href="#solutions">Solutions <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
-        <a class="nav__link" href="#industries">Industries <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
-        <a class="nav__link" href="#company">Company <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
-        <a class="nav__link" href="#faq">FAQs <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
+        <a class="nav__link" href="/products/">Products</a>
+        <a class="nav__link" href="/services/">Development Services</a>
+        <a class="nav__link" href="/solutions/">Solutions</a>
+        <a class="nav__link" href="/industries/">Industries</a>
+        <a class="nav__link" href="/about/">Company</a>
+        <a class="nav__link" href="/faq/">FAQs</a>
       </nav>
       <div class="topbar__actions">
-        <button class="search" type="button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 5 5"/></svg></button>
+        
         <a class="contact" href="#contact">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a>
         <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
       </div>
     </div>
-    <nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation">
-      <a href="#products">Products</a><a href="#services">Development Services</a><a href="#solutions">Solutions</a><a href="#industries">Industries</a><a href="#company">Company</a><a href="#faq">FAQs</a>
-    </nav>
+    <nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation"><a href="/products/">Products</a><a href="/services/">Development Services</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/about/">Company</a><a href="/faq/">FAQs</a><a href="/contact/">Contact</a></nav>
   </header>
 
   <main>
@@ -92,7 +91,7 @@ const products = [
       <div class="wrap">
         <div class="products__heading">
           <div><p class="products__eyebrow">OUR SOFTWARE PRODUCTS</p><h2 id="products-title">Powerful products for real business needs.</h2></div>
-          <a class="products__all" href="#product-suite">Explore Product Suite <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15M11 4l6 6-6 6"/></svg></a>
+          <a class="products__all" href="/products/">Explore Product Suite <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15M11 4l6 6-6 6"/></svg></a>
         </div>
         <div class="product-grid" id="product-suite">
           {products.map(product => <a class="product-card" id={product.name === "Timenox" ? "product-timenox" : product.name === "Timenox 360" ? "product-timenox-360" : product.name === "Vyfoo" ? "product-vyfoo" : product.name === "VYQDA Retail" ? "product-retail" : "product-shyft"} href="#contact">
@@ -140,7 +139,7 @@ const products = [
           <article class="service-card"><span class="service-number">02</span><div class="service-symbol">◫</div><h3>SaaS &amp; Product Engineering</h3><p>From product validation and MVP planning to feature development, platform improvements and ongoing releases.</p><a href="#contact">Plan a product <span>↗</span></a></article>
           <article class="service-card"><span class="service-number">03</span><div class="service-symbol">↗</div><h3>Web &amp; Mobile Applications</h3><p>Responsive digital experiences and application interfaces designed around real user tasks and business outcomes.</p><a href="#contact">Build an application <span>↗</span></a></article>
           <article class="service-card"><span class="service-number">04</span><div class="service-symbol">⤳</div><h3>Business Process Automation</h3><p>Reduce repetitive work by connecting systems, structuring data and improving everyday operational processes.</p><a href="#contact">Explore automation <span>↗</span></a></article>
-          <article class="service-card"><span class="service-number">05</span><div class="service-symbol">▦</div><h3>Workforce &amp; Operations Software</h3><p>Practical tools for attendance, workforce visibility, field operations and the reporting that supports better decisions.</p><a href="#product-timenox">Explore workforce products <span>↗</span></a></article>
+          <article class="service-card"><span class="service-number">05</span><div class="service-symbol">▦</div><h3>Workforce &amp; Operations Software</h3><p>Practical tools for attendance, workforce visibility, field operations and the reporting that supports better decisions.</p><a href="/products/timenox/">Explore workforce products <span>↗</span></a></article>
           <article class="service-card"><span class="service-number">06</span><div class="service-symbol">↻</div><h3>Maintenance &amp; Ongoing Support</h3><p>Post-launch fixes, enhancements, technical upkeep and continued development as your requirements evolve.</p><a href="#contact">Discuss ongoing support <span>↗</span></a></article>
         </div>
       </div>
@@ -151,9 +150,9 @@ const products = [
         <div class="solutions-intro"><p class="section-kicker">SOLUTIONS FOR REAL OPERATIONS</p><h2 id="solutions-title">Technology should make work <em>simpler, not heavier.</em></h2><p>We focus on the practical details that make software useful: clear workflows, sensible access, reliable information and the ability to adapt as a business grows.</p><a class="button button--primary" href="#contact">Tell Us What You Need <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15M11 4l6 6-6 6"/></svg></a></div>
         <div class="solution-list">
           <a href="#product-timenox" class="solution-row"><span class="solution-row__num">01</span><span><strong>Workforce and attendance management</strong><small>Make attendance records, shifts and workforce reporting easier to manage.</small></span><span class="solution-row__arrow">↗</span></a>
-          <a href="#product-timenox-360" class="solution-row"><span class="solution-row__num">02</span><span><strong>Field teams and distributed operations</strong><small>Support field workflows with tools designed for operational visibility.</small></span><span class="solution-row__arrow">↗</span></a>
-          <a href="#product-vyfoo" class="solution-row"><span class="solution-row__num">03</span><span><strong>Restaurant billing and point of sale</strong><small>Bring essential restaurant transactions and management tasks into a more connected workflow.</small></span><span class="solution-row__arrow">↗</span></a>
-          <a href="#product-retail" class="solution-row"><span class="solution-row__num">04</span><span><strong>Retail billing and inventory</strong><small>Support everyday retail operations with focused billing and stock workflows.</small></span><span class="solution-row__arrow">↗</span></a>
+          <a href="/products/timenox-360/" class="solution-row"><span class="solution-row__num">02</span><span><strong>Field teams and distributed operations</strong><small>Support field workflows with tools designed for operational visibility.</small></span><span class="solution-row__arrow">↗</span></a>
+          <a href="/products/vyfoo/" class="solution-row"><span class="solution-row__num">03</span><span><strong>Restaurant billing and point of sale</strong><small>Bring essential restaurant transactions and management tasks into a more connected workflow.</small></span><span class="solution-row__arrow">↗</span></a>
+          <a href="/products/retail/" class="solution-row"><span class="solution-row__num">04</span><span><strong>Retail billing and inventory</strong><small>Support everyday retail operations with focused billing and stock workflows.</small></span><span class="solution-row__arrow">↗</span></a>
           <a href="#contact" class="solution-row"><span class="solution-row__num">05</span><span><strong>Purpose-built business applications</strong><small>Design a software solution around the way your team actually works.</small></span><span class="solution-row__arrow">↗</span></a>
         </div>
       </div>
@@ -211,10 +210,10 @@ const products = [
   <footer class="site-footer" aria-labelledby="footer-brand">
     <div class="wrap footer-main">
       <div class="footer-brand-block"><a class="brand footer-brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" src="https://etl8nmt6drqkbvcf.private.blob.vercel-storage.com/vyqda-logo-20qGY8TREezFR3V8YLocLvV6ihwupO.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfZVRMOE5NdDZkclFrQnZjRiIsIm93bmVySWQiOiJ0ZWFtX1NRTlk1amJjdVVvSDIyVnkwNEx5eDV5OCIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzkyNTY1MTYxNzM4LCJpYXQiOjE3OTI1MjE5NjE4ODZ9.yMipf01FqJtedjo9KHZU7UVAdmdNb13CfBV7lfhgeTc&vercel-blob-signature=QvSbHdS3Yj7sesjrRogRbjsdCl8fVN26QoQJp5URg-0" alt="VYQDA Technologies" /></a><p>Software products and custom technology solutions for businesses that want to work smarter, solve practical problems and keep moving forward.</p><a class="footer-contact-link" href="mailto:hello@vyqda.com">hello@vyqda.com <span>↗</span></a></div>
-      <div class="footer-column"><h2>Products</h2><a href="#product-timenox">Timenox</a><a href="#product-timenox-360">Timenox 360</a><a href="#product-vyfoo">Vyfoo Restaurant POS</a><a href="#product-retail">VYQDA Retail</a><a href="#product-shyft">SHYFT Box Finder</a></div>
-      <div class="footer-column"><h2>Services</h2><a href="#services">Custom Software Development</a><a href="#services">SaaS Product Development</a><a href="#services">Web &amp; Mobile Applications</a><a href="#services">Business Automation</a><a href="#services">Maintenance &amp; Support</a></div>
-      <div class="footer-column"><h2>Solutions</h2><a href="#solutions">Workforce Management</a><a href="#solutions">Field Operations</a><a href="#solutions">Restaurant Technology</a><a href="#solutions">Retail Software</a><a href="#industries">Industry Use Cases</a></div>
-      <div class="footer-column"><h2>Explore</h2><a href="#company">About VYQDA</a><a href="#approach-title">How We Work</a><a href="#faq">Frequently Asked Questions</a><a href="#contact">Contact</a><a href="#top">Back to Top ↑</a></div>
+      <div class="footer-column"><h2>Products</h2><a href="#product-timenox">Timenox</a><a href="#product-timenox-360">Timenox 360</a><a href="#product-vyfoo">Vyfoo Restaurant POS</a><a href="#product-retail">VYQDA Retail</a><a href="/products/shyft-box-finder/">SHYFT Box Finder</a></div>
+      <div class="footer-column"><h2>Services</h2><a href="/services/#custom-software">Custom Software Development</a><a href="/services/#saas">SaaS Product Development</a><a href="/services/#web-mobile">Web &amp; Mobile Applications</a><a href="/services/#automation">Business Automation</a><a href="/services/#support">Maintenance &amp; Support</a></div>
+      <div class="footer-column"><h2>Solutions</h2><a href="/solutions/#workforce">Workforce Management</a><a href="/solutions/#field-operations">Field Operations</a><a href="/solutions/#restaurant">Restaurant Technology</a><a href="/solutions/#retail">Retail Software</a><a href="/industries/">Industry Use Cases</a></div>
+      <div class="footer-column"><h2>Explore</h2><a href="/about/">About VYQDA</a><a href="/about/#approach">How We Work</a><a href="/faq/">Frequently Asked Questions</a><a href="/contact/">Contact</a><a href="#top">Back to Top ↑</a></div>
     </div>
     <div class="wrap footer-bottom"><p>© <span id="current-year">2026</span> VYQDA Technologies Pvt. Ltd. All rights reserved.</p><p>Software products · Custom engineering · Ongoing partnership</p><a href="#top" aria-label="Back to top">Back to top ↑</a></div>
   </footer>
