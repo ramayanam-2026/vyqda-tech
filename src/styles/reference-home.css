@@ -154,3 +154,9 @@
 @media(max-width:760px){.section-pad{padding:64px 0}.intro-grid,.solutions-grid,.approach-grid,.faq-grid{grid-template-columns:1fr;gap:26px}.intro-grid>.section-kicker{padding-top:0}.section-heading{display:block}.section-heading>p{margin-top:18px}.service-grid,.industry-grid{grid-template-columns:1fr 1fr}.service-card{min-height:0;padding:22px 18px}.service-card h3{font-size:15px}.service-card p{font-size:12px}.industry-card{padding:20px 17px;min-height:0}.industry-card>span{margin-bottom:18px}.contact-panel{align-items:flex-start;flex-direction:column}.contact-actions{flex-direction:row;align-items:center;flex-wrap:wrap}.footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 22px}.footer-brand-block{grid-column:1/-1;grid-row:auto}.footer-brand-block>p{max-width:420px}.footer-bottom{padding:17px 0;align-items:flex-start;flex-direction:column;gap:6px}.principle-grid{gap:22px}}
 @media(max-width:480px){.service-grid,.industry-grid{grid-template-columns:1fr}.service-card{padding:23px}.industry-card{padding:22px}.principle-grid{grid-template-columns:1fr;gap:20px}.principle-grid article{padding-top:16px}.intro-copy h2,.section-heading h2,.solutions-intro h2,.approach-grid h2,.principles-wrap h2,.faq-grid h2,.contact-panel h2{font-size:36px}.footer-main{gap:28px 15px}.footer-column a{font-size:10px}.contact-actions{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.service-card,.text-link span,.solution-row__arrow{transition:none}}
+
+
+/* Official VYQDA logo */
+.brand__logo{display:block;width:174px;max-width:100%;height:42px;object-fit:contain;object-position:left center}
+.footer-brand .brand__logo{width:180px;height:44px}
+@media(max-width:560px){.brand__logo{width:150px;height:38px}.footer-brand .brand__logo{width:165px;height:40px}}
