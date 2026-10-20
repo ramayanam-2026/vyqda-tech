@@ -292,3 +292,42 @@ h1, h2, h3, h4, h5, h6 {
 .section--dark { background: var(--ink-950); color: var(--text-on-dark); }
 .section--ink900 { background: var(--ink-900); color: var(--text-on-dark); }
 .section--alt { background: var(--canvas-alt); }
+
+
+/* ── VYQDA reference design system: shared page theme ── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root {
+  --ink-950:#11172d; --ink-900:#171b2b; --ink-800:#23283b;
+  --canvas:#fffaf6; --canvas-alt:#fff4ea; --line:#eee2d8;
+  --text:#11172d; --text-muted:#686971; --teal-600:#f36d2c; --teal-400:#ff9a66;
+  --teal-100:#fff0e6; --teal-glow:rgba(243,109,44,.18);
+  --font-display:'DM Sans',Arial,sans-serif; --font-mono:'DM Sans',Arial,sans-serif;
+  --font-editorial:'Playfair Display',Georgia,serif;
+  --container-max:1360px; --container-px:clamp(1rem,3.2vw,2.75rem);
+  --section-py:clamp(3rem,6vw,5.5rem);
+}
+html{background:#fffaf6}
+body{font-family:'DM Sans',Arial,sans-serif;background:#fffaf6;color:#11172d}
+h1,h2,.heading-display,.heading-h1,.heading-h2,.heading-h3,.heading-h4,
+.page-hero h1,.section-header h2,.product-hero h1{
+  font-family:'Playfair Display',Georgia,serif;font-weight:500;letter-spacing:-.035em
+}
+.eyebrow{font-family:'DM Sans',Arial,sans-serif;color:#bd5d31;font-weight:700;letter-spacing:.18em}
+.section--alt{background:#fff4ea}
+.section--dark,.section--ink900{background:#171b2b}
+.btn-primary,.button-primary,.contact-submit{background:#f36d2c;border-color:#f36d2c}
+.card,.platform-intro,.stat-block,.resource-card,.demo-form{border-color:#eee2d8}
+.site-header{background:rgba(255,250,246,.97);border-bottom:1px solid #eee2d8;color:#11172d}
+.site-header .header-logo,.site-header .logo-wordmark,.site-header .nav-trigger,.site-header .header-nav a{color:#11172d}
+.site-header .logo-mark svg rect,.site-footer .footer-logo svg rect{fill:#f36d2c}
+.site-header .nav-trigger[aria-expanded="true"],.site-header .nav-trigger:hover{color:#e9651b}
+.site-header .mega-menu{background:#fffaf6;border-color:#eee2d8;color:#11172d}
+.site-header .mega-menu__heading,.site-header .mega-link__name{color:#11172d}
+.site-header .mega-link__desc{color:#686971}
+.site-header .mega-link:hover{background:#fff0e6}
+.site-footer{background:#171b2b;color:#fffaf6}
+.site-footer .footer-brand__desc{color:#d2d0d0}
+.site-footer .footer-col__heading{color:#fffaf6}
+.site-footer .footer-col a,.site-footer .footer-legal,.site-footer .footer-links a{color:#c7c5ca}
+a:focus-visible,button:focus-visible{outline:2px solid #f36d2c;outline-offset:3px}
+@media(max-width:768px){.site-header{background:#fffaf6}.page-hero .heading-h1{font-size:clamp(2.2rem,8vw,3.6rem)}}
