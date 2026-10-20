@@ -1,0 +1,140 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import Icon from '../../components/Icon.astro';
+import { SEO } from '../../data/seo';
+import { COMPANY } from '../../data/site';
+
+const seo = SEO.company;
+---
+
+<Base seo={seo}>
+  <section class="page-hero section--alt">
+    <div class="container">
+      <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Company' }]} />
+      <div class="reveal mt-8">
+        <span class="eyebrow">About</span>
+        <h1 class="heading-h1 mt-4">Building enterprise software that earns its place</h1>
+        <p class="body-lg text-muted measure mt-6">
+          VYQDA Technologies builds SaaS products for the real operational complexity of enterprise organisations — not for demos, but for daily use at scale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="mission-block">
+        <div class="reveal">
+          <span class="eyebrow">Our Mission</span>
+          <h2 id="mission-heading" class="heading-h2 mt-3">
+            Precision software for the modern enterprise
+          </h2>
+          <p class="body-lg text-muted mt-6 measure" style="line-height:1.75">
+            Enterprise organisations run on operational data — attendance records, workforce schedules, retail transactions, and dozens of other data streams that have to be accurate, accessible, and auditable. When that data is wrong, payroll is wrong. When it's late, decisions are late. When it can't be audited, compliance fails.
+          </p>
+          <p class="text-muted mt-4 measure" style="line-height:1.75">
+            VYQDA Technologies exists to build the software that makes operational data reliable. Each product in our ecosystem is purpose-built for a specific problem, and all of them share an enterprise platform built for the security, integration, and scale demands of large organisations.
+          </p>
+        </div>
+        <div class="mission-principles reveal" data-delay="100">
+          <span class="eyebrow">Our Principles</span>
+          <div class="principles-list mt-6">
+            {[
+              { icon: 'check', title: 'Specific beats general', body: 'Purpose-built tools solve problems better than all-in-one platforms stretched thin. Every VYQDA product has a clear job to do.' },
+              { icon: 'shield', title: 'Security is not a feature', body: 'Enterprise security, audit logging, and data governance are built into the platform, not bolted on as add-ons.' },
+              { icon: 'layers', title: 'Honest about limitations', body: 'We mark what we do not yet support, do not fabricate customer data, and never overstate capabilities. The product speaks for itself.' },
+              { icon: 'users', title: 'Built for operators, not analysts', body: 'The people who use our software are HR managers, site supervisors, and operations leads. Our UX is built for people doing real work under real pressure.' },
+            ].map(p => (
+              <div class="principle">
+                <div class="principle__icon"><Icon name={p.icon} size={16} /></div>
+                <div>
+                  <strong class="principle__title">{p.title}</strong>
+                  <p class="principle__body">{p.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Leadership</span>
+        <h2 id="team-heading" class="heading-h2">The team behind VYQDA</h2>
+        <p class="body-lg text-muted measure mt-4">
+          TODO: Add leadership team profiles once approved. Include name, title, and professional background. Do not fabricate bios or experience.
+        </p>
+      </div>
+      <div class="team-grid mt-12">
+        {[1, 2, 3].map(n => (
+          <div class="team-card card reveal" data-delay={n * 80}>
+            <div class="team-card__avatar">
+              <Icon name="users" size={24} />
+            </div>
+            <div class="team-card__info">
+              <p class="team-card__name">TODO: Name</p>
+              <p class="team-card__title">TODO: Title</p>
+              <p class="team-card__bio">TODO: Professional background (approved by individual before publishing).</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink900" aria-labelledby="company-facts-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow eyebrow--dark">Company</span>
+        <h2 id="company-facts-heading" class="heading-h2 text-on-dark">VYQDA Technologies Pvt. Ltd.</h2>
+      </div>
+      <div class="facts-grid mt-10">
+        {[
+          { label: 'Founded', value: COMPANY.founded },
+          { label: 'Headquarters', value: COMPANY.hq },
+          { label: 'Contact', value: COMPANY.email.general },
+          { label: 'Products', value: '4 (Timenox, Vyfoo, Vyqda Retail, SHYFT)' },
+        ].map((f, i) => (
+          <div class="fact reveal" data-delay={i * 60}>
+            <span class="fact__label">{f.label}</span>
+            <span class="fact__value">{f.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Work with VYQDA" subhead="Explore our products, request a demo, or get in touch with the sales team." />
+</Base>
+
+<style>
+.page-hero { padding-block: clamp(3.5rem, 7vw, 7rem); }
+.mission-block { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: start; }
+.mission-principles { display: flex; flex-direction: column; }
+.principles-list { display: flex; flex-direction: column; gap: var(--space-5); }
+.principle { display: flex; gap: var(--space-4); align-items: flex-start; }
+.principle__icon { width: 36px; height: 36px; flex-shrink: 0; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; background: var(--teal-100); color: var(--teal-600); }
+.principle__title { font-size: var(--text-sm); font-weight: 600; display: block; color: var(--text); }
+.principle__body { font-size: var(--text-sm); color: var(--text-muted); margin-top: 2px; line-height: 1.55; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.team-card { display: flex; flex-direction: column; gap: var(--space-5); }
+.team-card__avatar { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--canvas-alt); color: var(--line); border: 1px solid var(--line); }
+.team-card__name { font-weight: 600; color: var(--text); }
+.team-card__title { font-size: var(--text-sm); color: var(--teal-600); margin-top: 2px; }
+.team-card__bio { font-size: var(--text-sm); color: var(--text-muted); margin-top: var(--space-3); line-height: 1.6; }
+.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-5); }
+.fact { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); border: 1px solid var(--line-dark); border-radius: var(--radius-md); }
+.fact__label { font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--text-on-dark-muted); }
+.fact__value { font-size: var(--text-body); color: var(--text-on-dark); font-weight: 500; }
+@media (max-width: 1024px) {
+  .mission-block { grid-template-columns: 1fr; gap: var(--space-10); }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .facts-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) { .team-grid { grid-template-columns: 1fr; } }
+</style>

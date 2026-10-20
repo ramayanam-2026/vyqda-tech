@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { SEO } from '../../data/seo';
+import { COMPANY } from '../../data/site';
+
+const seo = SEO.contact;
+---
+
+<Base seo={seo}>
+  <section class="page-hero section--alt">
+    <div class="container">
+      <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+      <div class="contact-grid mt-8">
+        <div class="reveal">
+          <span class="eyebrow">Get in Touch</span>
+          <h1 class="heading-h1 mt-4">Request a demo or talk to sales</h1>
+          <p class="body-lg text-muted measure mt-6">
+            See how VYQDA products fit your organisation. A product specialist will reach out within one business day to schedule a personalised walkthrough.
+          </p>
+          <div class="contact-info mt-10">
+            {[
+              { icon: 'mail', label: 'General', value: COMPANY.email.general },
+              { icon: 'users', label: 'Sales', value: COMPANY.email.sales },
+              { icon: 'support', label: 'Support', value: COMPANY.email.support },
+            ].map(c => (
+              <div class="contact-info-item">
+                <div class="contact-info-item__icon"><Icon name={c.icon} size={16} /></div>
+                <div>
+                  <p class="contact-info-item__label">{c.label}</p>
+                  <a href={`mailto:${c.value}`} class="contact-info-item__value">{c.value}</a>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="contact-products mt-10">
+            <p class="contact-products__label">Which product are you interested in?</p>
+            <div class="contact-products__list">
+              {['Timenox', 'Vyfoo', 'Vyqda Retail', 'SHYFT', 'Unsure / General inquiry'].map(p => (
+                <span class="badge badge--neutral">{p}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo request form shell -->
+        <div class="demo-form card reveal" data-delay="100">
+          <h2 class="heading-h3">Request a personalised demo</h2>
+          <p class="text-muted mt-3" style="font-size:var(--text-sm)">
+            Fill in your details and a VYQDA specialist will reach out within one business day to schedule a walkthrough.
+          </p>
+
+          <!-- TODO: Replace with real form integration (HubSpot, Typeform, custom API, etc.) -->
+          <div class="form-placeholder mt-8">
+            <div class="form-field">
+              <label class="form-label" for="contact-name">Full name *</label>
+              <input class="form-input" id="contact-name" type="text" placeholder="Your name" disabled aria-disabled="true" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-email">Work email *</label>
+              <input class="form-input" id="contact-email" type="email" placeholder="you@company.com" disabled aria-disabled="true" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-company">Company name *</label>
+              <input class="form-input" id="contact-company" type="text" placeholder="Your organisation" disabled aria-disabled="true" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-size">Team size</label>
+              <input class="form-input" id="contact-size" type="text" placeholder="e.g. 200–500 employees" disabled aria-disabled="true" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="contact-product">Product interest</label>
+              <input class="form-input" id="contact-product" type="text" placeholder="e.g. Timenox, SHYFT" disabled aria-disabled="true" />
+            </div>
+            <div class="form-todo">
+              <Icon name="zap" size={14} />
+              <span>TODO: Connect form to CRM or form backend. Current state is a visual placeholder.</span>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center" disabled aria-disabled="true">
+              Submit Request (TODO: activate)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+.page-hero { padding-block: clamp(3.5rem, 7vw, 7rem) clamp(5rem, 9vw, 9rem); }
+.contact-grid { display: grid; grid-template-columns: 1fr 500px; gap: var(--space-16); align-items: start; }
+.contact-info { display: flex; flex-direction: column; gap: var(--space-4); }
+.contact-info-item { display: flex; align-items: flex-start; gap: var(--space-4); }
+.contact-info-item__icon { width: 38px; height: 38px; flex-shrink: 0; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; background: var(--teal-100); color: var(--teal-600); }
+.contact-info-item__label { font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--text-muted); }
+.contact-info-item__value { font-size: var(--text-sm); font-weight: 500; color: var(--teal-600); text-decoration: none; }
+.contact-info-item__value:hover { text-decoration: underline; }
+.contact-products__label { font-family: var(--font-mono); font-size: var(--text-eyebrow); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-3); }
+.contact-products__list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.demo-form { padding: var(--space-8); }
+.form-placeholder { display: flex; flex-direction: column; gap: var(--space-5); }
+.form-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.form-label { font-size: var(--text-xs); font-weight: 600; color: var(--text-muted); letter-spacing: 0.02em; }
+.form-input { padding: 0.625rem 0.875rem; border: 1px solid var(--line); border-radius: var(--radius-sm); font-size: var(--text-sm); color: var(--text); background: var(--canvas-alt); min-height: 44px; opacity: 0.5; }
+.form-todo { display: flex; align-items: flex-start; gap: var(--space-2); padding: var(--space-4); background: rgba(59,111,224,0.05); border: 1px dashed rgba(59,111,224,0.2); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 11px; color: var(--blue-500); line-height: 1.5; }
+@media (max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>

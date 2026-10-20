@@ -1,0 +1,127 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import Icon from '../../components/Icon.astro';
+import { SEO } from '../../data/seo';
+import { SOLUTIONS } from '../../data/site';
+
+const seo = SEO.solutions;
+---
+
+<Base seo={seo}>
+  <section class="page-hero section--alt">
+    <div class="container">
+      <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Solutions' }]} />
+      <div class="reveal mt-8">
+        <span class="eyebrow">Solutions</span>
+        <h1 class="heading-h1 mt-4">The right tool for every team</h1>
+        <p class="body-lg text-muted measure mt-6">
+          VYQDA products are purpose-built for the workflows, compliance requirements, and scale demands of enterprise HR, operations, IT, and finance teams. Explore how each team uses the VYQDA platform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- By team -->
+  <section class="section" aria-labelledby="teams-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">By Team</span>
+        <h2 id="teams-heading" class="heading-h2">Built for the people who run operations</h2>
+      </div>
+      <div class="grid-auto-3 mt-12">
+        {[
+          { id: 'hr', icon: 'users', title: 'HR Teams', eyebrow: 'For HR', body: 'Accurate attendance data for payroll, leave management, and workforce compliance. Real-time visibility replaces end-of-day reconciliation. TODO: add verified HR-specific features and outcomes.' },
+          { id: 'ops', icon: 'building', title: 'Operations Teams', eyebrow: 'For Operations', body: 'Live dashboards for site managers. Multi-location visibility without the noise. Exceptions surface automatically so operations teams can act on what matters. TODO: confirm operations-specific capabilities.' },
+          { id: 'it', icon: 'shield', title: 'IT & Security', eyebrow: 'For IT', body: 'REST APIs, webhooks, SSO-ready identity management, and audit logs built in from day one. Integration-first architecture reduces custom build work. TODO: confirm IT integration details.' },
+          { id: 'finance', icon: 'export', title: 'Finance Teams', eyebrow: 'For Finance', body: 'Payroll-ready exports with accurate hour totals, overtime flags, and leave deductions. Audit trails that satisfy internal and external compliance requirements. TODO: confirm finance-specific outputs.' },
+          { id: 'enterprise', icon: 'globe', title: 'Large Enterprise', eyebrow: 'For Enterprise', body: 'Multi-subsidiary, multi-site deployment with centralised governance and local administration. TODO: confirm enterprise-tier features and SLA commitments.' },
+          { id: 'mid-market', icon: 'zap', title: 'Mid-Market', eyebrow: 'For Mid-Market', body: 'Enterprise capabilities without enterprise complexity. Fast implementation and clear onboarding for growing organisations. TODO: confirm mid-market implementation details.' },
+        ].map((s, i) => (
+          <div id={s.id} class="sol-card card reveal" data-delay={i * 70}>
+            <div class="sol-card__icon">
+              <Icon name={s.icon} size={20} />
+            </div>
+            <span class="eyebrow mt-4">{s.eyebrow}</span>
+            <h3 class="heading-h3 mt-2">{s.title}</h3>
+            <p class="text-muted mt-3" style="font-size:var(--text-sm);line-height:1.65">{s.body}</p>
+            <a href="/contact/" class="sol-card__cta mt-6">
+              Talk to sales <Icon name="arrow-right" size={13} />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- By industry -->
+  <section class="section section--alt" aria-labelledby="industry-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">By Industry</span>
+        <h2 id="industry-heading" class="heading-h2">Industries we serve</h2>
+        <p class="body-lg text-muted measure mt-4">
+          TODO: Confirm the specific industries VYQDA actively serves before publishing. The placeholders below represent candidate verticals based on product capabilities.
+        </p>
+      </div>
+      <div class="grid-4 mt-12">
+        {SOLUTIONS.map((s, i) => (
+          <div id={s.slug} class="industry-card card reveal" data-delay={i * 70}>
+            <div class="industry-card__icon">
+              <Icon name={s.icon} size={18} />
+            </div>
+            <h3 class="heading-h4 mt-4">{s.title}</h3>
+            <p class="text-muted mt-3" style="font-size:var(--text-sm);line-height:1.6">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Product linkage -->
+  <section class="section section--ink900" aria-labelledby="prod-link-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow eyebrow--dark">Products</span>
+        <h2 id="prod-link-heading" class="heading-h2 text-on-dark">Solutions powered by the VYQDA ecosystem</h2>
+      </div>
+      <div class="prod-links mt-10">
+        {[
+          { name: 'Timenox', href: '/products/timenox/', desc: 'Employee attendance software — the most proven product in the ecosystem for workforce management use cases.' },
+          { name: 'Vyfoo', href: '/products/vyfoo/', desc: 'TODO: describe how Vyfoo addresses specific solution use cases.' },
+          { name: 'Vyqda Retail', href: '/products/vyqda-retail/', desc: 'TODO: describe how Vyqda Retail addresses retail and distribution use cases.' },
+          { name: 'SHYFT', href: '/products/shyft/', desc: 'TODO: describe how SHYFT addresses specific operational use cases.' },
+        ].map((p, i) => (
+          <a href={p.href} class="prod-link-card reveal" data-delay={i * 60}>
+            <span class="prod-link-card__name">{p.name}</span>
+            <span class="prod-link-card__desc">{p.desc}</span>
+            <span class="prod-link-card__arrow"><Icon name="arrow-right" size={14} /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Find the right solution for your team" subhead="Talk to a VYQDA specialist who can map our products to your specific workflow and operational requirements." />
+</Base>
+
+<style>
+.page-hero { padding-block: clamp(3.5rem, 7vw, 7rem); }
+.sol-card { display: flex; flex-direction: column; }
+.sol-card__icon { width: 44px; height: 44px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; background: var(--teal-100); color: var(--teal-600); }
+.sol-card__cta { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 600; color: var(--teal-600); text-decoration: none; margin-top: auto; transition: gap var(--duration-fast); }
+.sol-card__cta:hover { gap: var(--space-3); }
+.industry-card { display: flex; flex-direction: column; }
+.industry-card__icon { width: 40px; height: 40px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; background: var(--canvas-alt); color: var(--teal-600); border: 1px solid var(--line); }
+.prod-links { display: flex; flex-direction: column; gap: var(--space-2); }
+.prod-link-card { display: flex; align-items: center; gap: var(--space-6); padding: var(--space-5) var(--space-6); background: rgba(255,255,255,0.03); border: 1px solid var(--line-dark); border-radius: var(--radius-md); text-decoration: none; transition: background var(--duration-fast), border-color var(--duration-fast); }
+.prod-link-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(43,184,160,0.25); }
+.prod-link-card__name { font-weight: 600; color: var(--text-on-dark); min-width: 140px; font-size: var(--text-body); }
+.prod-link-card__desc { flex: 1; font-size: var(--text-sm); color: var(--text-on-dark-muted); line-height: 1.5; }
+.prod-link-card__arrow { color: var(--teal-400); flex-shrink: 0; }
+@media (max-width: 768px) {
+  .prod-link-card { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+  .prod-link-card__name { min-width: unset; }
+}
+</style>

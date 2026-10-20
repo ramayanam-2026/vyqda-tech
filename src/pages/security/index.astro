@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import Icon from '../../components/Icon.astro';
+import { SEO } from '../../data/seo';
+
+const seo = SEO.security;
+---
+
+<Base seo={seo}>
+  <section class="page-hero section--alt">
+    <div class="container">
+      <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Security' }]} />
+      <div class="reveal mt-8">
+        <span class="eyebrow">Security & Trust</span>
+        <h1 class="heading-h1 mt-4">Enterprise-grade security, built in from the start</h1>
+        <p class="body-lg text-muted measure mt-6">
+          Security and data integrity are foundational to every VYQDA product — not features added after the fact. This page documents our security approach. Claims marked TODO are pending verification before publishing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="security-approach">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Our Approach</span>
+        <h2 id="security-approach" class="heading-h2">How we protect your data</h2>
+      </div>
+      <div class="grid-auto-3 mt-12">
+        {[
+          { icon: 'lock', title: 'Access Control', body: 'Role-based access control (RBAC) with granular permissions. Administrators control exactly what each role can see and do — by product, site, and data type.' },
+          { icon: 'shield', title: 'Audit Logging', body: 'All data access, changes, and administrative actions are logged with timestamps, user identifiers, and IP addresses. Logs are immutable and exportable.' },
+          { icon: 'globe', title: 'Data Residency', body: 'TODO: Confirm where VYQDA data is stored and whether region-specific residency options are available. Do not publish unverified residency claims.' },
+          { icon: 'layers', title: 'Encryption', body: 'TODO: Confirm encryption standards (at rest, in transit) before publishing. Standard industry practice is AES-256 at rest and TLS 1.2+ in transit.' },
+          { icon: 'check', title: 'Certifications', body: 'TODO: Add verified certifications (ISO 27001, SOC 2 Type II, etc.) once obtained. Do not list certifications that have not been achieved.' },
+          { icon: 'support', title: 'Incident Response', body: 'TODO: Document the incident response process, notification timelines, and customer communication procedures once policy is finalised.' },
+        ].map((f, i) => (
+          <div class="sec-card card reveal" data-delay={i * 70}>
+            <div class="sec-card__icon"><Icon name={f.icon} size={20} /></div>
+            <h3 class="heading-h4 mt-5">{f.title}</h3>
+            <p class="text-muted mt-3" style="font-size:var(--text-sm);line-height:1.65">{f.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="responsible-disclosure">
+    <div class="container">
+      <div class="disclosure-block reveal">
+        <div class="disclosure-block__icon"><Icon name="shield" size={24} /></div>
+        <div>
+          <h2 id="responsible-disclosure" class="heading-h3">Responsible disclosure</h2>
+          <p class="text-muted mt-4 measure" style="line-height:1.75">
+            If you discover a security vulnerability in any VYQDA product, please report it to <a href="mailto:security@vyqda.com" style="color:var(--teal-600)">security@vyqda.com</a> (TODO: verify this address). We are committed to working with security researchers to investigate and remediate confirmed vulnerabilities promptly.
+          </p>
+          <p class="text-muted mt-3 measure" style="font-family:var(--font-mono);font-size:11px;opacity:0.6">
+            TODO: Add a formal responsible disclosure policy document once legal has reviewed it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABand heading="Questions about security?" subhead="Contact the VYQDA security team or request a security briefing as part of your procurement process." primaryLabel="Contact Us" primaryHref="/contact/" secondaryLabel="View Privacy Policy" secondaryHref="/privacy/" />
+</Base>
+
+<style>
+.page-hero { padding-block: clamp(3.5rem, 7vw, 7rem); }
+.sec-card { display: flex; flex-direction: column; }
+.sec-card__icon { width: 44px; height: 44px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; background: var(--teal-100); color: var(--teal-600); }
+.disclosure-block { display: flex; gap: var(--space-6); align-items: flex-start; padding: var(--space-10); background: var(--canvas); border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
+.disclosure-block__icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; background: var(--teal-100); color: var(--teal-600); }
+</style>

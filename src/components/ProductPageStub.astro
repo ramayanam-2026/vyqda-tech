@@ -1,0 +1,143 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import CTABand from './CTABand.astro';
+import Icon from './Icon.astro';
+import type { Product } from '../data/site';
+
+interface Props {
+  product: Product;
+}
+const { product } = Astro.props;
+---
+
+<!-- Hero -->
+<section class="product-hero section--dark">
+  <div class="ph-aurora" aria-hidden="true"></div>
+  <div class="container ph-inner">
+    <div class="ph-copy">
+      <Breadcrumbs crumbs={[
+        { label: 'Home', href: '/' },
+        { label: 'Products', href: '/products/' },
+        { label: product.name },
+      ]} />
+      <div class="reveal mt-6">
+        <span class="badge badge--dark" style="display:inline-flex">{product.eyebrow}</span>
+        <h1 class="heading-h1 text-on-dark mt-5">{product.headline}</h1>
+        <p class="body-lg text-on-dark-muted measure mt-6">{product.subhead}</p>
+        <div class="btn-group mt-10">
+          <a href="/contact/" class="btn btn-primary btn-lg">{product.cta}</a>
+          <a href="/products/" class="btn btn-ghost btn-lg">All Products</a>
+        </div>
+      </div>
+    </div>
+    <!-- Placeholder visual -->
+    <div class="ph-visual reveal" data-delay="160" aria-hidden="true">
+      <div class="ph-visual-block">
+        <div class="ph-visual-icon"><Icon name={product.features[0]?.icon ?? 'layers'} size={36} /></div>
+        <p class="ph-visual-label">{product.name}</p>
+        <p class="ph-visual-note">TODO: Product UI mockup</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Description -->
+<section class="section">
+  <div class="container">
+    <div class="prod-desc reveal">
+      <span class="eyebrow">Overview</span>
+      <h2 class="heading-h2 mt-3">{product.name} — what it does</h2>
+      <p class="body-lg text-muted measure mt-6" style="line-height:1.75">{product.description}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section section--alt" aria-labelledby={`${product.id}-features`}>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Capabilities</span>
+      <h2 id={`${product.id}-features`} class="heading-h2">What {product.name} does</h2>
+    </div>
+    <div class="grid-auto-3 mt-12">
+      {product.features.map((f, i) => (
+        <div class="feat-card card reveal" data-delay={i * 70}>
+          <div class="feat-card__icon">
+            <Icon name={f.icon} size={20} />
+          </div>
+          <h3 class="heading-h4 mt-5">{f.title}</h3>
+          <p class="text-muted mt-3" style="font-size:var(--text-sm);line-height:1.65">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Use cases + audiences -->
+<section class="section" aria-labelledby={`${product.id}-usecases`}>
+  <div class="container">
+    <div class="uc-grid">
+      <div class="reveal">
+        <span class="eyebrow">Use Cases</span>
+        <h2 id={`${product.id}-usecases`} class="heading-h2 mt-3">Who uses {product.name}</h2>
+        <ul class="uc-list mt-8" role="list">
+          {product.useCases.map(u => (
+            <li class="uc-item">
+              <Icon name="check" size={14} class="uc-check" />
+              <span>{u}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal" data-delay="100">
+        <span class="eyebrow">Stakeholders</span>
+        <h3 class="heading-h3 mt-3">Built for these teams</h3>
+        <div class="aud-tags mt-8">
+          {product.audiences.map(a => <span class="badge badge--neutral">{a}</span>)}
+        </div>
+        <div class="platform-callout mt-10">
+          <Icon name="layers" size={16} />
+          <p>
+            {product.name} is built on the <a href="/products/">VYQDA platform</a> — shared identity, APIs, admin console, and enterprise support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<CTABand
+  heading={`See ${product.name} in action`}
+  subhead={`Schedule a personalised demo and explore how ${product.name} fits your organisation.`}
+  primaryLabel={product.cta}
+  secondaryLabel="View All Products"
+  secondaryHref="/products/"
+/>
+
+<style>
+.product-hero { position: relative; overflow: hidden; padding-block: clamp(4rem, 8vw, 8rem); padding-top: calc(var(--header-h) + clamp(3rem, 6vw, 6rem)); }
+.ph-aurora { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 60% 60% at 20% 50%, rgba(15,127,110,0.16) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 80% 40%, rgba(59,111,224,0.08) 0%, transparent 60%); }
+.ph-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 400px; gap: var(--space-12); align-items: center; }
+.ph-copy { display: flex; flex-direction: column; }
+.ph-visual-block { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-4); height: 280px; border: 1px dashed var(--line-dark); border-radius: var(--radius-xl); color: var(--text-on-dark-muted); text-align: center; }
+.ph-visual-icon { width: 64px; height: 64px; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; background: rgba(43,184,160,0.1); color: var(--teal-400); }
+.ph-visual-label { font-size: var(--text-body-lg); font-weight: 600; color: var(--text-on-dark); }
+.ph-visual-note { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.5; }
+
+.prod-desc { max-width: 720px; }
+.feat-card { display: flex; flex-direction: column; }
+.feat-card__icon { width: 44px; height: 44px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; background: var(--teal-100); color: var(--teal-600); }
+
+.uc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: start; }
+.uc-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.uc-item { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-muted); line-height: 1.5; }
+.uc-check { color: var(--teal-600); flex-shrink: 0; margin-top: 2px; }
+.aud-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.platform-callout { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-5); background: var(--canvas-alt); border: 1px solid var(--line); border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--text-muted); line-height: 1.5; }
+.platform-callout a { color: var(--teal-600); text-decoration: underline; text-underline-offset: 2px; }
+
+@media (max-width: 1024px) {
+  .ph-inner { grid-template-columns: 1fr; }
+  .uc-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+}
+</style>

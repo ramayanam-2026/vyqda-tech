@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { SEO } from '../../data/seo';
+const seo = SEO.privacy;
+---
+<Base seo={seo}>
+  <section class="section">
+    <div class="container" style="max-width:720px">
+      <Breadcrumbs crumbs={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]} />
+      <div class="reveal mt-8">
+        <h1 class="heading-h2 mt-4">Privacy Policy</h1>
+        <div class="legal-todo">
+          <p><strong>TODO — Legal review required</strong></p>
+          <p>This page is a structural placeholder. A legally reviewed and accurate privacy policy must be added before this site goes live. Do not publish invented or copied legal text.</p>
+          <p>The privacy policy should cover: data collected, how it is used, how it is shared, data residency, retention periods, user rights (access, correction, deletion), contact details for privacy inquiries, and the policy effective date.</p>
+          <p>Contact: <a href="mailto:legal@vyqda.com">legal@vyqda.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+.legal-todo { margin-top: var(--space-8); padding: var(--space-8); background: var(--canvas-alt); border: 1px dashed var(--line); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-4); font-size: var(--text-sm); color: var(--text-muted); line-height: 1.7; }
+</style>
