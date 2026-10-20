@@ -1,0 +1,64 @@
+/* Shared page system: keep the VYQDA ivory, orange and navy identity, with stronger readability. */
+:root{font-size:16px;--body-size:16px;--body-line:1.72}
+html{scroll-padding-top:88px}
+body{font-family:'DM Sans',Arial,sans-serif;font-size:16px;line-height:1.7;color:#25283a}
+p,li{font-size:16px;line-height:1.75}
+h1,h2,h3,h4{color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(2.65rem,5vw,4.5rem);line-height:1.08;letter-spacing:-.035em}
+h2{font-size:clamp(2rem,3.5vw,3.25rem);line-height:1.15;letter-spacing:-.028em}
+h3{font-size:1.25rem;line-height:1.3}
+a,button{transition:color .18s ease,background-color .18s ease,border-color .18s ease,transform .18s ease}
+.brand__logo{display:block;width:174px;max-width:100%;height:42px;object-fit:contain;object-position:left center}
+.footer-brand .brand__logo{width:180px;height:44px}
+.nav__link{font-size:13px;line-height:1.4;font-weight:600;padding:10px 0}
+.nav__link.is-active{color:var(--orange)}
+.contact{font-size:14px}
+.site-footer p,.site-footer a{font-size:14px;line-height:1.65}
+.footer-column h2{font-family:'DM Sans',Arial,sans-serif;font-size:14px;font-weight:700;letter-spacing:.01em}
+.page-hero{position:relative;overflow:hidden;padding:90px 0 76px;background:radial-gradient(ellipse at 85% 20%,rgba(255,220,194,.38),transparent 42%),linear-gradient(135deg,#fffaf6,#fffdfb 62%,#fff4e9);border-bottom:1px solid #f0e3d8}
+.page-hero:after{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(243,109,44,.18);border-radius:50%;right:-145px;top:-205px;box-shadow:0 0 0 50px rgba(243,109,44,.025),0 0 0 100px rgba(243,109,44,.02);pointer-events:none}
+.page-hero__inner{position:relative;z-index:1;max-width:900px}
+.page-eyebrow,.section-kicker{font-family:'DM Sans',Arial,sans-serif;font-size:12px;line-height:1.5;letter-spacing:.14em;font-weight:700;color:#b85225;text-transform:uppercase}
+.page-hero h1{max-width:850px;margin:16px 0 20px;font-family:'DM Sans',Arial,sans-serif;font-weight:700;letter-spacing:-.055em}
+.page-hero h1 em{font-style:normal;color:var(--orange)}
+.page-hero__lead{max-width:760px;margin:0;color:#555969;font-size:19px;line-height:1.75}
+.page-hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.content-section{padding:76px 0}
+.content-section--tint{background:#fff5ed;border-block:1px solid #f1e2d6}
+.section-heading-page{max-width:780px;margin-bottom:32px}
+.section-heading-page h2{font-family:'DM Sans',Arial,sans-serif;font-weight:700;margin:10px 0 14px}
+.section-heading-page>p{color:#5d606d;margin:0}
+.page-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.page-card{height:100%;padding:26px;border:1px solid #eaded4;border-radius:16px;background:rgba(255,255,255,.78);box-shadow:0 8px 24px rgba(44,31,20,.035)}
+.page-card__number{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;background:#fff0e5;color:#c65422;font-weight:700;font-size:13px}
+.page-card h3{font-family:'DM Sans',Arial,sans-serif;margin:20px 0 9px;font-weight:700}
+.page-card p{margin:0;color:#5b5e6c;font-size:15px;line-height:1.75}
+.page-card a,.page-text-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:#c65422;font-size:14px;font-weight:700}
+.page-card:hover{border-color:#e9b394;transform:translateY(-2px)}
+.page-split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
+.page-split h2{font-family:'DM Sans',Arial,sans-serif;font-weight:700;margin:12px 0 18px}
+.page-split p{color:#555969}
+.page-list{list-style:none;padding:0;margin:0;border-top:1px solid #e8dcd2}
+.page-list li{padding:18px 0;border-bottom:1px solid #e8dcd2;display:grid;grid-template-columns:44px 1fr;gap:12px}
+.page-list li>span{font-size:13px;font-weight:700;color:var(--orange);padding-top:3px}
+.page-list strong{display:block;font-size:17px;line-height:1.4;color:var(--ink)}
+.page-list p{margin:5px 0 0;font-size:15px}
+.page-cta{padding:38px;border-radius:20px;background:#11172d;color:#fffaf6;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.page-cta h2{color:#fffaf6;font-family:'DM Sans',Arial,sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);margin:0 0 10px}
+.page-cta p{color:#d2d3dc;margin:0;max-width:670px}
+.page-cta .button{flex-shrink:0}
+.breadcrumbs{display:flex;gap:9px;flex-wrap:wrap;font-size:13px;color:#71727c;margin-bottom:22px}
+.breadcrumbs a{color:#b85225}
+.faq-page-list{max-width:920px;border-top:1px solid #e8dcd2}
+.faq-page-list details{border-bottom:1px solid #e8dcd2;padding:21px 0}
+.faq-page-list summary{font-size:18px;font-weight:700;line-height:1.5;cursor:pointer;color:var(--ink)}
+.faq-page-list details p{max-width:800px;color:#555969;margin:12px 0 0}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.contact-method{padding:28px;border:1px solid #eaded4;border-radius:16px;background:white}
+.contact-method h3{margin:0 0 8px;font-family:'DM Sans',Arial,sans-serif}
+.contact-method p{margin:0;color:#5b5e6c}
+.contact-method a{display:inline-block;margin-top:14px;color:#c65422;font-weight:700}
+.form-note{font-size:13px!important;color:#747582!important;margin-top:14px!important}
+@media(max-width:1050px){.topbar__inner{grid-template-columns:180px 1fr auto;gap:12px}.nav{gap:14px}.nav__link{font-size:12px}.topbar__actions{gap:10px}.page-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.topbar__inner{grid-template-columns:1fr auto}.nav{display:none}.topbar__actions .contact{height:40px;padding:0 16px}.menu-toggle{display:block}.page-hero{padding:70px 0 60px}.page-split{grid-template-columns:1fr;gap:28px}.content-section{padding:60px 0}.page-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:600px){body{font-size:16px}.wrap{width:calc(100% - 32px)}.brand__logo{width:150px;height:38px}.footer-brand .brand__logo{width:165px;height:40px}.page-hero{padding:54px 0 48px}.page-hero h1{font-size:clamp(2.35rem,11vw,3.4rem)}.page-hero__lead{font-size:17px;line-height:1.7}.page-grid,.contact-grid{grid-template-columns:1fr}.page-card{padding:23px}.content-section{padding:48px 0}.page-cta{padding:26px 22px}.page-cta .button{width:100%}.faq-page-list summary{font-size:17px}.footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}}
