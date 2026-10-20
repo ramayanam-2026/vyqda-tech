@@ -1,0 +1,142 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const markets = {
+  'united-states': {
+    name: 'United States', short: 'US', title: 'Software Development Company for US Businesses | VYQDA',
+    description: 'Explore custom software development, SaaS product engineering and business automation support for organisations in the United States.',
+    intro: 'Practical software engineering for US business teams',
+    lead: 'VYQDA works with organisations that need software shaped around a real business workflow—not a generic feature list. For US teams evaluating a development partner, the starting point is understanding the users, operating context, existing systems and outcome the software must support.',
+    context: 'US organisations may be evaluating a new digital product, replacing manual work, connecting business systems or extending an application that already supports customers and staff. Each situation calls for a different delivery plan. A focused internal tool may need a narrow first release; a customer-facing product may require more attention to onboarding, accessibility, security review and ongoing product iteration.',
+    considerations: ['Define the business outcome and how the team will recognise progress.', 'Identify the people who will use and administer the software, including their different permissions.', 'Document existing systems, data ownership, integration constraints and migration needs.', 'Agree on scope, review cadence, acceptance criteria and who makes product decisions.', 'Discuss privacy, security, accessibility and contractual requirements with the appropriate advisers.'],
+    useCases: ['Building an MVP to validate a product or business model.', 'Modernising a legacy workflow that has become difficult to maintain.', 'Creating internal dashboards, portals or operational applications.', 'Automating repeatable work across teams and existing tools.', 'Maintaining and improving a product after its initial release.'],
+    delivery: 'A useful engagement begins with discovery and prioritisation. The team clarifies the users and workflow, separates essential requirements from later improvements, identifies technical risks, and agrees on a realistic first milestone. Implementation then proceeds through reviewable increments, with testing and documentation considered throughout rather than postponed until launch.',
+    questions: [
+      ['Can VYQDA build software for a US business?', 'VYQDA can discuss custom software, web and mobile applications, SaaS product development, automation and ongoing engineering needs. Scope, working arrangements and delivery expectations should be confirmed for each engagement.'],
+      ['Can an existing application be improved instead of replaced?', 'Often the first step is to assess the current application, user pain points, dependencies and maintenance risks. A targeted improvement may be more appropriate than a complete rebuild.'],
+      ['How should a project estimate be prepared?', 'Share the intended outcome, users, core workflows, existing systems, must-have requirements and constraints. Estimates become more useful when unknowns and assumptions are made explicit.'],
+      ['Does VYQDA provide ongoing support?', 'Maintenance and continued development can be discussed as part of the engagement. Response commitments, availability and support scope must be agreed rather than assumed.']
+    ]
+  },
+  'saudi-arabia': {
+    name: 'Saudi Arabia', short: 'Saudi Arabia', title: 'Software Development Company for Saudi Arabia | VYQDA',
+    description: 'Custom software development, business applications and product engineering for organisations evaluating technology partners in Saudi Arabia.',
+    intro: 'Software shaped around business operations in Saudi Arabia',
+    lead: 'Businesses in Saudi Arabia may need to digitise operational processes, connect teams across locations or develop a software product for a specific market. VYQDA approaches these needs by first understanding the workflow, the people involved and the constraints that will shape a useful solution.',
+    context: 'A software initiative may involve head-office processes, retail locations, field teams, customer journeys or a new digital product. Before selecting a technology stack, organisations should map the current process, clarify who owns the data and identify the systems that must continue to operate. Requirements around Arabic-language experiences, local hosting, privacy, procurement and sector-specific regulation should be raised early and validated with qualified local advisers.',
+    considerations: ['Confirm language needs, including whether Arabic and right-to-left layouts are required.', 'Identify data residency, privacy, cybersecurity and sector requirements with local specialists.', 'Map branches, field activity, approvals and roles before defining screens.', 'Confirm integrations with existing finance, sales, HR or operational systems.', 'Agree on project governance, stakeholder reviews, acceptance and post-launch ownership.'],
+    useCases: ['Internal business applications for multi-team operations.', 'Workflow automation for approvals, requests and routine administration.', 'Customer or partner portals aligned to a defined service process.', 'SaaS product development and MVP delivery.', 'Modernisation and maintenance of existing software.'],
+    delivery: 'Start with a structured requirements conversation and a written scope. Where local compliance, hosting or language decisions affect the architecture, treat them as explicit discovery items. Prioritise a deliverable first phase, test with representative users and plan operational ownership before release.',
+    questions: [
+      ['Can software support Arabic and English?', 'Language and right-to-left interface requirements can be scoped where needed. The exact user experience, translations and content ownership should be defined and reviewed with the client.'],
+      ['Can VYQDA confirm Saudi regulatory compliance by default?', 'No blanket compliance claim should be assumed. Applicable requirements depend on the organisation, sector, data and deployment model, and must be confirmed with qualified local advisers.'],
+      ['What should be included in an initial brief?', 'Describe the business problem, users, workflow, existing systems, required integrations, data constraints, language needs and desired first milestone.'],
+      ['Can VYQDA maintain software after launch?', 'Ongoing maintenance and development can be discussed. Service scope, support hours, response commitments and operational responsibilities need explicit agreement.']
+    ]
+  },
+  'oman': {
+    name: 'Oman', short: 'Oman', title: 'Software Development Company for Oman | VYQDA',
+    description: 'Explore custom software development, business automation and application engineering for organisations in Oman.',
+    intro: 'Useful business software for teams in Oman',
+    lead: 'When a business in Oman considers new software, the best starting point is the work that needs to improve. VYQDA helps frame software projects around users, processes, data and delivery constraints so that the solution has a clear purpose beyond simply replacing paper with screens.',
+    context: 'Organisations may be looking to coordinate branch operations, standardise recurring administration, improve visibility across a workflow or develop a new digital service. The right approach depends on existing tools, connectivity, user roles, reporting requirements and the organisation’s ability to maintain the solution after release. Hosting, privacy, sector rules and local procurement needs should be checked during discovery rather than left as late-stage assumptions.',
+    considerations: ['Describe the current process and where delays or errors occur.', 'Identify users across offices, branches, sites or field environments.', 'Confirm language, connectivity, device and accessibility considerations.', 'List the systems and records the application needs to work with.', 'Discuss data handling, hosting and applicable local obligations with relevant advisers.'],
+    useCases: ['Custom business applications that reflect a defined internal workflow.', 'Digitising requests, approvals and operational records.', 'Web and mobile application development for a new service.', 'Automation to reduce repetitive manual administration.', 'Maintenance, improvements and integration work for existing applications.'],
+    delivery: 'A well-scoped project identifies the minimum useful release, the people who will validate it and the conditions required for adoption. VYQDA can help turn that brief into prioritised requirements, an implementation plan and reviewable delivery milestones. Testing, documentation and ownership are part of the plan, not optional extras after launch.',
+    questions: [
+      ['What kinds of software projects can be discussed?', 'Custom applications, SaaS products, web and mobile development, business automation, operational software and ongoing maintenance are relevant starting points for a scoping conversation.'],
+      ['Can software be tailored to our existing process?', 'Yes, the process should be understood first. The team can then evaluate whether configuration, integration or custom development is the most sensible approach.'],
+      ['How do we handle local data requirements?', 'Identify the data categories, users, deployment preferences and applicable rules, then validate obligations with qualified local advisers before architecture decisions are finalised.'],
+      ['What helps keep a project on track?', 'A clear owner, prioritised requirements, timely feedback, agreed acceptance criteria and a realistic first release reduce avoidable uncertainty.']
+    ]
+  },
+  'qatar': {
+    name: 'Qatar', short: 'Qatar', title: 'Software Development Company for Qatar | VYQDA',
+    description: 'Custom software, SaaS engineering and operational automation for businesses evaluating technology development in Qatar.',
+    intro: 'Software development aligned to the way your organisation operates in Qatar',
+    lead: 'A successful software project should improve a defined business process, help users complete work reliably or create a product customers can understand. VYQDA works from those outcomes to scope practical engineering work for organisations evaluating software development in Qatar.',
+    context: 'Projects can range from a focused internal workflow to a new SaaS product or a modernisation effort across existing systems. Teams should clarify whether the priority is speed, integration, user experience, reporting, maintainability or a combination of needs. Organisations should also identify applicable privacy, hosting, procurement and sector requirements early, particularly when the software handles sensitive or regulated information.',
+    considerations: ['Agree on the business outcome, project owner and intended users.', 'Map approvals, hand-offs, exceptions and reporting requirements.', 'Identify integration points, legacy dependencies and data migration needs.', 'Review language, accessibility, security and hosting requirements.', 'Plan user acceptance, staff onboarding and ongoing maintenance.'],
+    useCases: ['Business portals and internal applications.', 'Operational workflow digitisation and approval processes.', 'Web and mobile products for customers or staff.', 'SaaS product design, MVP engineering and iteration.', 'Ongoing support for applications that need continuous improvement.'],
+    delivery: 'Begin with discovery to clarify goals and constraints. Translate the findings into a prioritised scope, identify the riskiest assumptions and decide what should be tested early. During implementation, maintain clear communication, review working software regularly and define how quality and acceptance will be assessed.',
+    questions: [
+      ['Can VYQDA develop a new software product?', 'Product engineering and SaaS development can be scoped around target users, the core value proposition, essential workflows and a realistic first release.'],
+      ['What if we already use several business systems?', 'Document which system owns each important record, how information moves between tools and where duplication occurs. This helps assess integration options before development begins.'],
+      ['Can you advise on Qatar-specific compliance?', 'Applicable requirements depend on the data, sector and deployment. These should be reviewed with qualified local advisers; a generic software proposal should not be treated as a compliance certification.'],
+      ['Is post-launch development possible?', 'Maintenance and ongoing improvements can be included in an agreed engagement with defined responsibilities and support expectations.']
+    ]
+  },
+  'uae': {
+    name: 'United Arab Emirates', short: 'UAE', title: 'Software Development Company in the UAE | VYQDA',
+    description: 'Custom software development, SaaS product engineering and business automation for organisations across the United Arab Emirates.',
+    intro: 'A practical software development partner for UAE businesses',
+    lead: 'Organisations across the United Arab Emirates operate in varied sectors and business environments. Some need to streamline internal processes; others want to launch a digital product, improve customer journeys or connect information across teams. VYQDA starts by understanding the business need and the conditions a solution must meet.',
+    context: 'A UAE project may span multiple branches, business units, customer groups or operational locations. Requirements can include multilingual experiences, third-party integrations, role-based access, reporting and coordination between office-based and field teams. Hosting, privacy, industry regulation and data-location requirements differ by context, so these must be established for the particular organisation instead of assumed from its country alone.',
+    considerations: ['Define the target users, operating locations and most important workflow.', 'Confirm whether Arabic, English or other languages are needed.', 'Identify integrations, data ownership, permissions and reporting expectations.', 'Review applicable UAE and sector-specific privacy, hosting and regulatory obligations.', 'Agree on project governance, acceptance, training and post-launch support.'],
+    useCases: ['Custom business applications and internal portals.', 'Workflow automation across departments and locations.', 'Web and mobile applications for customers, partners or staff.', 'SaaS product development and MVP engineering.', 'Maintenance and integration of existing systems.'],
+    delivery: 'A focused discovery phase can establish the problem, user journeys, integrations, constraints and definition of done. From there, the work can be divided into reviewable milestones with explicit assumptions and acceptance criteria. A rollout plan should include user feedback, documentation, monitoring responsibilities and a route for future improvements.',
+    questions: [
+      ['Does VYQDA have a UAE office?', 'This page does not claim a UAE office or local establishment. Working arrangements, availability and contractual details should be confirmed directly before engagement.'],
+      ['Can software support Arabic and English?', 'Multilingual requirements can be scoped, including right-to-left layout where appropriate. Content, translation quality and user testing should be planned explicitly.'],
+      ['Can you guarantee UAE regulatory compliance?', 'No blanket guarantee is appropriate. Requirements depend on the business, sector, data and deployment; validate them with qualified advisers and document them in the project scope.'],
+      ['What services can UAE businesses discuss with VYQDA?', 'Relevant topics include custom software, SaaS product engineering, web and mobile applications, business automation, operational tools and ongoing maintenance.']
+    ]
+  },
+  'singapore': {
+    name: 'Singapore', short: 'Singapore', title: 'Software Development Company for Singapore | VYQDA',
+    description: 'Custom software development, SaaS engineering and business process automation for organisations in Singapore.',
+    intro: 'Thoughtful software engineering for Singapore businesses',
+    lead: 'For businesses in Singapore, software investment often needs to fit into a wider operating environment of customers, partners, internal teams and existing systems. VYQDA approaches development by clarifying the desired business outcome, the user experience and the technical constraints before deciding what should be built.',
+    context: 'A project may involve launching a digital product, improving an internal process, integrating business applications or maintaining a growing software platform. Teams benefit from clear requirements, transparent delivery decisions and a plan for operating the software after launch. Privacy, cybersecurity, accessibility, data retention and industry-specific requirements should be identified early and validated against the organisation’s actual obligations.',
+    considerations: ['Define the users, business outcome and measures of acceptance.', 'Map existing applications, APIs, data sources and ownership boundaries.', 'Prioritise core workflows before adding secondary features.', 'Review privacy, security, accessibility and relevant sector requirements.', 'Plan for testing, documentation, deployment and future maintenance.'],
+    useCases: ['SaaS product development and MVP validation.', 'Internal applications and customer or partner portals.', 'Business process automation and system integration.', 'Web and mobile experiences for defined user journeys.', 'Ongoing engineering for products that need iteration.'],
+    delivery: 'A good engagement begins with a clear brief and an honest assessment of unknowns. Discovery helps identify essential functionality, integration risks and acceptance criteria. Delivery then proceeds in manageable increments, with regular reviews and testing. Before launch, the team should agree on ownership, documentation, issue handling and the next improvement priorities.',
+    questions: [
+      ['Can VYQDA help with a SaaS MVP?', 'A useful MVP scope identifies a specific user group, the problem being solved, the minimum workflow needed to test value and what evidence will guide the next iteration.'],
+      ['Can you integrate existing systems?', 'Integration can be evaluated after documenting system ownership, available interfaces, data quality, permissions and failure-handling needs.'],
+      ['How should privacy and security be handled?', 'Requirements should be established from the data and context involved, then incorporated into design, access control, testing and operational procedures. Obtain specialist advice where needed.'],
+      ['Can VYQDA continue developing a product after launch?', 'Ongoing development and maintenance can be discussed with agreed priorities, responsibilities and support expectations.']
+    ]
+  }
+};
+export function getStaticPaths() {
+  return Object.entries(markets).map(([country, data]) => ({
+    params: { country },
+    props: { data, country }
+  }));
+}
+const { data, country } = Astro.props;
+const canonical = `https://vyqda.com/software-development-company/${country}/`;
+---
+<SiteLayout title={data.title} description={data.description} canonical={canonical} active="services">
+  <section class="page-hero wrap">
+    <p class="eyebrow">SOFTWARE DEVELOPMENT · {data.name.toUpperCase()}</p>
+    <h1>{data.intro}</h1>
+    <p class="page-hero__lead">{data.lead}</p>
+    <div class="page-hero__actions"><a class="button button--primary" href="/contact/#project-enquiry">Discuss your project <span aria-hidden="true">↗</span></a><a class="text-link" href="/services/">Explore our services</a></div>
+  </section>
+  <section class="content-section wrap">
+    <div class="content-section__intro"><p class="eyebrow">START WITH THE BUSINESS CONTEXT</p><h2>Choose an approach that fits the work</h2><p>{data.context}</p></div>
+    <div class="content-grid content-grid--two">
+      {data.useCases.map((item, index) => <article class="content-card"><span class="content-card__index">0{index + 1}</span><h3>{item}</h3><p>Start by identifying the people involved, the current process, the systems that support it and what a successful improvement should look like. That context helps determine whether a focused change, integration or custom application is appropriate.</p></article>)}
+    </div>
+  </section>
+  <section class="content-section content-section--tint">
+    <div class="wrap content-section__split"><div><p class="eyebrow">PLAN BEFORE BUILDING</p><h2>Questions worth resolving early</h2></div><ul class="check-list">{data.considerations.map(item => <li>{item}</li>)}</ul></div>
+  </section>
+  <section class="content-section wrap">
+    <div class="content-section__intro"><p class="eyebrow">A CLEAR DELIVERY PATH</p><h2>From discovery to ongoing improvement</h2><p>{data.delivery}</p></div>
+    <div class="process-steps">
+      <article><span>01</span><h3>Understand</h3><p>Clarify the business outcome, users, workflow and existing constraints.</p></article>
+      <article><span>02</span><h3>Prioritise</h3><p>Separate essential requirements from assumptions and later enhancements.</p></article>
+      <article><span>03</span><h3>Build and review</h3><p>Develop in increments, test the important journeys and review working software.</p></article>
+      <article><span>04</span><h3>Support</h3><p>Agree on documentation, ownership, maintenance and future improvements.</p></article>
+    </div>
+  </section>
+  <section class="content-section content-section--tint">
+    <div class="wrap"><div class="content-section__intro"><p class="eyebrow">COMMON QUESTIONS</p><h2>Software development in {data.name}</h2></div>
+      <div class="faq-list">{data.questions.map(([question, answer]) => <details class="faq-item"><summary>{question}</summary><p>{answer}</p></details>)}</div>
+    </div>
+  </section>
+  <section class="closing-cta wrap"><div><p class="eyebrow">START A CONVERSATION</p><h2>Have a specific software requirement?</h2><p>Share the workflow, intended users, existing systems and the outcome you need. We can use that information to discuss scope and fit.</p></div><a class="button button--primary" href="/contact/#project-enquiry">Talk through your requirements <span aria-hidden="true">↗</span></a></section>
+</SiteLayout>
