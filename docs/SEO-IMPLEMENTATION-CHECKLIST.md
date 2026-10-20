@@ -88,3 +88,11 @@ Status key:
 - Do not invent keyword volumes, rankings, client proof, performance metrics or product capabilities.
 - Do not mark a check complete without source or test evidence.
 - Do not deploy/promote production or change DNS without explicit approval.
+
+
+### 2026-10-21 — Stage 2: Service-page conversion content
+- Added a practical project-brief section to `src/pages/services/index.astro` covering business outcomes, users/workflows, systems/data and scope/constraints.
+- Intent: improve usefulness for commercial visitors and help qualify enquiries without unsupported performance claims or keyword stuffing.
+- Competitor research reviewed: custom software service pages commonly describe capabilities, process, scope and support; VYQDA should differentiate through clear project planning and accountable delivery rather than unverified client counts or certifications.
+- Source-level placement check: [x] section inserted before existing Service JSON-LD; [ ] Astro build and rendered-layout check pending.
+- Google Search Console and analytics data: not available for this new site; no historical-performance conclusions made.
