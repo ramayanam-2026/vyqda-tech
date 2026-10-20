@@ -4,11 +4,12 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 <SiteLayout title="Contact VYQDA | Software Development & Product Enquiries" description="Contact VYQDA Technologies about custom software development, product enquiries, business automation or ongoing application support." canonical="https://vyqda.com/contact/" active="contact">
 <section class="page-hero"><div class="wrap page-hero__inner"><p class="page-eyebrow">CONTACT VYQDA</p><h1>Tell us what you are trying to <em>make better.</em></h1><p class="page-hero__lead">Share the business problem, intended users, current workflow and outcome you want. You do not need a finished specification to start a useful conversation.</p><div class="page-hero__actions"><a class="button button--primary" href="#project-enquiry">Send a project enquiry <span aria-hidden="true">↘</span></a><a class="button button--secondary" href="/products/">Explore Products</a></div></div></section>
 <section class="content-section" id="project-enquiry"><div class="wrap contact-form-layout"><div><p class="section-kicker">START A CONVERSATION</p><h2>What would you like to solve?</h2><p>Use the form to describe your project or product question. Share only information relevant to the enquiry; do not include passwords, payment card details or other sensitive credentials.</p><div class="contact-form-aside"><h3>Helpful details to include</h3><ul><li>The business problem or workflow</li><li>Who will use the solution</li><li>Any current software or systems involved</li><li>Must-have requirements and constraints</li><li>Your preferred timeline, if known</li></ul><p>Prefer email? <a href="mailto:contact@vyqda.com?subject=VYQDA%20project%20enquiry">contact@vyqda.com</a></p></div></div>
-<form class="project-enquiry-form" action="https://automation.vyqda.com/webhook/7ddeb776-bb4a-40d3-bf56-78276adde64f" method="POST">
+<form class="project-enquiry-form" id="project-enquiry-form" action="https://automation.vyqda.com/webhook/7ddeb776-bb4a-40d3-bf56-78276adde64f" method="POST">
 <input type="hidden" name="source" value="vyqda.com/contact/">
 <input type="hidden" name="form_name" value="VYQDA website project enquiry">
 <div class="form-field"><label for="contact-name">Your name <span aria-hidden="true">*</span></label><input id="contact-name" name="name" autocomplete="name" required maxlength="120"></div>
 <div class="form-field"><label for="contact-email">Work email <span aria-hidden="true">*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+<div class="form-field"><label for="contact-phone">Phone / WhatsApp number <span aria-hidden="true">*</span></label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required minlength="7" maxlength="25" pattern="[+0-9() .-]{7,25}" placeholder="+91 98765 43210" aria-describedby="contact-phone-hint"><p class="form-field__hint" id="contact-phone-hint">Include your country code so we can reach you on WhatsApp. We’ll use this number only to respond to your enquiry.</p></div>
 <div class="form-field"><label for="contact-company">Company or organisation</label><input id="contact-company" name="company" autocomplete="organization" maxlength="160"></div>
 <div class="form-field"><label for="contact-interest">What is this about? <span aria-hidden="true">*</span></label><select id="contact-interest" name="enquiry_type" required><option value="">Choose an enquiry type</option><option>Custom software development</option><option>SaaS or product engineering</option><option>VYQDA software product</option><option>Business automation or integration</option><option>Existing application support</option><option>Other</option></select></div>
 <div class="form-field"><label for="contact-product">Product (if applicable)</label><select id="contact-product" name="product"><option value="">Not applicable / not sure</option><option>Timenox</option><option>Timenox 360</option><option>Vyfoo Restaurant POS</option><option>VYQDA Retail</option><option>SHYFT Box Finder</option></select></div>
@@ -16,8 +17,69 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 <div class="form-field"><div class="h-captcha" data-sitekey="b4e40694-7172-48aa-bc10-fdc8d360788c"></div></div>
 <p class="form-privacy">By submitting this form, you are asking VYQDA to respond to your enquiry. Do not include sensitive personal data or credentials.</p>
 <button class="button button--primary form-submit" type="submit">Submit enquiry <span aria-hidden="true">↗</span></button>
-<p class="form-note">If submission fails, email <a href="mailto:contact@vyqda.com">contact@vyqda.com</a>.</p>
+<p class="form-note" id="form-status" role="status" aria-live="polite">If submission fails, email <a href="mailto:contact@vyqda.com">contact@vyqda.com</a>.</p>
+<div class="form-success" id="form-success" role="status" aria-live="polite" tabindex="-1" hidden>
+  <div class="form-success__mark" aria-hidden="true">✓</div>
+  <h3>Thank you for contacting VYQDA.</h3>
+  <p>Your enquiry has been sent successfully. Our team will review your details and get in touch using the contact information you provided.</p>
+  <button type="button" class="button button--secondary" id="send-another-enquiry">Send another enquiry</button>
+</div>
 </form></div></section>
 <section class="content-section content-section--tint"><div class="wrap"><div class="section-heading-page"><p class="section-kicker">WHAT HAPPENS NEXT</p><h2>A practical conversation about fit and scope.</h2><p>We can clarify the business need, consider whether an existing product or a tailored solution is the better fit, and identify the information needed for a sensible next step.</p></div><div class="page-grid"><article class="page-card"><span class="page-card__number">01</span><h3>Understand the need</h3><p>Clarify the workflow, users and outcome you want.</p></article><article class="page-card"><span class="page-card__number">02</span><h3>Consider options</h3><p>Assess a product, integration, custom build or phased approach.</p></article><article class="page-card"><span class="page-card__number">03</span><h3>Define the next step</h3><p>Identify the scope and constraints that need to be understood before commitments are made.</p></article></div></div></section>
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script>
+  const enquiryForm = document.getElementById('project-enquiry-form');
+  const formStatus = document.getElementById('form-status');
+  const formSuccess = document.getElementById('form-success');
+  const submitButton = enquiryForm?.querySelector('button[type="submit"]');
+  const initialButtonText = submitButton?.innerHTML ?? 'Submit enquiry';
+
+  enquiryForm?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!enquiryForm.reportValidity()) return;
+
+    if (typeof window.hcaptcha !== 'undefined') {
+      const captchaResponse = enquiryForm.querySelector('[name="h-captcha-response"]');
+      if (!captchaResponse?.value) {
+        formStatus.textContent = 'Please complete the hCaptcha check before submitting.';
+        return;
+      }
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending enquiry…';
+    formStatus.textContent = 'Sending your enquiry securely. Please wait.';
+
+    try {
+      const response = await fetch(enquiryForm.action, {
+        method: 'POST',
+        body: new FormData(enquiryForm),
+        headers: { Accept: 'application/json, text/plain, */*' },
+        mode: 'cors'
+      });
+      if (!response.ok) throw new Error('The enquiry endpoint returned an error.');
+      enquiryForm.reset();
+      if (window.hcaptcha && typeof window.hcaptcha.reset === 'function') window.hcaptcha.reset();
+      Array.from(enquiryForm.children).forEach((element) => {
+        if (!element.classList.contains('form-success')) element.hidden = true;
+      });
+      formSuccess.hidden = false;
+      formStatus.textContent = '';
+      formSuccess.focus();
+    } catch (error) {
+      formStatus.textContent = 'We could not confirm that your enquiry was sent. Please try again, or email contact@vyqda.com. If this keeps happening, the form endpoint may need to allow browser requests from vyqda.com.';
+      submitButton.disabled = false;
+      submitButton.innerHTML = initialButtonText;
+    }
+  });
+
+  document.getElementById('send-another-enquiry')?.addEventListener('click', () => {
+    formSuccess.hidden = true;
+    Array.from(enquiryForm.children).forEach((element) => { element.hidden = false; });
+    submitButton.disabled = false;
+    submitButton.innerHTML = initialButtonText;
+    formStatus.textContent = '';
+    enquiryForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
 </SiteLayout>
