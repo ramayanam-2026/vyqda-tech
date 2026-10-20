@@ -26,7 +26,18 @@ const products = [
   <meta property="og:title" content="VYQDA Technologies | Technology that helps businesses do more" />
   <meta property="og:description" content="Software products, custom development and long-term technology partnership." />
   <meta property="og:url" content="https://vyqda.com/" />
-  <script type="application/ld+json">{JSON.stringify({ '@context':'https://schema.org', '@type':'Organization', name:'VYQDA Technologies Pvt. Ltd.', url:'https://vyqda.com', description:'Software products, custom software development, business automation, and long-term technology solutions for businesses.', email:'hello@vyqda.com', areaServed:['India','United States','United Arab Emirates','Australia'], knowsAbout:['Custom Software Development','SaaS Product Development','Web Application Development','Mobile Application Development','Business Process Automation','Workforce Management Software','Restaurant POS Software','Retail Billing Software'] })}</script>
+  <script type="application/ld+json">{JSON.stringify({ '@context':'https://schema.org', '@graph':[
+    { '@type':'Organization', '@id':'https://vyqda.com/#organization', name:'VYQDA Technologies Pvt. Ltd.', url:'https://vyqda.com/', description:'Software products, custom software development, business automation, and long-term technology solutions for businesses.', areaServed:['India','United States','United Arab Emirates','Australia'], knowsAbout:['Custom Software Development','SaaS Product Development','Web Application Development','Mobile Application Development','Business Process Automation','Workforce Management Software','Restaurant POS Software','Retail Billing Software'] },
+    { '@type':'WebSite', '@id':'https://vyqda.com/#website', url:'https://vyqda.com/', name:'VYQDA Technologies', publisher:{'@id':'https://vyqda.com/#organization'}, inLanguage:'en' },
+    { '@type':'FAQPage', '@id':'https://vyqda.com/#faq', mainEntity:[
+      { '@type':'Question', name:'What does VYQDA Technologies do?', acceptedAnswer:{'@type':'Answer', text:'VYQDA Technologies develops software products and provides custom software development and technology services for businesses, including web applications, SaaS product engineering, business automation, workforce tools and operational software.'}},
+      { '@type':'Question', name:'Does VYQDA build custom software for businesses?', acceptedAnswer:{'@type':'Answer', text:'Custom projects can be scoped around business workflows, user needs, integrations and technical constraints. Start with a discussion of the problem, desired outcome, scope and timeline.'}},
+      { '@type':'Question', name:'Can VYQDA support an existing application after launch?', acceptedAnswer:{'@type':'Answer', text:'Ongoing work may include maintenance, bug fixes, technical improvements, new features and continued development. The support arrangement depends on the application and agreed requirements.'}},
+      { '@type':'Question', name:'Does VYQDA offer ready-made software products?', acceptedAnswer:{'@type':'Answer', text:'VYQDA’s product portfolio includes Timenox for attendance and workforce management, Timenox 360 for field operations, Vyfoo for restaurant POS workflows, VYQDA Retail for retail operations and SHYFT Box Finder.'}},
+      { '@type':'Question', name:'How do we start a software project with VYQDA?', acceptedAnswer:{'@type':'Answer', text:'Share a description of your business, the problem to solve, intended users, timeline and integration requirements. This helps establish whether a product, tailored solution or phased approach is the right fit.'}},
+      { '@type':'Question', name:'How much does custom software development cost?', acceptedAnswer:{'@type':'Answer', text:'Cost depends on scope, integrations, complexity, delivery stages and ongoing support needs. A useful estimate starts with requirements and priorities.'}}
+    ]}
+  ] })}</script>
 </head>
 <body id="top">
   <header class="topbar">
