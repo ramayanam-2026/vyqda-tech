@@ -29,17 +29,17 @@ Status key:
 |---|---|---|---|---|
 | `/` | VYQDA software company, products and custom development | [x] Present | [ ] | [ ] |
 | `/products/` | Business software products | [x] Present | [ ] | [ ] |
-| `/products/timenox/` | Employee attendance software | [x] Present | [ ] | [ ] |
-| `/products/timenox-360/` | Field workforce operations | [x] Present | [ ] | [ ] |
-| `/products/vyfoo/` | Restaurant POS software | [x] Present | [ ] | [ ] |
-| `/products/retail/` | Retail billing / inventory software | [x] Present | [ ] | [ ] |
-| `/products/shyft-box-finder/` | Home and office box finder app | [x] Present | [ ] | [ ] |
+| `/products/timenox/` | Employee attendance software | [x] Present | [x] Source content revised; render review pending | [ ] |
+| `/products/timenox-360/` | Field workforce operations | [x] Present | [x] Source content revised; render review pending | [ ] |
+| `/products/vyfoo/` | Restaurant POS software | [x] Present | [x] Source content revised; render review pending | [ ] |
+| `/products/retail/` | Retail billing / inventory software | [x] Present | [x] Source content revised; render review pending | [ ] |
+| `/products/shyft-box-finder/` | Home and office box finder app | [x] Present | [x] Source content revised; render review pending | [ ] |
 | `/services/` | Custom software development services | [x] Present | [ ] | [ ] |
 | `/solutions/` | Business software solutions and workflows | [x] Present | [ ] | [ ] |
 | `/industries/` | Industry use cases | [x] Present | [ ] | [ ] |
 | `/about/` | Company information and engineering approach | [x] Present | [ ] | [ ] |
 | `/faq/` | Answers about products, projects and support | [x] Present | [ ] | [ ] |
-| `/contact/` | Contact / project enquiry | [x] Present | [ ] | [ ] |
+| `/contact/` | Contact / project enquiry | [x] Present | [x] Form added; webhook and CAPTCHA verification pending | [ ] |
 | `/tools/` | Free online business and productivity tools | [x] Present | [ ] | [ ] |
 
 ## Critical technical SEO requirements
@@ -96,3 +96,18 @@ Status key:
 - Competitor research reviewed: custom software service pages commonly describe capabilities, process, scope and support; VYQDA should differentiate through clear project planning and accountable delivery rather than unverified client counts or certifications.
 - Source-level placement check: [x] section inserted before existing Service JSON-LD; [ ] Astro build and rendered-layout check pending.
 - Google Search Console and analytics data: not available for this new site; no historical-performance conclusions made.
+
+
+### 2026-10-21 — Stage 3: Product intent, measurement and enquiry capture
+- Reworked all five product detail pages to make their search intent and evaluation content more distinct:
+  - Timenox: browser-based attendance, check-in/check-out, shifts, verification options and attendance records.
+  - Timenox 360: field-team and distributed operations, with explicit cautions not to assume continuous tracking or unconfirmed integrations.
+  - Vyfoo: restaurant point-of-sale, order-to-bill workflow and restaurant-specific hardware/payment evaluation.
+  - VYQDA Retail: retail billing and inventory-related workflows, product catalogue, stock, returns, devices and reporting.
+  - SHYFT: home/office box and stored-item finding; explicitly not positioned as parcel tracking.
+- Added internal comparison links between Timenox and Timenox 360 and linked the two products to their separate product websites where applicable. Corporate pages are positioned for product discovery and evaluation, not as replacements for the dedicated product websites.
+- Added GA4 tag ID `G-EX2ZX46SND` to the shared layout. Source-level insertion checked; live analytics receipt and consent/privacy requirements still need verification.
+- Replaced the contact page's email-only prompt with a form posting to the supplied automation webhook and added the supplied hCaptcha site key.
+- Important contact-form dependency: a site key only renders the CAPTCHA challenge. The receiving webhook/workflow must verify the submitted `h-captcha-response` server-side with hCaptcha before processing enquiries. This could not be verified from the website repository; do not consider spam protection complete until that validation is confirmed.
+- Source updates committed individually. Astro build, generated HTML, mobile rendering, live GA4 event receipt, webhook delivery, CORS/response behaviour and server-side CAPTCHA validation remain unverified.
+- Search Console performance data is not available for this new site; no rankings, keyword volumes or performance claims inferred.
