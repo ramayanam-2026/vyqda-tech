@@ -169,3 +169,39 @@ The crawlable public homepage `https://vyqda.com/` contains substantial claims t
 ### Release gate
 
 Do not call this six-part verification complete yet. The immediate blocker is a reachable, successful deployment of the intended commit. Resolve the Vercel build-rate-limit failure, ensure the correct branch/project is connected, and provide access to the deployed preview. Then repeat checks 1–4 and 6. Connect/provide Google Search Console access for check 5. Preserve this evidence log and mark each item complete only after its result is captured.
+
+
+## Stage 6 — Content architecture expansion (2026-10-21)
+
+### Added
+- Added static country-market landing pages generated from `src/pages/software-development-company/[country].astro`:
+  - `/software-development-company/united-states/`
+  - `/software-development-company/saudi-arabia/`
+  - `/software-development-company/oman/`
+  - `/software-development-company/qatar/`
+  - `/software-development-company/uae/`
+  - `/software-development-company/singapore/`
+- Each market has its own title, description, introduction, market context, project considerations, example use cases, delivery explanation and FAQ answers. Content avoids asserting local offices, customers, certifications or guaranteed regulatory compliance.
+- Added dedicated service routes through `src/pages/services/[service].astro`:
+  - `/services/custom-software-development/`
+  - `/services/saas-product-development/`
+  - `/services/web-mobile-applications/`
+  - `/services/business-process-automation/`
+  - `/services/maintenance-support/`
+- Each service page contains its own service-specific sections, fit/readiness guidance, related links and contact CTA.
+- Updated the shared footer so each service label links to its own route and added a Markets group linking all six country pages.
+
+### Content quality guardrails
+- Word count is a planning aid, not a ranking guarantee. Keep only content that answers genuine user questions and helps qualify enquiries.
+- Country pages must not imply VYQDA has local offices, local staff, local clients, certifications, local delivery guarantees or legal compliance unless evidence is supplied.
+- Before indexation, review each market page for local usefulness and distinctiveness. If the page cannot be made materially useful for that market, noindex or do not publish it rather than creating thin doorway pages.
+- Dedicated service pages must remain distinct from the Services overview. Overview introduces the portfolio; detail pages answer service-specific suitability, scoping, delivery and maintenance questions.
+
+### Verification still required
+- [ ] Run `npm run check` and `npm run build` against the branch.
+- [ ] Confirm Astro `getStaticPaths()` emits all six country routes and five service routes.
+- [ ] Crawl generated pages and verify HTTP status, canonical, title, description, breadcrumbs, structured data and internal links.
+- [ ] Confirm all footer service and market links resolve after deployment.
+- [ ] Compare country copy for meaningful distinctiveness; revise pages where local value is insufficient.
+- [ ] Check mobile layout and page speed for long-form page templates.
+- [ ] Verify the production sitemap includes the new canonical pages after deployment.
