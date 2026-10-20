@@ -166,3 +166,9 @@ a,button{transition:color .18s ease,background-color .18s ease,border-color .18s
 .form-success p{max-width:480px;color:#5f6270;line-height:1.75;margin:0 0 22px}
 @keyframes form-success-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.form-success{animation:none}}
+
+
+/* Registered trademark mark alongside the VYQDA brand lockup */
+.brand{display:inline-flex;align-items:flex-start;gap:3px;position:relative}
+.brand__registered{display:inline-block;margin-top:2px;color:currentColor;font-family:Arial,sans-serif;font-size:10px;font-weight:700;line-height:1;vertical-align:top}
+.footer-brand .brand__registered{color:inherit;margin-top:3px}
