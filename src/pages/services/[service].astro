@@ -1,7 +1,8 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
-const services = {
+export function getStaticPaths() {
+  const services = {
   'custom-software-development': {
     name: 'Custom Software Development', keyword: 'custom software development', title: 'Custom Software Development Services | VYQDA',
     description: 'Plan and build custom business software around your users, workflows, integrations and long-term maintenance needs.',
@@ -72,8 +73,7 @@ const services = {
     goodFit: ['An application needs regular fixes and dependency updates.', 'A product requires ongoing feature development.', 'Knowledge is concentrated in a few people and documentation is incomplete.', 'The business needs a clearer maintenance backlog and release process.'],
     notFit: ['No one can authorise access or explain the application’s purpose.', 'The system is expected to be changed without testing or a release plan.', 'Support expectations have not been agreed with the service provider.']
   }
-};
-export function getStaticPaths() {
+  };
   return Object.entries(services).map(([service, data]) => ({ params: { service }, props: { data, service } }));
 }
 const { data, service } = Astro.props;
