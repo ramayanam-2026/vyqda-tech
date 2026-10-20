@@ -11,3 +11,14 @@ if(toggle&&nav){
     nav.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation menu');
   }));
 }
+
+// Keep the brand visible if a temporary remote logo URL expires.
+document.querySelectorAll('[data-brand-logo]').forEach(img=>{
+  const revealFallback=()=>{
+    img.hidden=true;
+    const fallback=img.nextElementSibling;
+    if(fallback && fallback.classList.contains('brand__wordmark')) fallback.hidden=false;
+  };
+  img.addEventListener('error',revealFallback,{once:true});
+  if(img.complete && img.naturalWidth===0) revealFallback();
+});
