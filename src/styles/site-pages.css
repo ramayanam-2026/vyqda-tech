@@ -172,3 +172,14 @@ a,button{transition:color .18s ease,background-color .18s ease,border-color .18s
 .brand{display:inline-flex;align-items:flex-start;gap:3px;position:relative}
 .brand__registered{display:inline-block;margin-top:2px;color:currentColor;font-family:Arial,sans-serif;font-size:10px;font-weight:700;line-height:1;vertical-align:top}
 .footer-brand .brand__registered{color:inherit;margin-top:3px}
+
+
+/* Social links in the footer */
+.footer-social{display:flex;align-items:center;gap:10px;margin-top:22px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.2);border-radius:12px;color:inherit;transition:background-color .18s ease,border-color .18s ease,transform .18s ease}
+.footer-social a:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
+.footer-social a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.footer-social svg{width:19px;height:19px;fill:currentColor}
+.footer-social a:nth-child(2) svg{fill:none;stroke:currentColor;stroke-width:1.8}
+.footer-social .social-icon__dot{fill:currentColor;stroke:none}
+@media(prefers-reduced-motion:reduce){.footer-social a{transition:none}.footer-social a:hover{transform:none}}
