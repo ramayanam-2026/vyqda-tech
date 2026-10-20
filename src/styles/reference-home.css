@@ -58,3 +58,30 @@
 .mobile-nav:not([hidden]){display:flex;flex-direction:column;gap:0}
 .mobile-nav a{padding:13px 4px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
 .mobile-nav a:last-child{border-bottom:0}
+
+/* Expanded homepage sections */
+.section-pad{padding:clamp(64px,8vw,112px) 0}
+.section-kicker{display:flex;align-items:center;gap:10px;margin:0 0 20px;font-size:10px;line-height:1.5;letter-spacing:.18em;font-weight:700;color:#bd5d31}
+.kicker-line{display:inline-block;width:26px;height:1px;background:#f36d2c}
+.intro-section{background:#fffdfb;border-top:1px solid #f2e7de}
+.intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,8vw,120px)}
+.intro-grid>.section-kicker{align-self:start;padding-top:14px}
+.intro-copy h2,.section-heading h2,.solutions-intro h2,.approach-grid h2,.principles-wrap h2,.faq-grid h2,.contact-panel h2{margin:0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(36px,4.3vw,57px);line-height:1.08;letter-spacing:-.045em;font-weight:500;color:#11172d}
+.intro-copy h2 em,.section-heading h2 em,.solutions-intro h2 em,.approach-grid h2 em,.principles-wrap h2 em,.faq-grid h2 em,.contact-panel h2 em{font-style:normal;color:#f36d2c}
+.intro-copy p{font-size:15px;line-height:1.85;color:#686971;max-width:720px}
+.intro-copy .lead{font-size:18px;line-height:1.7;color:#343744;margin-top:26px}
+.text-link{display:inline-flex;align-items:center;gap:10px;margin-top:12px;color:#d85d27;font-size:13px;font-weight:700}
+.text-link span{font-size:17px;transition:transform .2s}.text-link:hover span{transform:translate(3px,-3px)}
+.services-section{background:#fff6ef}
+.section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:38px}
+.section-heading .section-kicker{margin-bottom:15px}
+.section-heading>p{max-width:390px;margin:0 0 5px;font-size:14px;line-height:1.8;color:#686971}
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.service-card{position:relative;min-height:270px;padding:27px 25px 24px;border:1px solid #eee0d4;border-radius:15px;background:rgba(255,255,255,.82);transition:transform .2s,border-color .2s,box-shadow .2s}
+.service-card:hover{transform:translateY(-3px);border-color:#f2b18d;box-shadow:0 14px 35px rgba(83,53,31,.055)}
+.service-number{position:absolute;right:22px;top:22px;font-size:10px;letter-spacing:.12em;color:#b9a79b}
+.service-symbol{width:45px;height:45px;display:grid;place-items:center;border-radius:12px;background:#fff0e5;color:#e9651b;font-size:25px;margin-bottom:22px}
+.service-card h3,.industry-card h3,.principle-grid h3{font-size:17px;line-height:1.35;letter-spacing:-.025em;margin:0 0 11px;color:#171b2b}
+.service-card p,.industry-card p,.principle-grid p{font-size:13px;line-height:1.75;color:#6c6b72;margin:0}
+.service-card>a{display:inline-flex;gap:8px;align-items:center;margin-top:20px;font-size:12px;font-weight:700;color:#d85d27}
+.service-card>a span{font-size:16px}
