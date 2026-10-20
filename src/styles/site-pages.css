@@ -62,3 +62,16 @@ a,button{transition:color .18s ease,background-color .18s ease,border-color .18s
 @media(max-width:1050px){.topbar__inner{grid-template-columns:180px 1fr auto;gap:12px}.nav{gap:14px}.nav__link{font-size:12px}.topbar__actions{gap:10px}.page-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.topbar__inner{grid-template-columns:1fr auto}.nav{display:none}.topbar__actions .contact{height:40px;padding:0 16px}.menu-toggle{display:block}.page-hero{padding:70px 0 60px}.page-split{grid-template-columns:1fr;gap:28px}.content-section{padding:60px 0}.page-cta{align-items:flex-start;flex-direction:column}}
 @media(max-width:600px){body{font-size:16px}.wrap{width:calc(100% - 32px)}.brand__logo{width:150px;height:38px}.footer-brand .brand__logo{width:165px;height:40px}.page-hero{padding:54px 0 48px}.page-hero h1{font-size:clamp(2.35rem,11vw,3.4rem)}.page-hero__lead{font-size:17px;line-height:1.7}.page-grid,.contact-grid{grid-template-columns:1fr}.page-card{padding:23px}.content-section{padding:48px 0}.page-cta{padding:26px 22px}.page-cta .button{width:100%}.faq-page-list summary{font-size:17px}.footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Readability pass for the original homepage and all shared pages */
+.hero__summary{font-size:17px;line-height:1.75;color:#4f5362;max-width:640px}
+.eyebrow{font-size:11px;letter-spacing:.16em;line-height:1.7}
+.products__eyebrow,.section-kicker,.section-heading .section-kicker{font-size:12px;line-height:1.6;letter-spacing:.12em}
+.products h2{font-size:clamp(1.9rem,3vw,2.35rem);line-height:1.2;letter-spacing:-.025em}
+.product-card strong{font-size:14px;line-height:1.45;white-space:normal}
+.product-card small{font-size:12px;line-height:1.55}
+.service-card h3,.industry-card h3,.principle-grid h3{font-size:17px;line-height:1.4}
+.service-card p,.industry-card p,.principle-grid p,.intro-copy p,.solutions-intro>p,.faq-grid>div>p{font-size:15.5px;line-height:1.8}
+.service-card a,.text-link,.products__all{font-size:14px;line-height:1.6}
+.footer-column a{font-size:13px;line-height:1.75}
+@media(max-width:600px){.hero__summary{font-size:16px;line-height:1.75}.product-card strong{font-size:14px}.product-card small{font-size:12px}.service-card p,.industry-card p,.principle-grid p,.intro-copy p,.solutions-intro>p,.faq-grid>div>p{font-size:15px}}
