@@ -27,20 +27,20 @@ Status key:
 
 | Page / URL | Primary intent to validate | Source-level metadata | Content/intent audit | Live/mobile verification |
 |---|---|---|---|---|
-| `/` | VYQDA software company, products and custom development | [x] Present | [ ] | [ ] |
-| `/products/` | Business software products | [x] Present | [ ] | [ ] |
+| `/` | VYQDA software company, products and custom development | [x] Present | [x] Source-level intent review; render review pending | [ ] |
+| `/products/` | Business software products | [x] Present | [x] SHYFT copy corrected to box-finder intent; render review pending | [ ] |
 | `/products/timenox/` | Employee attendance software | [x] Present | [x] Source content revised; render review pending | [ ] |
 | `/products/timenox-360/` | Field workforce operations | [x] Present | [x] Source content revised; render review pending | [ ] |
 | `/products/vyfoo/` | Restaurant POS software | [x] Present | [x] Source content revised; render review pending | [ ] |
 | `/products/retail/` | Retail billing / inventory software | [x] Present | [x] Source content revised; render review pending | [ ] |
 | `/products/shyft-box-finder/` | Home and office box finder app | [x] Present | [x] Source content revised; render review pending | [ ] |
-| `/services/` | Custom software development services | [x] Present | [ ] | [ ] |
-| `/solutions/` | Business software solutions and workflows | [x] Present | [ ] | [ ] |
-| `/industries/` | Industry use cases | [x] Present | [ ] | [ ] |
-| `/about/` | Company information and engineering approach | [x] Present | [ ] | [ ] |
-| `/faq/` | Answers about products, projects and support | [x] Present | [ ] | [ ] |
+| `/services/` | Custom software development services | [x] Present | [x] Scope-oriented content present; overlap review recorded | [ ] |
+| `/solutions/` | Business software solutions and workflows | [x] Present | [x] Use-case hub; SHYFT storage wording corrected | [ ] |
+| `/industries/` | Industry use cases | [x] Present | [x] General use-case framing; substantiation review still required | [ ] |
+| `/about/` | Company information and engineering approach | [x] Present | [~] Distinct intent; proof points and company facts require substantiation | [ ] |
+| `/faq/` | Answers about products, projects and support | [x] Present | [x] Source-level intent checked; schema and rendered content validation pending | [ ] |
 | `/contact/` | Contact / project enquiry | [x] Present | [x] Form added; webhook and CAPTCHA verification pending | [ ] |
-| `/tools/` | Free online business and productivity tools | [x] Present | [ ] | [ ] |
+| `/tools/` | Free online business and productivity tools | [x] Present | [~] Utility intent distinct; tool destinations and functionality need live verification | [ ] |
 
 ## Critical technical SEO requirements
 
@@ -111,3 +111,37 @@ Status key:
 - Important contact-form dependency: a site key only renders the CAPTCHA challenge. The receiving webhook/workflow must verify the submitted `h-captcha-response` server-side with hCaptcha before processing enquiries. This could not be verified from the website repository; do not consider spam protection complete until that validation is confirmed.
 - Source updates committed individually. Astro build, generated HTML, mobile rendering, live GA4 event receipt, webhook delivery, CORS/response behaviour and server-side CAPTCHA validation remain unverified.
 - Search Console performance data is not available for this new site; no rankings, keyword volumes or performance claims inferred.
+
+
+## Stage 4 — SEO audit findings and source fixes (2026-10-21)
+
+### Source-level fixes applied
+- Added GA4 `G-EX2ZX46SND` to the homepage's standalone HTML head. The homepage does not use `SiteLayout.astro`, so the shared-layout tag alone did not cover it.
+- Fixed the homepage Contact Us CTA from `#contact` to `/contact/`; the homepage has no matching `id="contact"` section.
+- Removed parcel-finding wording from SHYFT's homepage product description and aligned the product index and Solutions page to home/office box and stored-item finding. This better matches the known product positioning.
+- Simplified `public/robots.txt` to allow crawling and reference the sitemap. The former `/privacy/` and `/terms/` exclusions did not match the existing legal route naming convention (e.g. `/privacy-policy/`, `/terms-of-service/`) and were not useful exclusions.
+- Removed stale legal-path exclusions from the Astro sitemap integration. The standard sitemap integration now includes generated pages unless otherwise excluded by Astro itself.
+
+### Audit findings requiring attention
+- **High — production/live verification is still absent:** source review does not prove deployed HTML, HTTP status, sitemap accessibility, GA4 collection, form delivery, or search indexing. Verify after the branch is deployed to the intended environment.
+- **High — logo asset URL may be time-limited:** the shared layout and homepage embed a signed Vercel Blob URL containing an expiry timestamp. Replace it with a stable public asset or a repository-hosted logo, then confirm it returns HTTP 200. Do not rely on a signed URL for a critical site-wide brand asset.
+- **High — unsupported or risky claims exist on the currently indexed legacy public domain:** public search snapshots show claims such as quantified results, uptime guarantees, response-time guarantees, years of experience, and customer quotes. These must be supported by internal evidence or removed; they are not validated by this source audit and may not correspond to this branch.
+- **Medium — content overlap risk:** Services is the custom-development service page; Solutions is the operational-use-case hub; Industries is a broad use-case directory; product pages are product-fit pages. Preserve these distinct jobs. Do not expand all pages with the same generic benefits/FAQ text. Industry pages should be expanded only when VYQDA has specific, accurate workflows and useful details to contribute.
+- **Medium — product structured data:** the five individual product pages have unique title/description/H1 and product-specific copy, but do not currently emit Product schema. Add only if the product facts, offers, pricing, brand and URLs can be represented accurately; schema is not a ranking shortcut.
+- **Medium — homepage metadata/schema architecture differs:** homepage is standalone HTML while other pages use `SiteLayout.astro`. It now has its own GA4 tag, but duplicated metadata/schema must be kept aligned manually. Consider refactoring only after visual and build regression checks.
+- **Medium — legal pages and sitemap inventory:** verify whether privacy policy and terms pages are part of the deployed Astro project or served elsewhere. Sitemap should include real, canonical, indexable 200 URLs; robots.txt should not be used to hide URLs from indexing.
+- **Medium — contact form:** verify webhook receipt, error handling and server-side hCaptcha verification before treating lead capture/spam protection as complete.
+- **Medium — internal and external links:** crawl every page and verify all internal anchors, product-domain links, and all 13 Free Tools destinations. Source presence is not proof of a successful destination.
+- **Medium — accessibility/performance:** test responsive rendering, keyboard focus, reduced motion, image sizing, font loading, PageSpeed and field Core Web Vitals. No scores were fabricated.
+
+### Current audit status
+- [x] Source-level metadata, canonical, robots and schema inventory completed for the 14 main routes.
+- [x] Primary intent reviewed for homepage, product index, five product pages, services, solutions, industries, About, FAQ, Contact and Free Tools.
+- [x] Obvious source issues fixed: homepage GA4 omission, broken homepage contact anchor, SHYFT parcel wording, stale robots exclusions and stale sitemap filter.
+- [ ] Clean Astro check/build and generated HTML inspection.
+- [ ] Full URL crawl with status/canonical/meta/schema/internal-link checks.
+- [ ] Live logo/asset validation.
+- [ ] Search Console indexation and query data review after deployment.
+- [ ] PageSpeed/Core Web Vitals and mobile review.
+- [ ] Contact submission, CAPTCHA verification and GA4 event receipt.
+
