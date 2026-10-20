@@ -1,246 +1,107 @@
 ---
-import Base from '../layouts/Base.astro';
-import HeroConstellation from '../components/HeroConstellation.astro';
-import TimenoxMockup from '../components/TimenoxMockup.astro';
-import CTABand from '../components/CTABand.astro';
-import Icon from '../components/Icon.astro';
-import { SEO } from '../data/seo';
-import { PRODUCTS, PILLARS, SOLUTIONS, STATS, CREDIBILITY_LOGOS } from '../data/site';
-
-const seo = SEO.home;
-
-const homeJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'VYQDA Technologies Pvt. Ltd.',
-  url: 'https://vyqda.com',
-  description: 'Enterprise SaaS company building workforce and operations management software.',
-};
+import '../styles/reference-home.css';
+const products = [
+  { name: 'Timenox', description: 'Attendance & Workforce Management', color: 'blue', icon: 'T', href: '/products/timenox/' },
+  { name: 'Timenox 360', description: 'Field Staff Tracking & Operations', color: 'teal', icon: 'pin', href: '/products/timenox-360/' },
+  { name: 'Vyfoo', description: 'Restaurant POS & Management', color: 'orange', icon: 'chef', href: '/products/vyfoo/' },
+  { name: 'VYQDA Retail', description: 'Retail Billing & Inventory', color: 'purple', icon: 'bag', href: '/products/retail/' },
+  { name: 'SHYFT Box Finder', description: 'Smart Parcel & Box Finding Solution', color: 'navy', icon: 'cap', href: '/products/shyft-box-finder/' },
+];
 ---
-
-<Base seo={seo} jsonLd={[homeJsonLd]} heroTransparent={true}>
-
-  <!-- ════════════════════════════════════════════
-       §1  HERO
-       ════════════════════════════════════════════ -->
-  <section class="hero hero--reference" aria-labelledby="hero-heading">
-    <div class="reference-orbit reference-orbit--outer" aria-hidden="true"></div>
-    <div class="reference-orbit reference-orbit--inner" aria-hidden="true"></div>
-    <div class="reference-orbit reference-orbit--core" aria-hidden="true"></div>
-    <div class="reference-card reference-card--left reference-card--l1"><span class="reference-card__icon">&lt;/&gt;</span><span><strong>Custom<br/>Development</strong><small>Web, Mobile &amp; Cloud</small></span></div>
-    <div class="reference-card reference-card--left reference-card--l2"><span class="reference-card__icon">▤</span><span><strong>Business<br/>Automation</strong><small>Streamline Operations</small></span></div>
-    <div class="reference-card reference-card--left reference-card--l3"><span class="reference-card__icon">☁</span><span><strong>Scalable<br/>Solutions</strong><small>Built for Growth</small></span></div>
-    <div class="reference-card reference-card--right reference-card--r1"><span class="reference-card__icon">▦</span><span><strong>Software<br/>Products</strong><small>Real Business Impact</small></span></div>
-    <div class="reference-card reference-card--right reference-card--r2"><span class="reference-card__icon">♢</span><span><strong>Reliable<br/>Partnership</strong><small>Long-Term Support</small></span></div>
-    <div class="reference-card reference-card--right reference-card--r3"><span class="reference-card__icon">↗</span><span><strong>Engineering<br/>Excellence</strong><small>Quality. Accountability.</small></span></div>
-    <div class="hero__inner container">
-      <p class="hero__eyebrow">SOFTWARE PRODUCTS <span>·</span> CUSTOM DEVELOPMENT <span>·</span> LONG-TERM PARTNERSHIP</p>
-      <h1 id="hero-heading" class="hero__h1">Technology<br/>that helps businesses<br/><em>do more.</em></h1>
-      <p class="hero__sub">VYQDA Technologies builds software products and delivers custom<br class="reference-desktop"/> technology solutions that help businesses operate efficiently,<br class="reference-desktop"/> solve real problems and grow with confidence.</p>
-      <div class="hero__actions">
-        <a href="/products/" class="hero__button hero__button--primary">Explore Our Products <span aria-hidden="true">→</span></a>
-        <a href="/contact/" class="hero__button hero__button--secondary">Discuss Your Project</a>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fffaf6" />
+  <title>VYQDA Technologies | Software Products & Custom Development</title>
+  <meta name="description" content="VYQDA Technologies builds software products and delivers custom technology solutions that help businesses operate efficiently, solve real problems and grow with confidence." />
+  <link rel="canonical" href="https://vyqda.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VYQDA Technologies | Technology that helps businesses do more" />
+  <meta property="og:description" content="Software products, custom development and long-term technology partnership." />
+  <meta property="og:url" content="https://vyqda.com/" />
+  <script type="application/ld+json">{JSON.stringify({ '@context':'https://schema.org', '@type':'Organization', name:'VYQDA Technologies Pvt. Ltd.', url:'https://vyqda.com', description:'Software products and custom technology solutions for businesses.' })}</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner wrap">
+      <a class="brand" href="/" aria-label="VYQDA Technologies home">
+        <span class="brand__name">VYQD<span>A</span></span>
+        <span class="brand__sub">TECHNOLOGIES</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__link" href="/products/">Products <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
+        <a class="nav__link" href="/services/">Development Services <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
+        <a class="nav__link" href="/solutions/">Solutions <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
+        <a class="nav__link" href="/industries/">Industries <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
+        <a class="nav__link" href="/company/">Company <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
+        <a class="nav__link" href="/resources/">Resources <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></a>
+      </nav>
+      <div class="topbar__actions">
+        <button class="search" type="button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 5 5"/></svg></button>
+        <a class="contact" href="/contact/">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
       </div>
     </div>
-  </section>
+    <nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation">
+      <a href="/products/">Products</a><a href="/services/">Development Services</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/company/">Company</a><a href="/resources/">Resources</a>
+    </nav>
+  </header>
 
-  <!-- ════════════════════════════════════════════
-       §2  CREDIBILITY STRIP
-       ════════════════════════════════════════════ -->
-  <section class="credibility section--sm" aria-label="Trusted by">
-    <div class="container">
-      <p class="credibility__label">
-        <!-- TODO: Replace label once real customers can be named -->
-        Trusted by enterprises across industries
-      </p>
-      <div class="credibility__logos" role="list">
-        {CREDIBILITY_LOGOS.map(logo => (
-          <div class="credibility__logo-slot" role="listitem" aria-label={logo.name}>
-            <!-- TODO: Replace with real inline SVG logo once obtained with permission -->
-            <span class="credibility__logo-placeholder">{logo.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       §3  PRODUCT ECOSYSTEM BENTO GRID
-       ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="products-heading">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Product Ecosystem</span>
-        <h2 id="products-heading" class="heading-h2">
-          One platform.<br/>Multiple purpose-built products.
-        </h2>
-        <p class="body-lg text-muted measure mt-4">
-          Each VYQDA product is built for a specific operational need — and all of them run on a shared enterprise-grade infrastructure for security, integration, and scale.
-        </p>
-      </div>
-
-      <div class="bento-grid mt-12">
-        <!-- Timenox — large featured card -->
-        <article class="bento-card bento-card--featured card reveal" aria-labelledby="bento-timenox">
-          <div class="bento-card__content">
-            <span class="eyebrow">Employee Attendance Software</span>
-            <h3 id="bento-timenox" class="heading-h3">Timenox</h3>
-            <p class="text-muted mt-4">
-              QR check-ins, GPS location verification, and real-time hybrid workforce visibility. Timenox replaces manual registers and spreadsheets with an attendance system that works for every work model.
-            </p>
-            <div class="bento-card__tags mt-6">
-              <span class="badge">QR Check-In</span>
-              <span class="badge">GPS Verify</span>
-              <span class="badge">Hybrid Workforce</span>
-            </div>
-            <a href="/products/timenox/" class="btn btn-primary mt-8">
-              Explore Timenox
-              <Icon name="arrow-right" size={14} />
-            </a>
-          </div>
-          <div class="bento-card__visual">
-            <TimenoxMockup />
-          </div>
-        </article>
-
-        <!-- Vyfoo -->
-        <article class="bento-card card card--product reveal" data-delay="60" aria-labelledby="bento-vyfoo">
-          <div class="bento-card__icon">
-            <Icon name="layers" size={22} />
-          </div>
-          <span class="eyebrow mt-4">TODO: Category</span>
-          <h3 id="bento-vyfoo" class="heading-h3 mt-2">Vyfoo</h3>
-          <p class="text-muted mt-3" style="font-size:var(--text-sm)">
-            TODO: One-sentence value proposition for Vyfoo. Confirm capabilities before publishing.
-          </p>
-          <a href="/products/vyfoo/" class="bento-card__link mt-6">
-            Learn more <Icon name="arrow-right" size={13} />
-          </a>
-        </article>
-
-        <!-- Vyqda Retail -->
-        <article class="bento-card card card--product reveal" data-delay="120" aria-labelledby="bento-retail">
-          <div class="bento-card__icon bento-card__icon--blue">
-            <Icon name="store" size={22} />
-          </div>
-          <span class="eyebrow eyebrow--blue mt-4">TODO: Category</span>
-          <h3 id="bento-retail" class="heading-h3 mt-2">Vyqda Retail</h3>
-          <p class="text-muted mt-3" style="font-size:var(--text-sm)">
-            TODO: One-sentence value proposition for Vyqda Retail. Confirm capabilities before publishing.
-          </p>
-          <a href="/products/vyqda-retail/" class="bento-card__link mt-6">
-            Learn more <Icon name="arrow-right" size={13} />
-          </a>
-        </article>
-
-        <!-- SHYFT -->
-        <article class="bento-card card card--product reveal" data-delay="180" aria-labelledby="bento-shyft">
-          <div class="bento-card__icon">
-            <Icon name="zap" size={22} />
-          </div>
-          <span class="eyebrow mt-4">TODO: Category</span>
-          <h3 id="bento-shyft" class="heading-h3 mt-2">SHYFT</h3>
-          <p class="text-muted mt-3" style="font-size:var(--text-sm)">
-            TODO: One-sentence value proposition for SHYFT. Confirm capabilities before publishing.
-          </p>
-          <a href="/products/shyft/" class="bento-card__link mt-6">
-            Learn more <Icon name="arrow-right" size={13} />
-          </a>
-        </article>
-
-        <!-- Platform banner -->
-        <div class="bento-platform reveal" data-delay="240">
-          <Icon name="layers" size={16} class="bento-platform__icon" />
-          <span>All products share a unified enterprise platform: shared identity, APIs, admin console, and support.</span>
-          <a href="/products/" class="bento-platform__link">
-            View all products →
-          </a>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__ring hero__ring--outer" aria-hidden="true"></div>
+      <div class="hero__ring hero__ring--middle" aria-hidden="true"></div>
+      <div class="hero__ring hero__ring--inner" aria-hidden="true"></div>
+      <span class="orbit-dot orbit-dot--one" aria-hidden="true"></span><span class="orbit-dot orbit-dot--two" aria-hidden="true"></span><span class="orbit-dot orbit-dot--three" aria-hidden="true"></span>
+      <span class="orbit-dot orbit-dot--four" aria-hidden="true"></span><span class="orbit-dot orbit-dot--five" aria-hidden="true"></span><span class="orbit-dot orbit-dot--six" aria-hidden="true"></span>
+      <div class="capability capability--left capability--one"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m11 9-7 7 7 7M21 9l7 7-7 7M19 5l-6 22"/></svg></span><span><strong>Custom<br/>Development</strong><small>Web, Mobile &amp; Cloud</small></span></div>
+      <div class="capability capability--left capability--two"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="8" rx="10" ry="4"/><path d="M6 8v15c0 2.2 4.5 4 10 4s10-1.8 10-4V8M6 13c0 2.2 4.5 4 10 4s10-1.8 10-4M6 18c0 2.2 4.5 4 10 4s10-1.8 10-4"/></svg></span><span><strong>Business<br/>Automation</strong><small>Streamline Operations</small></span></div>
+      <div class="capability capability--left capability--three"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 22a7 7 0 0 1 1-14 9 9 0 0 1 17 3 6 6 0 0 1 0 12H7Z"/></svg></span><span><strong>Scalable<br/>Solutions</strong><small>Built for Growth</small></span></div>
+      <div class="capability capability--right capability--one"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"/><rect x="19" y="5" width="8" height="8" rx="1.5"/><rect x="5" y="19" width="8" height="8" rx="1.5"/><rect x="19" y="19" width="8" height="8" rx="1.5"/></svg></span><span><strong>Software<br/>Products</strong><small>Real Business Impact</small></span></div>
+      <div class="capability capability--right capability--two"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 27 8v8c0 7-5 11-11 14C10 27 5 23 5 16V8l11-4Z"/></svg></span><span><strong>Reliable<br/>Partnership</strong><small>Long-Term Support</small></span></div>
+      <div class="capability capability--right capability--three"><span class="capability__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26V17M12 26V12M19 26V6M26 26V3M4 12l8-5 7 2 8-7"/><path d="m22 3 5-1v5"/></svg></span><span><strong>Engineering<br/>Excellence</strong><small>Quality. Accountability.</small></span></div>
+      <div class="hero__content">
+        <p class="eyebrow">SOFTWARE PRODUCTS <span>·</span> CUSTOM DEVELOPMENT <span>·</span> LONG-TERM PARTNERSHIP</p>
+        <h1 id="hero-title">Technology<br/>that helps businesses<br/><em>do more.</em></h1>
+        <p class="hero__summary">VYQDA Technologies builds software products and delivers custom<br/> technology solutions that help businesses operate efficiently,<br/> solve real problems and grow with confidence.</p>
+        <div class="hero__buttons">
+          <a class="button button--primary" href="/products/">Explore Our Products <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15M11 4l6 6-6 6"/></svg></a>
+          <a class="button button--secondary" href="/contact/">Discuss Your Project</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ════════════════════════════════════════════
-       §4  PLATFORM PILLARS
-       ════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="pillars-heading">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Why VYQDA</span>
-        <h2 id="pillars-heading" class="heading-h2">
-          Enterprise-grade, by design
-        </h2>
-        <p class="body-lg text-muted measure mt-4">
-          Every product in the VYQDA ecosystem is built on an infrastructure designed for the security, integration, and reliability demands of enterprise organisations.
-        </p>
+    <section class="products" aria-labelledby="products-title">
+      <div class="wrap">
+        <div class="products__heading">
+          <div><p class="products__eyebrow">OUR SOFTWARE PRODUCTS</p><h2 id="products-title">Powerful products for real business needs.</h2></div>
+          <a class="products__all" href="/products/">View All Products <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15M11 4l6 6-6 6"/></svg></a>
+        </div>
+        <div class="product-grid">
+          {products.map(product => <a class="product-card" href={product.href}>
+            <span class:list={['product-card__icon', `product-card__icon--${product.color}`]} aria-hidden="true">
+              {product.icon === 'T' ? 'T' : product.icon === 'pin' ? <svg viewBox="0 0 32 32"><path d="M26 13c0 7-10 16-10 16S6 20 6 13a10 10 0 1 1 20 0Z"/><circle cx="16" cy="13" r="3"/></svg> : product.icon === 'chef' ? <svg viewBox="0 0 32 32"><path d="M8 16h16v12H8zM6 16a5 5 0 0 1 1-10 6 6 0 0 1 11-1 6 6 0 0 1 10 5 5 5 0 0 1-2 6"/></svg> : product.icon === 'bag' ? <svg viewBox="0 0 32 32"><path d="M5 11h22l-2 17H7L5 11Z"/><path d="M11 11V8a5 5 0 0 1 10 0v3M16 16v7"/></svg> : <svg viewBox="0 0 32 32"><path d="m3 12 13-7 13 7-13 7-13-7Z"/><path d="M8 15v8l8 4 8-4v-8"/></svg>}
+            </span>
+            <span class="product-card__copy"><strong>{product.name}</strong><small>{product.description}</small></span>
+            <span class="product-card__arrow" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M2 10h15M11 4l6 6-6 6"/></svg></span>
+          </a>)}
+        </div>
+        <div class="trust-strip" aria-label="Industries served">
+          <span class="trust-strip__label">TRUSTED BY BUSINESSES IN</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><path d="M3 20V11l5 3V8l5 3V5l8-3v18H3Z"/><path d="M7 20v-3M12 20v-3M17 20v-3"/></svg>Manufacturing</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><path d="M3 4h2l2 12h11l3-9H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>Retail</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><path d="M4 3v7M8 3v7M4 7h4M6 10v11M15 3c-3 4-3 8 0 10v8M15 13h5V3"/></svg>Restaurants</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 21s-9-5.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12Z"/><path d="M7 12h3l2-3 2 6 2-3h2"/></svg>Healthcare</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M6 12v5c4 3 8 3 12 0v-5M21 9v7"/></svg>Education</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><path d="M3 21V8h7v13M10 21V3h11v18M6 11h1M6 15h1M14 7h2M14 11h2M14 15h2M14 19h2"/></svg>Corporate Offices</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><path d="M3 20V11l5 3V8l5 3V5l8-3v18H3Z"/></svg>Construction</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>and more...</span>
+        </div>
       </div>
-
-      <div class="grid-auto-4 mt-12">
-        {PILLARS.map((p, i) => (
-          <div class="pillar-card card reveal" data-delay={i * 70}>
-            <div class="pillar-card__icon">
-              <Icon name={p.icon} size={20} />
-            </div>
-            <h3 class="heading-h4 mt-5">{p.title}</h3>
-            <p class="text-muted mt-3" style="font-size:var(--text-sm);line-height:1.6">{p.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       §5  ARCHITECTURE DIAGRAM
-       ════════════════════════════════════════════ -->
-  <section class="section section--ink900" aria-labelledby="arch-heading">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow eyebrow--dark">Platform Architecture</span>
-        <h2 id="arch-heading" class="heading-h2 text-on-dark">
-          Products. Platform. Customers.
-        </h2>
-        <p class="body-lg text-on-dark-muted measure mt-4">
-          VYQDA products sit on a shared platform layer that handles identity, data governance, APIs, and integrations — so every product ships enterprise-ready from day one.
-        </p>
-      </div>
-
-      <!-- SVG Architecture Diagram -->
-      <div class="arch-diagram reveal mt-12" aria-label="Architecture: Products connect to VYQDA Platform which serves Enterprise Customers">
-        <svg viewBox="0 0 800 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="arch-svg" role="img">
-          <defs>
-            <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-              <path d="M0,0 L0,6 L8,3 z" fill="rgba(43,184,160,0.5)"/>
-            </marker>
-            <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-.hero--reference{--orange:#f16d2b;--ink:#11182f;position:relative;isolation:isolate;overflow:hidden;min-height:490px;padding:44px 24px 30px;display:flex;align-items:center;justify-content:center;background:#fffaf6;color:var(--ink);font-family:'DM Sans',sans-serif}
-.hero--reference:before{content:'';position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at center,rgba(255,255,255,.9) 0%,rgba(255,250,246,.8) 42%,rgba(255,245,235,.65) 100%)}
-.hero--reference:after{content:'';position:absolute;inset:auto 0 0;height:95px;z-index:-2;background:linear-gradient(160deg,transparent 0 30%,rgba(255,231,209,.34) 30.2% 100%);clip-path:polygon(0 42%,28% 100%,100% 100%,100% 0,78% 55%,50% 100%,20% 65%)}
-.hero--reference .hero__inner{position:relative;z-index:3;width:min(100%,760px);padding:0;display:flex;flex-direction:column;align-items:center;text-align:center}
-.hero--reference .hero__eyebrow{margin:0 0 22px;color:#bd5b2b;font-size:10px;line-height:1.4;letter-spacing:.2em;font-weight:700}
-.hero--reference .hero__eyebrow span{padding:0 5px;color:var(--orange)}
-.hero--reference .hero__h1{margin:0;color:var(--ink);font-family:'Playfair Display',Georgia,serif;font-size:clamp(43px,5.1vw,70px);font-weight:500;letter-spacing:-.045em;line-height:1.03}
-.hero--reference .hero__h1 em{font-style:normal;color:var(--orange)}
-.hero--reference .hero__sub{margin:18px 0 0;max-width:650px;color:#5e6069;font-size:16px;line-height:1.55;font-weight:400}
-.hero--reference .hero__actions{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:24px}
-.hero--reference .hero__button{height:50px;padding:0 26px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:7px;font:600 13px 'DM Sans',sans-serif;text-decoration:none;transition:background .2s,transform .2s}
-.hero--reference .hero__button:hover{transform:translateY(-2px)}
-.hero--reference .hero__button--primary{background:var(--orange);color:white;border:1px solid var(--orange);box-shadow:0 5px 12px rgba(241,109,43,.16)}
-.hero--reference .hero__button--secondary{background:rgba(255,255,255,.42);color:#242630;border:1px solid #efb18e}
-.reference-orbit{position:absolute;z-index:-1;left:50%;top:48%;border:1px solid rgba(241,109,43,.24);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
-.reference-orbit--outer{width:min(920px,75vw);height:min(920px,75vw)}
-.reference-orbit--inner{width:min(760px,62vw);height:min(760px,62vw);border-color:rgba(241,109,43,.12)}
-.reference-orbit--core{width:min(600px,49vw);height:min(600px,49vw);border-color:rgba(241,109,43,.1)}
-.reference-card{position:absolute;z-index:2;display:flex;align-items:center;gap:13px;width:200px;min-height:78px;padding:13px 15px;background:rgba(255,255,255,.78);border:1px solid rgba(235,218,205,.78);border-radius:13px;box-shadow:0 8px 25px rgba(67,45,28,.045);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:'DM Sans',sans-serif}
-.reference-card:after{content:'';position:absolute;top:50%;width:40px;height:1px;background:rgba(241,109,43,.25)}
-.reference-card--left:after{right:-40px}.reference-card--right:after{left:-40px}
-.reference-card__icon{flex:0 0 34px;color:var(--orange);font-size:27px;font-weight:400;line-height:1;text-align:center}
-.reference-card strong{display:block;font-size:12px;line-height:1.35;font-weight:700;color:#171a28}
-.reference-card small{display:block;margin-top:4px;font-size:10px;line-height:1.35;color:#777780;white-space:nowrap}
-.reference-card--left{left:clamp(22px,5.2vw,84px)}.reference-card--right{right:clamp(22px,5.2vw,84px)}
-.reference-card--l1,.reference-card--r1{top:17%}.reference-card--l2,.reference-card--r2{top:43%}.reference-card--l3,.reference-card--r3{top:70%}
-@media(min-width:1500px){.hero--reference{min-height:490px}.reference-card--left{left:8.3%}.reference-card--right{right:8.3%}}
-@media(max-width:1050px){.reference-card{width:170px;padding:11px 10px;gap:8px}.reference-card--left{left:16px}.reference-card--right{right:16px}.reference-card:after{width:18px}.reference-card--left:after{right:-18px}.reference-card--right:after{left:-18px}.hero--reference .hero__inner{max-width:570px}.hero--reference .hero__h1{font-size:clamp(40px,5.3vw,58px)}.hero--reference .hero__sub{font-size:14px}}
-@media(max-width:760px){.hero--reference{min-height:0;padding:74px 20px 52px}.hero--reference .hero__eyebrow{font-size:9px;letter-spacing:.13em;max-width:320px;line-height:1.8}.hero--reference .hero__h1{font-size:clamp(43px,10vw,60px)}.hero--reference .hero__sub{font-size:15px;max-width:490px}.reference-desktop{display:none}.reference-card{display:none}.reference-orbit--outer{width:115vw;height:115vw}.reference-orbit--inner{width:95vw;height:95vw}.reference-orbit--core{width:75vw;height:75vw}.hero--reference .hero__actions{width:100%;flex-direction:column;gap:10px}.hero--reference .hero__button{width:min(100%,330px)}}
-@media(prefers-reduced-motion:reduce){.hero--reference .hero__button{transition:none}}
-</style>
+    </section>
+  </main>
+  <script src="../scripts/reference-home.js"></script>
+</body>
+</html>
