@@ -3,7 +3,7 @@ import '../styles/reference-home.css';
 import '../styles/site-pages.css';
 const { title = 'VYQDA Technologies | Software Products & Custom Development', description = 'Software products, custom software development and long-term technology solutions for businesses.', canonical = 'https://vyqda.com/', active = '' } = Astro.props;
 const logo = 'https://etl8nmt6drqkbvcf.private.blob.vercel-storage.com/vyqda-logo-20qGY8TREezFR3V8YLocLvV6ihwupO.png?vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfZVRMOE5NdDZkclFrQnZjRiIsIm93bmVySWQiOiJ0ZWFtX1NRTlk1amJjdVVvSDIyVnkwNEx5eDV5OCIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzkyNTY1MTYxNzM4LCJpYXQiOjE3OTI1MjE5NjE4ODZ9.yMipf01FqJtedjo9KHZU7UVAdmdNb13CfBV7lfhgeTc&vercel-blob-signature=QvSbHdS3Yj7sesjrRogRbjsdCl8fVN26QoQJp5URg-0';
-const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'Development Services',href:'/services/',key:'services'},{label:'Solutions',href:'/solutions/',key:'solutions'},{label:'Industries',href:'/industries/',key:'industries'},{label:'Company',href:'/about/',key:'about'},{label:'FAQs',href:'/faq/',key:'faq'}];
+const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'Development Services',href:'/services/',key:'services'},{label:'Solutions',href:'/solutions/',key:'solutions'},{label:'Industries',href:'/industries/',key:'industries'},{label:'Company',href:'/about/',key:'about'},{label:'FAQs',href:'/faq/',key:'faq'},{label:'Free Tools',href:'/tools/',key:'tools'};
 ---
 <!doctype html>
 <html lang="en">
@@ -34,13 +34,13 @@ const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'De
 <nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation">{navItems.map(item => <a href={item.href}>{item.label}</a>)}<a href="/contact/">Contact</a></nav>
 </header>
 <main><slot /></main>
-<footer class="site-footer" aria-labelledby="footer-brand">
+<footer class="site-footer" aria-label="VYQDA Technologies footer">
 <div class="wrap footer-main">
 <div class="footer-brand-block"><a class="brand footer-brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" src={logo} alt="VYQDA Technologies" /></a><p>Software products and custom technology solutions for businesses that want to work smarter, solve practical problems and keep moving forward.</p><a class="footer-contact-link" href="/contact/">Discuss a project <span>↗</span></a></div>
 <div class="footer-column"><h2>Products</h2><a href="/products/timenox/">Timenox</a><a href="/products/timenox-360/">Timenox 360</a><a href="/products/vyfoo/">Vyfoo Restaurant POS</a><a href="/products/retail/">VYQDA Retail</a><a href="/products/shyft-box-finder/">SHYFT Box Finder</a><a href="/products/">All products</a></div>
 <div class="footer-column"><h2>Services</h2><a href="/services/">Custom Software Development</a><a href="/services/">SaaS Product Development</a><a href="/services/">Web &amp; Mobile Applications</a><a href="/services/">Business Automation</a><a href="/services/">Maintenance &amp; Support</a></div>
 <div class="footer-column"><h2>Solutions</h2><a href="/solutions/">Workforce Management</a><a href="/solutions/">Field Operations</a><a href="/solutions/">Restaurant Technology</a><a href="/solutions/">Retail Software</a><a href="/industries/">Industry Use Cases</a></div>
-<div class="footer-column"><h2>Explore</h2><a href="/about/">About VYQDA</a><a href="/about/#approach">How We Work</a><a href="/faq/">Frequently Asked Questions</a><a href="/contact/">Contact</a><a href="#top">Back to Top ↑</a></div>
+<div class="footer-column"><h2>Explore</h2><a href="/tools/">Free Online Tools</a><a href="/about/">About VYQDA</a><a href="/about/#approach">How We Work</a><a href="/faq/">Frequently Asked Questions</a><a href="/contact/">Contact</a><a href="#top">Back to Top ↑</a></div>
 </div>
 <div class="wrap footer-bottom"><p>© {new Date().getFullYear()} VYQDA Technologies Pvt. Ltd. All rights reserved.</p><p>Software products · Custom engineering · Ongoing partnership</p><a href="#top">Back to top ↑</a></div>
 </footer>
