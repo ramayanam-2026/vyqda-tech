@@ -3,10 +3,10 @@ import '../styles/reference-home.css';
 import '../styles/site-pages.css';
 const logo = 'https://zpsznnskr6ofckvj.public.blob.vercel-storage.com/vyqda-logo.png';
 const { title = 'VYQDA Technologies | Software Products & Custom Development', description = 'Software products, custom software development and long-term technology solutions for businesses.', canonical = 'https://vyqda.com/', active = '' } = Astro.props;
-const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'Development Services',href:'/services/',key:'services'},{label:'Solutions',href:'/solutions/',key:'solutions'},{label:'Industries',href:'/industries/',key:'industries'},{label:'Company',href:'/about/',key:'about'},{label:'FAQs',href:'/faq/',key:'faq'},{label:'Free Tools',href:'/tools/',key:'tools'}];
+const navItems = [{label:'Products',href:'/products/',key:'products'},{label:'Custom Development',href:'/services/',key:'services'},{label:'Platform Solutions',href:'/solutions/',key:'solutions'},{label:'Industries',href:'/industries/',key:'industries'},{label:'Company',href:'/about/',key:'about'},{label:'FAQs',href:'/faq/',key:'faq'},{label:'Free Tools',href:'/tools/',key:'tools'}];
 const siteUrl = 'https://vyqda.com';
 const pagePath = new URL(canonical).pathname;
-const labels = {products:'Products',services:'Development Services',solutions:'Solutions',industries:'Industries',about:'About VYQDA',faq:'FAQs',tools:'Free Tools',contact:'Contact',timenox:'Timenox','timenox-360':'Timenox 360',vyfoo:'Vyfoo Restaurant POS',retail:'VYQDA Retail','shyft-box-finder':'SHYFT Box Finder'};
+const labels = {products:'Products',services:'Custom Development',solutions:'Platform Solutions',industries:'Industries',about:'About VYQDA',faq:'FAQs',tools:'Free Tools',contact:'Contact',timenox:'Timenox','timenox-360':'Timenox 360',vyfoo:'Vyfoo Restaurant POS',retail:'VYQDA Retail','shyft-box-finder':'SHYFT Box Finder'};
 const pathParts = pagePath.split('/').filter(Boolean);
 type BreadcrumbLabelKey = keyof typeof labels;
 const getBreadcrumbLabel = (part: string): string => {
