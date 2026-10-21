@@ -272,3 +272,28 @@ This stage records source changes and source review only. It does not establish 
 
 ### SEO status
 This improves crawl paths and helps users move from broad homepage descriptions to relevant detail pages. It does not establish ranking improvement or complete SEO. Remaining high-priority work is a generated-route crawl, uniqueness/metadata/schema validation, logo and sitemap checks, live form/analytics verification, and Search Console review when access is available.
+
+
+## Stage 10 — Repeatable generated-site SEO audit (2026-10-21)
+
+### Implemented
+- Added `scripts/seo-audit.mjs` to inspect generated static HTML after a production build.
+- Added `npm run seo:audit` to run the audit.
+- The script checks for missing titles, meta descriptions and canonicals; duplicate titles/descriptions/canonical URLs; absent or multiple H1 elements; invalid JSON-LD syntax; unresolved local links/assets; and missing sitemap output.
+- Local links are resolved against the generated `dist/` directory, including root-relative paths.
+
+### How to run
+1. Run `npm run check`.
+2. Run `npm run build`.
+3. Run `npm run seo:audit`.
+4. Review warnings manually. Some relative assets or client-side links may need interpretation; the script is a first-pass diagnostic, not a replacement for a crawler or schema validator.
+
+### Verification status
+- [x] Audit script committed to the current branch.
+- [x] npm script added.
+- [ ] Execute checks and audit against the current branch after dependency installation.
+- [ ] Fix confirmed errors and review warnings before treating the technical SEO pass as complete.
+- [ ] Run a live crawl against the matching Vercel deployment and verify the deployment SHA before relying on rendered results.
+
+### Scope limitation
+The script validates generated HTML structure and local references. It does not evaluate content usefulness, keyword cannibalisation, external HTTP status, Core Web Vitals, form delivery, analytics accuracy, indexation or rankings. Those remain separate checks.
