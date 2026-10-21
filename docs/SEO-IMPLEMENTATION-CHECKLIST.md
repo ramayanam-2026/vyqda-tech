@@ -334,3 +334,38 @@ Run `npm run build` first, then `npm run content:audit`.
 - [ ] Review warnings manually; do not pad titles, descriptions or page copy simply to hit a character/word count.
 - [ ] Verify production HTTP status, canonical, robots, sitemap, structured data and enquiry flow from the live domain after deployment.
 
+
+
+## Stage 6 — On-page SEO, buyer intent and content strategy (2026-10-22)
+
+### Work completed in source
+- Added `docs/SEO-KEYWORD-MAP-AND-CONTENT-PLAN.md` with an intent-led keyword-to-page map, page ownership/cannibalisation rules, SERP competitor examples, trust/proof backlog, measurement requirements and a phased content roadmap.
+- Updated the Services overview H1 to state its commercial topic more directly: custom software development for real business workflows.
+- Added a buyer-decision section that compares three legitimate paths: configure an existing product, integrate/automate existing systems, or develop a tailored application. This helps users evaluate fit without implying custom development is always the right answer.
+- Expanded the About page with a clear explanation of what should be clarified before recommending a solution: user problem, scope/constraints and post-launch ownership. No customer proof, statistics, certifications or guarantees were invented.
+- Added two buyer-focused FAQs about preparing for an estimate and choosing between custom software and an existing product. Updated the visible FAQ content and FAQPage JSON-LD together.
+- Preserved existing URLs and page roles; no new thin location pages or mass-produced blog pages were created.
+
+### Research scope and limits
+- Reviewed current source metadata and content for the homepage, service overview and service detail routes, product pages, solutions, industries, About, FAQ, Contact and Free Tools.
+- Reviewed a sample of publicly visible competitor/search-result pages: Clutch's India software-developer directory, Levitation's custom-software buyer guide and Kanhasoft's software-product-development-company guide. The findings are directional: commercial pages commonly help buyers compare scope, process, fit and evidence. This is not a complete SERP study.
+- No Search Console export, GA4 landing-page/conversion report, Keyword Planner export or reputable paid keyword-volume/difficulty dataset was available. Keyword targets are therefore intent-based, not volume-verified. Do not report estimated volume, difficulty, ranking or traffic growth as fact.
+- The available web retrieval could not independently fetch the live `/robots.txt`, `/sitemap-index.xml` or all page URLs. Search-engine snapshots of the root/services pages also appeared to reflect a different or older positioning than the current source branch. Treat this as a production/deployment/index freshness question to resolve, not proof that the live deployment is broken or current.
+
+### Current status of the six requested workstreams
+- [x] On-page source review and initial metadata/content map for the important routes.
+- [x] Directional keyword intent map and sample competitor review documented.
+- [x] Highest-value initial content gaps addressed in Services, About and FAQ; remaining evidence-dependent gaps are listed in the keyword/content plan.
+- [~] Trust and conversion content improved; approved case studies, named testimonials and verified company proof still require owner-supplied evidence.
+- [ ] Production crawl, sitemap/robots response, Google indexing, mobile rendering and Core Web Vitals require direct live verification.
+- [x] Initial content roadmap created; final priority ranking still requires Search Console and qualified-lead data.
+
+### Next verification gate — required before calling SEO complete
+1. Confirm that the deployment currently serving `https://vyqda.com` is built from the intended repository/branch and includes the current commits.
+2. Crawl the deployed canonical URLs and check status codes, redirects, rendered titles/descriptions, canonical, robots, headings, structured data and internal links.
+3. Inspect the generated and live sitemap; confirm every sitemap URL is a canonical indexable 200 page.
+4. Review Search Console indexing and query/page exports, plus GA4 organic landing pages and qualified-enquiry events.
+5. Run mobile and Core Web Vitals tests on the homepage, Services, one service detail page, one product page and Contact.
+6. Reprioritise content using observed impressions, clicks, CTR, position and qualified conversions.
+
+Do not mark this gate complete until evidence is available. Passing source-level audits is useful, but does not prove production indexing or ranking outcomes.
