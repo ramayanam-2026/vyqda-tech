@@ -28,6 +28,21 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Report dependency vulnerabilities
+        shell: bash
+        run: |
+          npm audit --json > "$RUNNER_TEMP/npm-audit.json" || true
+          node - "$RUNNER_TEMP/npm-audit.json" <<'NODE'
+          const fs = require('node:fs');
+          const report = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+          console.log('Dependency vulnerability counts:', JSON.stringify(report.metadata?.vulnerabilities ?? {}));
+          for (const [name, finding] of Object.entries(report.vulnerabilities ?? {})) {
+            console.log(`${name}: severity=${finding.severity}; direct=${finding.isDirect}; range=${finding.range}; fixAvailable=${JSON.stringify(finding.fixAvailable)}`);
+            for (const advisory of finding.via ?? []) {
+              if (typeof advisory === 'object') console.log(`  advisory: ${advisory.title}; range=${advisory.range}; url=${advisory.url}`);
+            }
+          }
+          NODE
       - name: Type-check Astro pages
         run: npm run check
       - name: Build static pages
