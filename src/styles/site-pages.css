@@ -169,9 +169,14 @@ a,button{transition:color .18s ease,background-color .18s ease,border-color .18s
 
 
 /* Registered trademark mark alongside the VYQDA brand lockup */
-.brand{display:inline-flex;align-items:flex-start;gap:3px;position:relative}
-.brand__registered{display:inline-block;margin-top:2px;color:currentColor;font-family:Arial,sans-serif;font-size:10px;font-weight:700;line-height:1;vertical-align:top}
-.footer-brand .brand__registered{color:inherit;margin-top:3px}
+.brand{display:inline-flex;align-items:flex-start;gap:0;position:relative}
+/* Place ® at the upper-right of the logo artwork, like a conventional registered brand lockup. */
+.brand__registered{position:absolute;top:-2px;left:calc(min(100%, 174px) - 4px);z-index:2;display:block;margin:0;color:currentColor;font-family:Arial,sans-serif;font-size:11px;font-weight:700;line-height:1;background:transparent}
+.footer-brand .brand__registered{top:-2px;left:calc(min(100%, 180px) - 2px);color:inherit}
+.footer-markets{display:grid;gap:7px;margin-top:9px}
+.footer-markets a{display:flex;align-items:center;gap:9px;min-height:28px}
+.market-flag{display:inline-flex;align-items:center;justify-content:center;width:22px;flex:0 0 22px;font-size:17px;line-height:1}
+@media(max-width:700px){.brand__registered{left:calc(min(100%, 174px) - 4px)}.footer-brand .brand__registered{left:calc(min(100%, 180px) - 2px)}}
 
 
 /* Social links in the footer */
