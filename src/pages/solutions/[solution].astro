@@ -42,7 +42,7 @@ const canonical = 'https://vyqda.com/solutions/' + Astro.params.solution + '/';
       <div class="section-heading-page">
         <p class="section-kicker">A PRACTICAL WAY FORWARD</p>
         <h2>Decide, validate, then roll out</h2>
-        <p>A useful implementation plan makes assumptions visible and checks the important workflows before the system becomes part of daily operations.</p>
+        <p>For {data.name.toLowerCase()}, validate the important day-to-day workflow with representative users before rollout. Confirm exceptions, responsibilities and reporting needs so implementation decisions are tied to the way the operation actually runs.</p>
       </div>
       <ol class="page-list">
         {data.approach.map((step: string, index: number) => <li><span>{String(index + 1).padStart(2, '0')}</span><div><p>{step}</p></div></li>)}
