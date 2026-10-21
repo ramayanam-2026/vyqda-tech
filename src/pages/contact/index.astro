@@ -28,7 +28,7 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 <section class="content-section content-section--tint"><div class="wrap"><div class="section-heading-page"><p class="section-kicker">WHAT HAPPENS NEXT</p><h2>A practical conversation about fit and scope.</h2><p>We can clarify the business need, consider whether an existing product or a tailored solution is the better fit, and identify the information needed for a sensible next step.</p></div><div class="page-grid"><article class="page-card"><span class="page-card__number">01</span><h3>Understand the need</h3><p>Clarify the workflow, users and outcome you want.</p></article><article class="page-card"><span class="page-card__number">02</span><h3>Consider options</h3><p>Assess a product, integration, custom build or phased approach.</p></article><article class="page-card"><span class="page-card__number">03</span><h3>Define the next step</h3><p>Identify the scope and constraints that need to be understood before commitments are made.</p></article></div></div></section>
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <script>
-  type HCaptchaApi = { reset: () => void };
+  type HCaptchaApi = { reset: () => void; getResponse: () => string };
   declare global {
     interface Window { hcaptcha?: HCaptchaApi }
   }
@@ -37,8 +37,6 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
   const formStatus = document.getElementById('form-status') as HTMLParagraphElement | null;
   const formSuccess = document.getElementById('form-success') as HTMLDivElement | null;
   const submitButton = enquiryForm?.querySelector<HTMLButtonElement>('button[type="submit"]') ?? null;
-  const captchaResponse = (): HTMLInputElement | null =>
-    enquiryForm?.querySelector<HTMLInputElement>('input[name="h-captcha-response"]') ?? null;
   const initialButtonText = submitButton?.innerHTML ?? 'Submit enquiry';
 
   if (enquiryForm && formStatus && formSuccess && submitButton) {
@@ -46,7 +44,16 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
       event.preventDefault();
       if (!enquiryForm.reportValidity()) return;
 
-      if (window.hcaptcha && !captchaResponse()?.value) {
+      // Read the token through hCaptcha's public API. The response field is
+      // commonly a textarea, not an input, so querying only input elements
+      // incorrectly rejects a visibly completed challenge.
+      if (!window.hcaptcha) {
+        formStatus.textContent = 'The security check is still loading. Please wait a moment and try again.';
+        return;
+      }
+
+      const captchaToken = window.hcaptcha.getResponse();
+      if (!captchaToken) {
         formStatus.textContent = 'Please complete the hCaptcha check before submitting.';
         return;
       }
@@ -56,9 +63,13 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
       formStatus.textContent = 'Sending your enquiry securely. Please wait.';
 
       try {
+        const formData = new FormData(enquiryForm);
+        // Ensure the verified hCaptcha token is sent to the webhook even if
+        // the provider's hidden response field is represented as a textarea.
+        formData.set('h-captcha-response', captchaToken);
         const response = await fetch(enquiryForm.action, {
           method: 'POST',
-          body: new FormData(enquiryForm),
+          body: formData,
           headers: { Accept: 'application/json, text/plain, */*' },
           mode: 'cors'
         });
