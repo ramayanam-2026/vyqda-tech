@@ -8,7 +8,12 @@ const siteUrl = 'https://vyqda.com';
 const pagePath = new URL(canonical).pathname;
 const labels = {products:'Products',services:'Development Services',solutions:'Solutions',industries:'Industries',about:'About VYQDA',faq:'FAQs',tools:'Free Tools',contact:'Contact',timenox:'Timenox','timenox-360':'Timenox 360',vyfoo:'Vyfoo Restaurant POS',retail:'VYQDA Retail','shyft-box-finder':'SHYFT Box Finder'};
 const pathParts = pagePath.split('/').filter(Boolean);
-const breadcrumbs = [{ '@type':'ListItem', position:1, name:'Home', item:siteUrl + '/' }, ...pathParts.map((part,index)=>({ '@type':'ListItem', position:index+2, name:index===pathParts.length-1 ? title.replace(/ \| VYQDA( Technologies)?$/,'') : (labels[part] || part.replace(/-/g,' ').replace(/\b\w/g,char=>char.toUpperCase())), item:siteUrl + '/' + pathParts.slice(0,index+1).join('/') + '/' }))];
+type BreadcrumbLabelKey = keyof typeof labels;
+const getBreadcrumbLabel = (part: string): string => {
+  if (Object.prototype.hasOwnProperty.call(labels, part)) return labels[part as BreadcrumbLabelKey];
+  return part.replace(/-/g, ' ').replace(/\\b\\w/g, (char) => char.toUpperCase());
+};
+const breadcrumbs = [{ '@type':'ListItem', position:1, name:'Home', item:siteUrl + '/' }, ...pathParts.map((part,index)=>({ '@type':'ListItem', position:index+2, name:index===pathParts.length-1 ? title.replace(/ \\| VYQDA( Technologies)?$/,'') : getBreadcrumbLabel(part), item:siteUrl + '/' + pathParts.slice(0,index+1).join('/') + '/' }))];
 const structuredData = { '@context':'https://schema.org', '@graph':[
   { '@type':'Organization', '@id':siteUrl+'/#organization', name:'VYQDA Technologies Pvt. Ltd.', url:siteUrl+'/', description:'Software products, custom software development and technology solutions for business operations.' },
   { '@type':'WebSite', '@id':siteUrl+'/#website', url:siteUrl+'/', name:'VYQDA Technologies', publisher:{'@id':siteUrl+'/#organization'}, inLanguage:'en' },
@@ -42,7 +47,7 @@ const structuredData = { '@context':'https://schema.org', '@graph':[
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 </head>
 <body id="top">
 <header class="topbar">
