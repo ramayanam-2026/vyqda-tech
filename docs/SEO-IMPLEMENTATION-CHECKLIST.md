@@ -297,3 +297,28 @@ This improves crawl paths and helps users move from broad homepage descriptions 
 
 ### Scope limitation
 The script validates generated HTML structure and local references. It does not evaluate content usefulness, keyword cannibalisation, external HTTP status, Core Web Vitals, form delivery, analytics accuracy, indexation or rankings. Those remain separate checks.
+
+
+## Stage 11 — Generated-page content quality diagnostics (2026-10-21)
+
+### Implemented
+- Added `scripts/content-audit.mjs` and the `npm run content:audit` command.
+- The script estimates visible content word counts per generated page after removing scripts, styles, shared header, navigation and footer.
+- It reports pages with low visible-content counts, few substantial paragraphs, and substantial paragraphs repeated verbatim across pages.
+- The output is designed to prioritise manual review of service, solution, industry, product and country pages.
+
+### How to run
+Run `npm run build` first, then `npm run content:audit`.
+
+### Limitations
+- Word count is not a Google ranking threshold and must not be used to pad pages.
+- Shared or intentionally repeated short text can be legitimate; reported duplication requires editorial judgement.
+- The script does not understand search intent, factual support, local-market usefulness, keyword cannibalisation, reading quality or whether a CTA fits the visitor.
+- Country pages should be retained as indexable landing pages only when they offer useful, defensible market-specific guidance—not just a location keyword variation.
+
+### Verification status
+- [x] Content diagnostic script committed.
+- [x] npm script added.
+- [ ] Run on a successful production build and review the actual warnings.
+- [ ] Manually revise pages with repetitive, generic or unsupported copy.
+- [ ] Confirm build and generated-site SEO audit after edits.
