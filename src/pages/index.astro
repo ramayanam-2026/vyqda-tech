@@ -51,10 +51,10 @@ const products = [
   <header class="topbar">
 <div class="topbar__inner wrap">
 <a class="brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" data-brand-logo src="https://zpsznnskr6ofckvj.public.blob.vercel-storage.com/vyqda-logo.png" alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span></a>
-<nav class="nav" aria-label="Main navigation">{navItems.map(item => <a class:list={['nav__link', active === item.key && 'is-active']} href={item.href}>{item.label}</a>)}</nav>
+<nav class="nav" aria-label="Main navigation"><a class="nav__link" href="/products/">Products</a><a class="nav__link" href="/services/">Development Services</a><a class="nav__link" href="/solutions/">Solutions</a><a class="nav__link" href="/industries/">Industries</a><a class="nav__link" href="/about/">Company</a><a class="nav__link" href="/faq/">FAQs</a><a class="nav__link" href="/tools/">Free Tools</a></nav>
 <div class="topbar__actions"><a class="contact" href="/contact/">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
 </div>
-<nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation">{navItems.map(item => <a href={item.href}>{item.label}</a>)}<a href="/contact/">Contact</a></nav>
+<nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation"><a href="/products/">Products</a><a href="/services/">Development Services</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/about/">Company</a><a href="/faq/">FAQs</a><a href="/tools/">Free Tools</a><a href="/contact/">Contact</a></nav>
 </header>
 
   <main>
