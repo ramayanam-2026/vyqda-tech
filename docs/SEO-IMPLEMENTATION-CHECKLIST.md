@@ -393,6 +393,6 @@ Search Console and analytics checks are intentionally excluded at the owner's re
 - [x] Source-level content/SEO review across the current 29-page generated route set.
 - [x] Automated type-check, build, SEO audit and content audit pass on this working branch.
 - [ ] Confirm responsive behaviour visually in a real browser across mobile/tablet/desktop.
-- [ ] Push/merge the complete reviewed change set to `design/v2-from-scratch` only after all work is ready.
+- [x] Push/merge the reviewed change set to `design/v2-from-scratch` (merge commit `69d1f49ac15ce3cd3a8a20535715ff84f16158cc`).
 - [ ] Confirm the deployment serving `https://vyqda.com` corresponds to the resulting commit and re-check live sitemap, robots and representative routes.
 - [ ] Search Console and analytics review by the owner (outside this workstream).
