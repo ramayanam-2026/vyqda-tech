@@ -230,3 +230,27 @@ Do not call this six-part verification complete yet. The immediate blocker is a 
 
 ### Content quality note
 These pages are intended as focused decision-support pages, not keyword doorway pages. Keep them indexable only if they provide real value in the deployed version. Do not treat source-level implementation as proof of rankings or finished SEO.
+
+## Stage 8 — Internal-link audit and next verification pass (2026-10-21)
+
+### Findings from source review
+- The shared `SiteLayout.astro` footer links each solution label to its dedicated route.
+- The homepage uses a separate hand-authored header/footer rather than the shared layout. Its footer previously sent all four solution labels to `/solutions/`, so homepage visitors were not linking directly to the detail pages.
+- Corrected the homepage footer links to the four dedicated solution URLs.
+- Country pages previously linked mainly to the services overview. Added a contextual section linking to specific development services, solution pages and the product overview.
+- Service detail pages previously linked to the generic Solutions overview. Added direct links to each of the four solution pages to strengthen contextual discovery.
+
+### Source-level checks
+- [x] Shared footer contains direct links to all four solution detail routes.
+- [x] Solutions overview links to all four solution detail routes.
+- [x] Homepage footer now links directly to all four solution detail routes.
+- [x] Country-page template includes relevant service, solution and product links.
+- [x] Service-page template includes direct links to the solution detail pages.
+- [ ] Inspect the homepage/header/footer against the shared layout and decide whether to consolidate without regressing the homepage design.
+- [ ] Run `npm run check` and `npm run build` on the current branch.
+- [ ] Crawl generated output for missing pages, broken internal links, duplicate titles/descriptions, canonical mismatches and invalid structured data.
+- [ ] Verify deployed preview pages and sitemap. A source-level link check does not confirm deployed HTTP status.
+- [ ] Check current Vercel build logs for the previously reported `navItems is not defined` failure. The current source review did not find `navItems` in `src/pages/index.astro`; the screenshot may refer to a different commit or stale deployment, so the deployment SHA must be matched before diagnosing it conclusively.
+
+### Important limitation
+This stage records source changes and source review only. It does not establish successful build, successful deployment, indexing, ranking gains or conversion performance.
