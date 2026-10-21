@@ -84,8 +84,14 @@ for (const file of htmlFiles) {
 
   const jsonLd = [...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
   for (const match of jsonLd) {
-    try { JSON.parse(match[1]); }
-    catch { errors.push('Invalid JSON-LD syntax: ' + rel); }
+    const jsonText = match[1].trim();
+    try {
+      JSON.parse(jsonText);
+    } catch (error) {
+      const preview = jsonText.slice(0, 100).replace(/\\s+/g, ' ');
+      const detail = error instanceof Error ? error.message : String(error);
+      errors.push('Invalid JSON-LD syntax: ' + rel + ' (starts with "' + preview + '"; ' + detail + ')');
+    }
   }
 
   for (const img of html.matchAll(/<img\b[^>]*>/gi)) {
