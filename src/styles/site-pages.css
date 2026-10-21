@@ -204,3 +204,31 @@ a,button{transition:color .18s ease,background-color .18s ease,border-color .18s
 .market-flag{font-size:16px;line-height:1;flex:0 0 auto}
 @media(max-width:760px){.brand .brand__logo{width:150px;max-height:48px}.brand__registered{right:-7px;top:-1px}.footer-markets{gap:12px 16px}.footer-markets a{font-size:12px}}
 @media(max-width:390px){.footer-markets{gap:10px 12px}.footer-markets a{font-size:11px}}
+
+
+/* Final footer and logo lockup correction: country links sit in one compact horizontal row. */
+.brand{position:relative;display:inline-flex;align-items:flex-start;overflow:visible}
+.brand .brand__logo{display:block;width:174px;height:auto;max-height:58px;object-fit:contain;object-position:left center}
+.brand__registered{position:absolute;top:-2px;right:-9px;left:auto;z-index:2;display:block;margin:0;padding:0;background:transparent;color:#11172d;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;line-height:1}
+.footer-brand .brand__logo{width:180px;max-height:58px;filter:brightness(0) invert(1)}
+.footer-brand .brand__registered{top:-2px;right:-8px;left:auto;color:#fff}
+.footer-markets-section{display:block;margin-top:30px;padding:20px 0 24px;border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15)}
+.footer-markets-section h2{margin:0 0 13px;color:#fffaf6;font-family:'DM Sans',Arial,sans-serif;font-size:14px;font-weight:700;letter-spacing:.01em}
+.footer-markets{display:flex;flex-flow:row wrap;align-items:center;justify-content:flex-start;gap:10px 24px;margin:0}
+.footer-markets a{display:inline-flex;align-items:center;gap:7px;min-height:28px;white-space:nowrap;color:#c7c5ca;font-size:13px;line-height:1.45}
+.footer-markets a:hover,.footer-markets a:focus-visible{color:#ffad82}
+.market-flag{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:auto;font-size:16px;line-height:1}
+@media(max-width:760px){
+ .brand .brand__logo{width:150px;max-height:48px}
+ .brand__registered{right:-8px;top:-1px}
+ .footer-brand .brand__logo{width:165px;max-height:50px}
+ .footer-markets-section{margin-top:22px;padding:18px 0 20px}
+ .footer-markets{gap:10px 18px}
+ .footer-markets a{font-size:12px}
+}
+@media(max-width:390px){
+ .brand .brand__logo{width:132px}
+ .footer-brand .brand__logo{width:145px}
+ .footer-markets{gap:9px 13px}
+ .footer-markets a{font-size:11px}
+}
