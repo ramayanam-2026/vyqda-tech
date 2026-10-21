@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: vyqda-quality-validation-${{ github.ref }}
+  group: vyqda-quality-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,10 +26,8 @@ jobs:
         with:
           node-version: 22.12.0
           cache: npm
-      - name: Resolve and install dependencies
-        run: npm install
-      - name: Apply compatible dependency security fixes
-        run: npm audit fix
+      - name: Install locked dependencies
+        run: npm ci
       - name: Report dependency vulnerabilities
         shell: bash
         run: |
@@ -53,15 +51,3 @@ jobs:
         run: npm run seo:audit
       - name: Audit page content
         run: npm run content:audit
-      - name: Commit verified lockfile
-        shell: bash
-        run: |
-          if git diff --quiet -- package-lock.json; then
-            echo "package-lock.json is already in sync."
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add package-lock.json
-            git commit -m "Refresh dependency lockfile for Astro 7"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-          fi
