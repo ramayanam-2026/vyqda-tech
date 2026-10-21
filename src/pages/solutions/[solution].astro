@@ -4,8 +4,10 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import { solutions } from '../../data/solutions';
 
 
+type SolutionSlug = keyof typeof solutions;
+
 export function getStaticPaths() {
-  return Object.keys(solutions).map((solution) => ({ params: { solution }, props: { data: solutions[solution] } }));
+  return (Object.keys(solutions) as SolutionSlug[]).map((solution: SolutionSlug) => ({ params: { solution }, props: { data: solutions[solution] } }));
 }
 
 const { data } = Astro.props;
@@ -31,7 +33,7 @@ const canonical = 'https://vyqda.com/solutions/' + Astro.params.solution + '/';
         <p>{data.challenge}</p>
       </div>
       <div class="page-list">
-        {data.needs.map((item, index) => <article class="page-list__item"><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}
+        {data.needs.map((item: { title: string; body: string }, index: number) => <article class="page-list__item"><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}
       </div>
     </div>
   </section>
@@ -43,7 +45,7 @@ const canonical = 'https://vyqda.com/solutions/' + Astro.params.solution + '/';
         <p>A useful implementation plan makes assumptions visible and checks the important workflows before the system becomes part of daily operations.</p>
       </div>
       <ol class="page-list">
-        {data.approach.map((step, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><div><p>{step}</p></div></li>)}
+        {data.approach.map((step: string, index: number) => <li><span>{String(index + 1).padStart(2, '0')}</span><div><p>{step}</p></div></li>)}
       </ol>
     </div>
   </section>
