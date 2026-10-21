@@ -1,0 +1,33 @@
+name: Website SEO and content checks
+
+on:
+  pull_request:
+    branches: [design/v2-from-scratch]
+  push:
+    branches: [design/v2-from-scratch]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Build and audit generated website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Run Astro type and content checks
+        run: npm run check
+      - name: Build production site
+        run: npm run build
+      - name: Audit generated SEO output
+        run: npm run seo:audit
+      - name: Audit generated page content
+        run: npm run content:audit
