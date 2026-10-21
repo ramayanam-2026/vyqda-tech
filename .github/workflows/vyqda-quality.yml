@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: vyqda-quality-${{ github.ref }}
+  group: vyqda-quality-validation-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
