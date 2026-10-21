@@ -11,7 +11,7 @@ const pathParts = pagePath.split('/').filter(Boolean);
 type BreadcrumbLabelKey = keyof typeof labels;
 const getBreadcrumbLabel = (part: string): string => {
   if (Object.prototype.hasOwnProperty.call(labels, part)) return labels[part as BreadcrumbLabelKey];
-  return part.replace(/-/g, ' ').replace(/\\b\\w/g, (char) => char.toUpperCase());
+  return part.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 };
 const breadcrumbs = [{ '@type':'ListItem', position:1, name:'Home', item:siteUrl + '/' }, ...pathParts.map((part,index)=>({ '@type':'ListItem', position:index+2, name:index===pathParts.length-1 ? title.replace(/ \\| VYQDA( Technologies)?$/,'') : getBreadcrumbLabel(part), item:siteUrl + '/' + pathParts.slice(0,index+1).join('/') + '/' }))];
 const structuredData = { '@context':'https://schema.org', '@graph':[
