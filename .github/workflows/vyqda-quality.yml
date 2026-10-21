@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - design/v2-from-scratch
+      - seo-visual-completion
   workflow_dispatch:
 
 permissions:

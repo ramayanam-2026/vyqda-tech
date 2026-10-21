@@ -369,3 +369,30 @@ Run `npm run build` first, then `npm run content:audit`.
 6. Reprioritise content using observed impressions, clicks, CTR, position and qualified conversions.
 
 Do not mark this gate complete until evidence is available. Passing source-level audits is useful, but does not prove production indexing or ranking outcomes.
+
+
+## Stage 7 — Site-wide content and visual completion (2026-10-22)
+
+### Implemented on `seo-visual-completion`
+- Replaced the shared page-hero's abstract circular decoration with a CSS-only reporting chart card. It uses a grid and bar series, has a subtle non-essential animation, and is hidden on narrow layouts so it does not crowd page content.
+- Replaced the generic circle motifs used by the homepage intro and shared page-split sections with CSS-only bar-chart UI. This is a visual cue only; it does not represent actual customer or product metrics.
+- Added `prefers-reduced-motion: reduce` overrides so these visual animations stop for users who request reduced motion.
+- Reviewed the generated page set and content intent across 29 HTML pages: homepage, About, Contact, FAQ, Industries, product directory, five product pages, service overview and five service detail pages, six country pages, solution overview and four solution detail pages, and Free Tools.
+- Content audit result: 29 generated pages; 0 content warnings. The audit reports word count only as a diagnostic and explicitly does not treat word count as a ranking threshold.
+- Technical SEO audit result: 29 HTML files; 1,678 local links/assets checked; 0 missing image alt attributes; 0 errors; 0 warnings; 0 unresolved local links/assets.
+- Astro type-check and production build passed on the working branch. Dependency audit reported 0 known vulnerabilities at the time of the run.
+- Page-level copy in the current source focuses on distinct intent: service routes describe engineering engagements; product routes describe product-specific workflows and limitations; solution routes map operational needs to products; country routes include market considerations and should not imply local offices or guaranteed compliance.
+
+### Deployment verification still required
+A public web crawl retrieved a homepage snapshot titled **“Connected technology systems for modern business operations”**, while the source branch's homepage title is **“Software Development Company & Business Software | VYQDA”**. The public snapshot was crawled before the latest working-branch edits, so this is not conclusive evidence of a broken deployment, but it is a material mismatch that must be resolved by checking the live deployment's Git SHA and current rendered HTML after the final push. Do not mark production verification complete based on a cached search snapshot.
+
+Search Console and analytics checks are intentionally excluded at the owner's request and will be reviewed separately by the owner.
+
+### Final release gate
+- [x] Shared placeholder visuals replaced with CSS chart UI and reduced-motion handling.
+- [x] Source-level content/SEO review across the current 29-page generated route set.
+- [x] Automated type-check, build, SEO audit and content audit pass on this working branch.
+- [ ] Confirm responsive behaviour visually in a real browser across mobile/tablet/desktop.
+- [ ] Push/merge the complete reviewed change set to `design/v2-from-scratch` only after all work is ready.
+- [ ] Confirm the deployment serving `https://vyqda.com` corresponds to the resulting commit and re-check live sitemap, robots and representative routes.
+- [ ] Search Console and analytics review by the owner (outside this workstream).
