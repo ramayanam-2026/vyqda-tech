@@ -88,7 +88,7 @@ for (const file of htmlFiles) {
     try {
       JSON.parse(jsonText);
     } catch (error) {
-      const preview = jsonText.slice(0, 100).replace(/\\s+/g, ' ');
+      const preview = jsonText.slice(0, 100).replace(/\s+/g, ' ');
       const detail = error instanceof Error ? error.message : String(error);
       errors.push('Invalid JSON-LD syntax: ' + rel + ' (starts with "' + preview + '"; ' + detail + ')');
     }
