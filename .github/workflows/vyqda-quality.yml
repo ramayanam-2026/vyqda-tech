@@ -1,0 +1,38 @@
+name: VYQDA code and SEO quality
+
+on:
+  push:
+    branches:
+      - design/v2-from-scratch
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vyqda-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Type check, build and SEO audits
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Type-check Astro pages
+        run: npm run check
+      - name: Build static pages
+        run: npm run build
+      - name: Audit technical SEO output
+        run: npm run seo:audit
+      - name: Audit page content
+        run: npm run content:audit
