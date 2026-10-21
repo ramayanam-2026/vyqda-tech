@@ -49,26 +49,13 @@ const products = [
 </head>
 <body id="top">
   <header class="topbar">
-    <div class="topbar__inner wrap">
-      <a class="brand" href="/" aria-label="VYQDA Technologies home">
-        <img class="brand__logo" data-brand-logo src="https://zpsznnskr6ofckvj.public.blob.vercel-storage.com/vyqda-logo.png" alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span>
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a class="nav__link" href="/products/">Products</a>
-        <a class="nav__link" href="/services/">Development Services</a>
-        <a class="nav__link" href="/solutions/">Solutions</a>
-        <a class="nav__link" href="/industries/">Industries</a>
-        <a class="nav__link" href="/about/">Company</a>
-        <a class="nav__link" href="/faq/">FAQs</a><a class="nav__link" href="/tools/">Free Tools</a>
-      </nav>
-      <div class="topbar__actions">
-        
-        <a class="contact" href="/contact/">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a>
-        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-      </div>
-    </div>
-    <nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation"><a href="/products/">Products</a><a href="/services/">Development Services</a><a href="/solutions/">Solutions</a><a href="/industries/">Industries</a><a href="/about/">Company</a><a href="/faq/">FAQs</a><a href="/tools/">Free Tools</a><a href="/contact/">Contact</a></nav>
-  </header>
+<div class="topbar__inner wrap">
+<a class="brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" data-brand-logo src="https://zpsznnskr6ofckvj.public.blob.vercel-storage.com/vyqda-logo.png" alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span></a>
+<nav class="nav" aria-label="Main navigation">{navItems.map(item => <a class:list={['nav__link', active === item.key && 'is-active']} href={item.href}>{item.label}</a>)}</nav>
+<div class="topbar__actions"><a class="contact" href="/contact/">Contact Us <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M10 4l6 6-6 6"/></svg></a><button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
+</div>
+<nav class="mobile-nav wrap" id="mobile-nav" data-mobile-nav hidden aria-label="Mobile navigation">{navItems.map(item => <a href={item.href}>{item.label}</a>)}<a href="/contact/">Contact</a></nav>
+</header>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
@@ -222,17 +209,17 @@ const products = [
       <div class="wrap contact-panel"><div><p class="section-kicker">LET'S TALK ABOUT YOUR PROJECT</p><h2 id="contact-title">Have a business challenge <em>worth solving?</em></h2><p>Tell us what you are trying to improve. We can discuss your goals, the available options and a sensible next step.</p></div><div class="contact-actions"><a class="button button--primary" href="mailto:contact@vyqda.com?subject=Software%20project%20enquiry">Discuss Your Project <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15M11 4l6 6-6 6"/></svg></a><a class="contact-email" href="mailto:contact@vyqda.com">contact@vyqda.com</a></div></div>
     </section>
   </main>
-  <footer class="site-footer" aria-labelledby="footer-brand">
-    <div class="wrap footer-main">
-      <div class="footer-brand-block"><a class="brand footer-brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" data-brand-logo src="https://zpsznnskr6ofckvj.public.blob.vercel-storage.com/vyqda-logo.png" alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span></a><p>Software products and custom technology solutions for businesses that want to work smarter, solve practical problems and keep moving forward.</p><a class="footer-contact-link" href="mailto:contact@vyqda.com">contact@vyqda.com <span>↗</span></a></div>
-      <div class="footer-column"><h2>Products</h2><a href="/products/timenox/">Timenox</a><a href="/products/timenox-360/">Timenox 360</a><a href="/products/vyfoo/">Vyfoo Restaurant POS</a><a href="/products/retail/">VYQDA Retail</a><a href="/products/shyft-box-finder/">SHYFT Box Finder</a></div>
-      <div class="footer-column"><h2>Services</h2><a href="/services/">Custom Software Development</a><a href="/services/">SaaS Product Development</a><a href="/services/">Web &amp; Mobile Applications</a><a href="/services/">Business Automation</a><a href="/services/">Maintenance &amp; Support</a></div>
-      <div class="footer-column"><h2>Solutions</h2><a href="/solutions/">Workforce Management</a><a href="/solutions/">Field Operations</a><a href="/solutions/">Restaurant Technology</a><a href="/solutions/">Retail Software</a><a href="/industries/">Industry Use Cases</a></div>
-      <div class="footer-column"><h2>Explore</h2><a href="/about/">About VYQDA</a><a href="/about/#approach">How We Work</a><a href="/faq/">Frequently Asked Questions</a><a href="/tools/">Free Online Tools</a><a href="/contact/">Contact</a><a href="#top">Back to Top ↑</a></div>
-    </div>
-    <div class="wrap footer-markets-section"><h2>Software Development Markets</h2><nav class="footer-markets" aria-label="Country pages"><a href="/software-development-company/united-states/"><span class="market-flag" aria-hidden="true">🇺🇸</span>United States</a><a href="/software-development-company/saudi-arabia/"><span class="market-flag" aria-hidden="true">🇸🇦</span>Saudi Arabia</a><a href="/software-development-company/oman/"><span class="market-flag" aria-hidden="true">🇴🇲</span>Oman</a><a href="/software-development-company/qatar/"><span class="market-flag" aria-hidden="true">🇶🇦</span>Qatar</a><a href="/software-development-company/uae/"><span class="market-flag" aria-hidden="true">🇦🇪</span>United Arab Emirates</a><a href="/software-development-company/singapore/"><span class="market-flag" aria-hidden="true">🇸🇬</span>Singapore</a></nav></div>
-    <div class="wrap footer-bottom"><p>© <span id="current-year">2026</span> VYQDA Technologies Pvt. Ltd. All rights reserved.</p><p>Software products · Custom engineering · Ongoing partnership</p><a href="#top" aria-label="Back to top">Back to top ↑</a></div>
-  </footer>
+  <footer class="site-footer" aria-label="VYQDA Technologies footer">
+<div class="wrap footer-main">
+<div class="footer-brand-block"><a class="brand footer-brand" href="/" aria-label="VYQDA Technologies home"><img class="brand__logo" data-brand-logo src="https://zpsznnskr6ofckvj.public.blob.vercel-storage.com/vyqda-logo.png" alt="VYQDA Technologies" /><span class="brand__wordmark" hidden aria-hidden="true"><strong>VYQDA</strong><small>TECHNOLOGIES</small></span></a><p>Software products and custom technology solutions for businesses that want to work smarter, solve practical problems and keep moving forward.</p><a class="footer-contact-link" href="/contact/">Discuss a project <span>↗</span></a><div class="footer-social" aria-label="VYQDA social media"><a href="https://www.linkedin.com/company/vyqda/" target="_blank" rel="noopener noreferrer" aria-label="VYQDA on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.8A2.2 2.2 0 1 1 5 8.2a2.2 2.2 0 0 1 0-4.4ZM3.2 9.7h3.6V21H3.2zM9 9.7h3.4v1.55h.05a3.75 3.75 0 0 1 3.38-1.86c3.62 0 4.29 2.38 4.29 5.47V21h-3.58v-5.45c0-1.3-.03-2.97-1.81-2.97-1.82 0-2.1 1.42-2.1 2.88V21H9z"/></svg></a><a href="https://www.instagram.com/vyqda/" target="_blank" rel="noopener noreferrer" aria-label="VYQDA on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-icon__dot" cx="17.5" cy="6.8" r="1"/></svg></a><a href="https://www.facebook.com/share/1BNjTQeFBk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="VYQDA on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.8-.1-1.6-.15-2.4-.15-2.4 0-4.05 1.45-4.05 4.15v2.3H7.6V13h2.75v8z"/></svg></a></div></div>
+<div class="footer-column"><h2>Products</h2><a href="/products/timenox/">Timenox</a><a href="/products/timenox-360/">Timenox 360</a><a href="/products/vyfoo/">Vyfoo Restaurant POS</a><a href="/products/retail/">VYQDA Retail</a><a href="/products/shyft-box-finder/">SHYFT Box Finder</a><a href="/products/">All products</a></div>
+<div class="footer-column"><h2>Services</h2><a href="/services/custom-software-development/">Custom Software Development</a><a href="/services/saas-product-development/">SaaS Product Development</a><a href="/services/web-mobile-applications/">Web &amp; Mobile Applications</a><a href="/services/business-process-automation/">Business Automation</a><a href="/services/maintenance-support/">Maintenance &amp; Support</a><a href="/services/">All services</a></div>
+<div class="footer-column"><h2>Solutions</h2><a href="/solutions/">Workforce Management</a><a href="/solutions/">Field Operations</a><a href="/solutions/">Restaurant Technology</a><a href="/solutions/">Retail Software</a><a href="/industries/">Industry Use Cases</a></div>
+<div class="footer-column"><h2>Explore</h2><a href="/tools/">Free Online Tools</a><a href="/about/">About VYQDA</a><a href="/about/#approach">How We Work</a><a href="/faq/">Frequently Asked Questions</a><a href="/contact/">Contact</a><a href="#top">Back to Top ↑</a></div>
+</div>
+<div class="wrap footer-markets-section"><h2>Software Development Markets</h2><nav class="footer-markets" aria-label="Country pages"><a href="/software-development-company/united-states/"><span class="market-flag" aria-hidden="true">🇺🇸</span>United States</a><a href="/software-development-company/saudi-arabia/"><span class="market-flag" aria-hidden="true">🇸🇦</span>Saudi Arabia</a><a href="/software-development-company/oman/"><span class="market-flag" aria-hidden="true">🇴🇲</span>Oman</a><a href="/software-development-company/qatar/"><span class="market-flag" aria-hidden="true">🇶🇦</span>Qatar</a><a href="/software-development-company/uae/"><span class="market-flag" aria-hidden="true">🇦🇪</span>United Arab Emirates</a><a href="/software-development-company/singapore/"><span class="market-flag" aria-hidden="true">🇸🇬</span>Singapore</a></nav></div>
+<div class="wrap footer-bottom"><p>© <span id="current-year">2026</span> VYQDA Technologies Pvt. Ltd. All rights reserved.</p><p>Software products · Custom engineering · Ongoing partnership</p><a href="#top">Back to top ↑</a></div>
+</footer>
   <script src="../scripts/reference-home.js"></script>
 </body>
 </html>
