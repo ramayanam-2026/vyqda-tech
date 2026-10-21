@@ -1,7 +1,8 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
-const markets = {
+export function getStaticPaths() {
+  const markets = {
   'united-states': {
     name: 'United States', short: 'US', title: 'Software Development Company for US Businesses | VYQDA',
     description: 'Explore custom software development, SaaS product engineering and business automation support for organisations in the United States.',
@@ -98,8 +99,7 @@ const markets = {
       ['Can VYQDA continue developing a product after launch?', 'Ongoing development and maintenance can be discussed with agreed priorities, responsibilities and support expectations.']
     ]
   }
-};
-export function getStaticPaths() {
+  };
   return Object.entries(markets).map(([country, data]) => ({
     params: { country },
     props: { data, country }
