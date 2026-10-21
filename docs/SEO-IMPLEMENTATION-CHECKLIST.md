@@ -205,3 +205,28 @@ Do not call this six-part verification complete yet. The immediate blocker is a 
 - [ ] Compare country copy for meaningful distinctiveness; revise pages where local value is insufficient.
 - [ ] Check mobile layout and page speed for long-form page templates.
 - [ ] Verify the production sitemap includes the new canonical pages after deployment.
+
+
+## Stage 7 — Solution-intent pages (2026-10-21)
+
+### Implemented in source
+- Added distinct static landing pages under `/solutions/` for:
+  - `/solutions/workforce-management/`
+  - `/solutions/field-operations/`
+  - `/solutions/restaurant-technology/`
+  - `/solutions/retail-software/`
+- Each page focuses on its own operational requirements, planning considerations and product/service next step. Copy explicitly distinguishes requirements that need confirmation (for example, integrations, hardware, offline behavior and payment-provider compatibility) from established product positioning.
+- Updated the shared footer so the four solution labels point to their corresponding dedicated pages.
+- Updated the Solutions hub cards to point to the relevant solution landing pages instead of jumping directly to product pages. Product CTAs remain available on each detail page.
+- Canonical URLs are set explicitly to the corresponding `https://vyqda.com/solutions/<slug>/` routes through the shared layout.
+
+### Verification status
+- [x] Source routes and internal links added.
+- [ ] Run `npm run check` and `npm run build`; ensure the four new routes render without Astro errors.
+- [ ] Crawl generated HTML to verify title, description, canonical, H1 hierarchy, breadcrumbs and structured data.
+- [ ] Review overlap between solution pages, product pages and industry pages after rendered review.
+- [ ] Verify all four routes return HTTP 200 on the intended Vercel preview and are included in the generated sitemap.
+- [ ] Check mobile layout and contact CTA behavior.
+
+### Content quality note
+These pages are intended as focused decision-support pages, not keyword doorway pages. Keep them indexable only if they provide real value in the deployed version. Do not treat source-level implementation as proof of rankings or finished SEO.
