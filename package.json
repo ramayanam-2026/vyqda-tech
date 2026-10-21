@@ -11,13 +11,16 @@
     "content:audit": "node scripts/content-audit.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/geist": "^5.1.1",
     "@fontsource-variable/geist-mono": "^5.1.1",
-    "astro": "^4.16.18"
+    "astro": "^7.3.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
