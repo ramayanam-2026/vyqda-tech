@@ -322,3 +322,15 @@ Run `npm run build` first, then `npm run content:audit`.
 - [ ] Run on a successful production build and review the actual warnings.
 - [ ] Manually revise pages with repetitive, generic or unsupported copy.
 - [ ] Confirm build and generated-site SEO audit after edits.
+
+
+## Stage 12 — Stronger generated SEO audit (2026-10-21)
+
+- [x] Expanded `scripts/seo-audit.mjs` to review title and meta-description lengths as editorial warnings, noindex directives, missing image alt attributes, JSON-LD syntax, canonical domain, and generated sitemap presence.
+- [x] Fixed local-link validation so root-relative links (for example `/contact/`) are checked against the generated `dist/` files instead of being skipped.
+- [x] Kept the audit conservative: title/description character ranges are warnings for human review, not Google ranking rules.
+- [ ] Run `npm run check`, `npm run build`, `npm run seo:audit`, and `npm run content:audit` on the exact commit that is deployed to `vyqda.com`.
+- [ ] Resolve every genuine broken local route/asset and missing critical metadata issue before considering the technical audit complete.
+- [ ] Review warnings manually; do not pad titles, descriptions or page copy simply to hit a character/word count.
+- [ ] Verify production HTTP status, canonical, robots, sitemap, structured data and enquiry flow from the live domain after deployment.
+
