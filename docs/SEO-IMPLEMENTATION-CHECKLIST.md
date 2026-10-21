@@ -254,3 +254,21 @@ These pages are intended as focused decision-support pages, not keyword doorway 
 
 ### Important limitation
 This stage records source changes and source review only. It does not establish successful build, successful deployment, indexing, ranking gains or conversion performance.
+
+## Stage 9 — Homepage contextual internal links (2026-10-21)
+
+### Implemented
+- Changed homepage service-card links from generic contact anchors to the matching dedicated service pages: custom software development, SaaS/product development, web/mobile applications, business process automation, and maintenance/support.
+- Changed the homepage solution list to link to the matching dedicated solution pages for workforce management, field operations, restaurant technology and retail software. The custom business application row links to custom software development.
+- Added contextual links to the homepage industry cards so visitors and crawlers can discover relevant solution or industry pages from the use-case descriptions.
+- Existing product cards continue to link to product detail pages, preserving the distinction between product intent, service intent and operational solution intent.
+
+### Source-level verification
+- [x] All 16 targeted homepage link replacements applied in `src/pages/index.astro`.
+- [x] Target destinations match the dedicated service and solution route slugs currently defined in the repository.
+- [ ] Confirm the Vercel build triggered by this commit succeeds.
+- [ ] Crawl the deployed homepage and verify all destination routes return HTTP 200.
+- [ ] Review mobile card spacing and tap targets after the new inline links are rendered.
+
+### SEO status
+This improves crawl paths and helps users move from broad homepage descriptions to relevant detail pages. It does not establish ranking improvement or complete SEO. Remaining high-priority work is a generated-route crawl, uniqueness/metadata/schema validation, logo and sitemap checks, live form/analytics verification, and Search Console review when access is available.
