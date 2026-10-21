@@ -28,58 +28,66 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 <section class="content-section content-section--tint"><div class="wrap"><div class="section-heading-page"><p class="section-kicker">WHAT HAPPENS NEXT</p><h2>A practical conversation about fit and scope.</h2><p>We can clarify the business need, consider whether an existing product or a tailored solution is the better fit, and identify the information needed for a sensible next step.</p></div><div class="page-grid"><article class="page-card"><span class="page-card__number">01</span><h3>Understand the need</h3><p>Clarify the workflow, users and outcome you want.</p></article><article class="page-card"><span class="page-card__number">02</span><h3>Consider options</h3><p>Assess a product, integration, custom build or phased approach.</p></article><article class="page-card"><span class="page-card__number">03</span><h3>Define the next step</h3><p>Identify the scope and constraints that need to be understood before commitments are made.</p></article></div></div></section>
 <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 <script>
-  const enquiryForm = document.getElementById('project-enquiry-form');
-  const formStatus = document.getElementById('form-status');
-  const formSuccess = document.getElementById('form-success');
-  const submitButton = enquiryForm?.querySelector('button[type="submit"]');
+  type HCaptchaApi = { reset: () => void };
+  declare global {
+    interface Window { hcaptcha?: HCaptchaApi }
+  }
+
+  const enquiryForm = document.getElementById('project-enquiry-form') as HTMLFormElement | null;
+  const formStatus = document.getElementById('form-status') as HTMLParagraphElement | null;
+  const formSuccess = document.getElementById('form-success') as HTMLDivElement | null;
+  const submitButton = enquiryForm?.querySelector<HTMLButtonElement>('button[type="submit"]') ?? null;
+  const captchaResponse = (): HTMLInputElement | null =>
+    enquiryForm?.querySelector<HTMLInputElement>('input[name="h-captcha-response"]') ?? null;
   const initialButtonText = submitButton?.innerHTML ?? 'Submit enquiry';
 
-  enquiryForm?.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    if (!enquiryForm.reportValidity()) return;
+  if (enquiryForm && formStatus && formSuccess && submitButton) {
+    enquiryForm.addEventListener('submit', async (event: SubmitEvent) => {
+      event.preventDefault();
+      if (!enquiryForm.reportValidity()) return;
 
-    if (typeof window.hcaptcha !== 'undefined') {
-      const captchaResponse = enquiryForm.querySelector('[name="h-captcha-response"]');
-      if (!captchaResponse?.value) {
+      if (window.hcaptcha && !captchaResponse()?.value) {
         formStatus.textContent = 'Please complete the hCaptcha check before submitting.';
         return;
       }
-    }
 
-    submitButton.disabled = true;
-    submitButton.textContent = 'Sending enquiry…';
-    formStatus.textContent = 'Sending your enquiry securely. Please wait.';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending enquiry…';
+      formStatus.textContent = 'Sending your enquiry securely. Please wait.';
 
-    try {
-      const response = await fetch(enquiryForm.action, {
-        method: 'POST',
-        body: new FormData(enquiryForm),
-        headers: { Accept: 'application/json, text/plain, */*' },
-        mode: 'cors'
-      });
-      if (!response.ok) throw new Error('The enquiry endpoint returned an error.');
-      enquiryForm.reset();
-      if (window.hcaptcha && typeof window.hcaptcha.reset === 'function') window.hcaptcha.reset();
+      try {
+        const response = await fetch(enquiryForm.action, {
+          method: 'POST',
+          body: new FormData(enquiryForm),
+          headers: { Accept: 'application/json, text/plain, */*' },
+          mode: 'cors'
+        });
+        if (!response.ok) throw new Error('The enquiry endpoint returned an error.');
+        enquiryForm.reset();
+        window.hcaptcha?.reset();
+        Array.from(enquiryForm.children).forEach((element) => {
+          if (element instanceof HTMLElement && !element.classList.contains('form-success')) element.hidden = true;
+        });
+        formSuccess.hidden = false;
+        formStatus.textContent = '';
+        formSuccess.focus();
+      } catch {
+        formStatus.textContent = 'We could not confirm that your enquiry was sent. Please try again, or email contact@vyqda.com. If this keeps happening, the form endpoint may need to allow browser requests from vyqda.com.';
+        submitButton.disabled = false;
+        submitButton.innerHTML = initialButtonText;
+      }
+    });
+
+    document.getElementById('send-another-enquiry')?.addEventListener('click', () => {
+      formSuccess.hidden = true;
       Array.from(enquiryForm.children).forEach((element) => {
-        if (!element.classList.contains('form-success')) element.hidden = true;
+        if (element instanceof HTMLElement) element.hidden = false;
       });
-      formSuccess.hidden = false;
-      formStatus.textContent = '';
-      formSuccess.focus();
-    } catch (error) {
-      formStatus.textContent = 'We could not confirm that your enquiry was sent. Please try again, or email contact@vyqda.com. If this keeps happening, the form endpoint may need to allow browser requests from vyqda.com.';
       submitButton.disabled = false;
       submitButton.innerHTML = initialButtonText;
-    }
-  });
-
-  document.getElementById('send-another-enquiry')?.addEventListener('click', () => {
-    formSuccess.hidden = true;
-    Array.from(enquiryForm.children).forEach((element) => { element.hidden = false; });
-    submitButton.disabled = false;
-    submitButton.innerHTML = initialButtonText;
-    formStatus.textContent = '';
-    enquiryForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+      formStatus.textContent = '';
+      enquiryForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 </script>
 </SiteLayout>
