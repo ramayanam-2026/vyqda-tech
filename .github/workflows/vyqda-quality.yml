@@ -28,6 +28,8 @@ jobs:
           cache: npm
       - name: Resolve and install dependencies
         run: npm install
+      - name: Apply compatible dependency security fixes
+        run: npm audit fix
       - name: Report dependency vulnerabilities
         shell: bash
         run: |
